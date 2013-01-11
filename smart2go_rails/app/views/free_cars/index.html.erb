@@ -1,0 +1,14 @@
+<h1>FreeCars#INDEX</h1>
+		<%#= @point_a %></br>
+				<%#= @point_b %></br>
+						<%#= @distance %></br>
+							<%= @cars.count%></br></br>
+							<%= @point_a.inspect%></br></br>
+		<% @cars.each do |car|%>
+			<% if  car.isInRadius?(@point_a, 1000 ) %></br>
+				<%= car.distance_to(@point_a).to_i  %> |
+				<%= car.address %>
+		
+			<% end %>
+		<% end %>
+

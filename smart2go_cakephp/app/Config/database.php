@@ -76,7 +76,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'smart2go',
 		'password' => 'gosmart',
-		'database' => 'smart2go_db',
+		'database' => 'smart2go_testdb',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);

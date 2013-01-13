@@ -3,19 +3,22 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    loc_a=Geokit::Geocoders::GoogleGeocoder.geocode 'Glasower Str. 54, Berlin, 12051'
-    @point = Geokit::LatLng.new(loc_a.lat, loc_a.lng)
-    # params[:city]= 'Berlin'
-    # params[:radius]= 500
-
+    
+    
+    @point = Geokit::LatLng.new(params[:latitude].to_f, params[:longitude].to_f)
     radius = params[:radius].to_i
     fuel_min = params[:fuel_min].to_i
     fuel_max = params[:fuel_max].to_i
-
+    
+######## Just for testing purposes: ###################
     radius = 10000 if params[:radius].nil?
     fuel_min = 0 if params[:fuel_min].nil?
     fuel_max = 100 if params[:fuel_max].nil?
-
+    if params[:latitude].nil? || params[:longitude].nil?
+      loc_a=Geokit::Geocoders::GoogleGeocoder.geocode 'Glasower Str. 54, Berlin, 12051'
+      @point = Geokit::LatLng.new(loc_a.lat, loc_a.lng)
+    end
+#########################################################
     @cars = []
     Car.find(:all, :conditions => {:free => true, :fuel => fuel_min..fuel_max}).each do |car|
       if car.is_in_radius?(@point,radius) 

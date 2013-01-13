@@ -1,0 +1,33 @@
+2013-01-12 19:55:52[WARN] user: faruk
+localhost:3000http://localhost:3000/cars
+N+1 Query detected
+  Car => [:location]
+  Add to your finder: :include => [:location]
+N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/models/car.rb:24:in `latitude'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:27:in `block in _app_views_cars_index_html_erb___750101753_89646700'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:19:in `each'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:19:in `_app_views_cars_index_html_erb___750101753_89646700'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/controllers/cars_controller.rb:19:in `index'2013-01-12 19:56:30[WARN] user: faruk
+localhost:3000http://localhost:3000/cars
+N+1 Query detected
+  Car => [:location]
+  Add to your finder: :include => [:location]
+N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  N+1 Query method call stack
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/models/car.rb:24:in `latitude'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:27:in `block in _app_views_cars_index_html_erb___750101753_89646700'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:19:in `each'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/views/cars/index.html.erb:19:in `_app_views_cars_index_html_erb___750101753_89646700'
+  /home/faruk/Dropbox/Rails_Workspace/car4now/app/controllers/cars_controller.rb:19:in `index'

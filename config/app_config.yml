@@ -1,0 +1,8 @@
+development:
+  car2go_consumer_key: JohannesRuth
+
+test:
+  car2go_consumer_key: JohannesRuth
+
+production:
+  car2go_consumer_key: JohannesRuth

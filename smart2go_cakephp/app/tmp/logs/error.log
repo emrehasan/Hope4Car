@@ -1,8 +1,0 @@
-2013-01-09 01:10:24 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\xampp\htdocs\cakephp\lib\Cake\Error\ErrorHandler.php, line 154]
-2013-01-09 01:10:24 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
-#0 C:\xampp\htdocs\cakephp\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 154)
-#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 154, Array)
-#2 C:\xampp\htdocs\cakephp\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\xampp\htdocs...', 154, Array)
-#3 C:\xampp\htdocs\cakephp\lib\Cake\Core\App.php(899): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
-#5 {main}

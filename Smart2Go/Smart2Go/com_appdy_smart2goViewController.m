@@ -7,6 +7,7 @@
 //
 
 #import "com_appdy_smart2goViewController.h"
+#import "CarLocation.h"
 
 @interface com_appdy_smart2goViewController ()
 
@@ -27,6 +28,11 @@
     }
     
     [_locationManager startUpdatingLocation];
+    
+    //retrieve cars here
+    
+    //draw cars to maps
+    [self addCarsToMap];
 }
 
 //set current location and display cars in the near
@@ -69,6 +75,36 @@
     
     [_locationManager stopUpdatingLocation];
     [self zoomToCurrLocation];
+}
+
+- (void)addCarsToMap {
+    CarLocation *testCar = [[CarLocation alloc] initWithName:@"B-GO-TEST" address:@"richardstraße 111" coordinate:CLLocationCoordinate2DMake(52.5061443443, 13.41149556666)];
+    
+    //TODO add parsed cars to maps now
+    
+    [_mapView addAnnotation:testCar];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    NSLog(@"Called this");
+    
+    if([annotation isKindOfClass:[CarLocation class]]){
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:@"myidentifier"];
+        if(annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myidentifier"];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.image = [UIImage imageNamed:@"c2g_logo.jpeg"];
+        }
+        
+        else
+            annotationView.annotation = annotation;
+        
+        return annotationView;
+    }
+    
+    return nil;
 }
 
 @end

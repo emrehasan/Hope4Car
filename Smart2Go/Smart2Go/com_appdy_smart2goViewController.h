@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate>
+@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 

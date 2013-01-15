@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FKh-At-QUS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9Q2-r8-56y">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="FKh-At-QUS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4I-Po-Ft4">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="VnG-9E-uaR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4c-qu-rOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-492" y="-12"/>
+        </scene>
+        <!--Com appdy smart 2go View Controller - Smart2Go-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="com_appdy_smart2goViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-iX-T5d"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XVi-iX-T5d" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="S1i-FA-d8f"/>
+                            <constraint firstItem="XVi-iX-T5d" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="eur-Y8-aqp"/>
+                            <constraint firstItem="XVi-iX-T5d" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mUe-7E-d1c"/>
+                            <constraint firstItem="XVi-iX-T5d" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="rbP-FU-iAY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Smart2Go" id="N3m-FK-vaF"/>
+                    <connections>
+                        <outlet property="mapView" destination="XVi-iX-T5d" id="rsJ-JM-0ES"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="com_appdy_smart2goViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/com_appdy_smart2goViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

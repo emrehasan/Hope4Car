@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2880127616ADE77E00DDA87F /* WSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127516ADE77E00DDA87F /* WSClient.m */; };
+		2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
+		2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
+		2880128216AF0EA300DDA87F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBD516A5C9D700C31911 /* CoreLocation.framework */; };
+		2880128316AF0EAE00DDA87F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBDF16A5D64100C31911 /* AddressBook.framework */; };
+		2880128416AF0EBD00DDA87F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBC616A325B400C31911 /* MapKit.framework */; };
+		2880128C16AF187200DDA87F /* FreeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880128B16AF187200DDA87F /* FreeCar.m */; };
+		2880129116AF266400DDA87F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129016AF266400DDA87F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2880129216AF266400DDA87F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129016AF266400DDA87F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		28CABB8916A324B400C31911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8816A324B400C31911 /* UIKit.framework */; };
+		28CABB8B16A324B400C31911 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8A16A324B400C31911 /* Foundation.framework */; };
+		28CABB8D16A324B400C31911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8C16A324B400C31911 /* CoreGraphics.framework */; };
+		28CABB9316A324B400C31911 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28CABB9116A324B400C31911 /* InfoPlist.strings */; };
+		28CABB9516A324B400C31911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB9416A324B400C31911 /* main.m */; };
+		28CABB9916A324B400C31911 /* com_appdy_smart2goAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB9816A324B400C31911 /* com_appdy_smart2goAppDelegate.m */; };
+		28CABB9B16A324B400C31911 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CABB9A16A324B400C31911 /* Default.png */; };
+		28CABB9D16A324B400C31911 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CABB9C16A324B400C31911 /* Default@2x.png */; };
+		28CABB9F16A324B400C31911 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CABB9E16A324B400C31911 /* Default-568h@2x.png */; };
+		28CABBA216A324B400C31911 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CABBA016A324B400C31911 /* MainStoryboard_iPhone.storyboard */; };
+		28CABBA516A324B400C31911 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CABBA316A324B400C31911 /* MainStoryboard_iPad.storyboard */; };
+		28CABBA816A324B400C31911 /* com_appdy_smart2goViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABBA716A324B400C31911 /* com_appdy_smart2goViewController.m */; };
+		28CABBB016A324B400C31911 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBAF16A324B400C31911 /* SenTestingKit.framework */; };
+		28CABBB116A324B400C31911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8816A324B400C31911 /* UIKit.framework */; };
+		28CABBB216A324B400C31911 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8A16A324B400C31911 /* Foundation.framework */; };
+		28CABBBA16A324B400C31911 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28CABBB816A324B400C31911 /* InfoPlist.strings */; };
+		28CABBBD16A324B400C31911 /* Smart2GoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABBBC16A324B400C31911 /* Smart2GoTests.m */; };
+		28CABBC716A325B400C31911 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBC616A325B400C31911 /* MapKit.framework */; };
+		28CABBD616A5C9D700C31911 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBD516A5C9D700C31911 /* CoreLocation.framework */; };
+		28CABBDE16A5D29700C31911 /* CarLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABBDD16A5D29700C31911 /* CarLocation.m */; };
+		28CABBE016A5D64100C31911 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBDF16A5D64100C31911 /* AddressBook.framework */; };
+		28CABBE216A5D8CE00C31911 /* c2g_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28CABBB316A324B400C31911 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28CABB7B16A324B300C31911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28CABB8316A324B400C31911;
+			remoteInfo = Smart2Go;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2880127416ADE77E00DDA87F /* WSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSClient.h; sourceTree = "<group>"; };
+		2880127516ADE77E00DDA87F /* WSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSClient.m; sourceTree = "<group>"; };
+		2880127E16ADEDB500DDA87F /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMXMLDocument.h; path = Smart2Go/SMXMLDocument.h; sourceTree = "<group>"; };
+		2880127F16ADEDB500DDA87F /* SMXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMXMLDocument.m; path = Smart2Go/SMXMLDocument.m; sourceTree = "<group>"; };
+		2880128A16AF187200DDA87F /* FreeCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCar.h; sourceTree = "<group>"; };
+		2880128B16AF187200DDA87F /* FreeCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeCar.m; sourceTree = "<group>"; };
+		2880128F16AF266400DDA87F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Smart2Go/JSONKit.h; sourceTree = "<group>"; };
+		2880129016AF266400DDA87F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Smart2Go/JSONKit.m; sourceTree = "<group>"; };
+		28CABB8416A324B400C31911 /* Smart2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CABB8816A324B400C31911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28CABB8A16A324B400C31911 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		28CABB8C16A324B400C31911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28CABB9016A324B400C31911 /* Smart2Go-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smart2Go-Info.plist"; sourceTree = "<group>"; };
+		28CABB9216A324B400C31911 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28CABB9416A324B400C31911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28CABB9616A324B400C31911 /* Smart2Go-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smart2Go-Prefix.pch"; sourceTree = "<group>"; };
+		28CABB9716A324B400C31911 /* com_appdy_smart2goAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_appdy_smart2goAppDelegate.h; sourceTree = "<group>"; };
+		28CABB9816A324B400C31911 /* com_appdy_smart2goAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_appdy_smart2goAppDelegate.m; sourceTree = "<group>"; };
+		28CABB9A16A324B400C31911 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		28CABB9C16A324B400C31911 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		28CABB9E16A324B400C31911 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		28CABBA116A324B400C31911 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		28CABBA416A324B400C31911 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		28CABBA616A324B400C31911 /* com_appdy_smart2goViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_appdy_smart2goViewController.h; sourceTree = "<group>"; };
+		28CABBA716A324B400C31911 /* com_appdy_smart2goViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_appdy_smart2goViewController.m; sourceTree = "<group>"; };
+		28CABBAE16A324B400C31911 /* Smart2GoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smart2GoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CABBAF16A324B400C31911 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		28CABBB716A324B400C31911 /* Smart2GoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smart2GoTests-Info.plist"; sourceTree = "<group>"; };
+		28CABBB916A324B400C31911 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28CABBBB16A324B400C31911 /* Smart2GoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Smart2GoTests.h; sourceTree = "<group>"; };
+		28CABBBC16A324B400C31911 /* Smart2GoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smart2GoTests.m; sourceTree = "<group>"; };
+		28CABBC616A325B400C31911 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		28CABBD516A5C9D700C31911 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		28CABBDC16A5D29700C31911 /* CarLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarLocation.h; sourceTree = "<group>"; };
+		28CABBDD16A5D29700C31911 /* CarLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarLocation.m; sourceTree = "<group>"; };
+		28CABBDF16A5D64100C31911 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c2g_logo.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28CABB8116A324B400C31911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CABBE016A5D64100C31911 /* AddressBook.framework in Frameworks */,
+				28CABBD616A5C9D700C31911 /* CoreLocation.framework in Frameworks */,
+				28CABBC716A325B400C31911 /* MapKit.framework in Frameworks */,
+				28CABB8916A324B400C31911 /* UIKit.framework in Frameworks */,
+				28CABB8B16A324B400C31911 /* Foundation.framework in Frameworks */,
+				28CABB8D16A324B400C31911 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CABBAA16A324B400C31911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2880128416AF0EBD00DDA87F /* MapKit.framework in Frameworks */,
+				2880128316AF0EAE00DDA87F /* AddressBook.framework in Frameworks */,
+				2880128216AF0EA300DDA87F /* CoreLocation.framework in Frameworks */,
+				28CABBB016A324B400C31911 /* SenTestingKit.framework in Frameworks */,
+				28CABBB116A324B400C31911 /* UIKit.framework in Frameworks */,
+				28CABBB216A324B400C31911 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2880126916ADE2E700DDA87F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBDB16A5D27700C31911 /* Helper */,
+				2880126F16ADE39E00DDA87F /* Models */,
+				2880126E16ADE39200DDA87F /* Webservice */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2880126E16ADE39200DDA87F /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				2880127416ADE77E00DDA87F /* WSClient.h */,
+				2880127516ADE77E00DDA87F /* WSClient.m */,
+			);
+			name = Webservice;
+			sourceTree = "<group>";
+		};
+		2880126F16ADE39E00DDA87F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2880128A16AF187200DDA87F /* FreeCar.h */,
+				2880128B16AF187200DDA87F /* FreeCar.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2880127D16ADE96700DDA87F /* SMXML */ = {
+			isa = PBXGroup;
+			children = (
+				2880127E16ADEDB500DDA87F /* SMXMLDocument.h */,
+				2880127F16ADEDB500DDA87F /* SMXMLDocument.m */,
+			);
+			name = SMXML;
+			sourceTree = "<group>";
+		};
+		2880128516AF124E00DDA87F /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				2880128F16AF266400DDA87F /* JSONKit.h */,
+				2880129016AF266400DDA87F /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		28CABB7916A324B300C31911 = {
+			isa = PBXGroup;
+			children = (
+				28CABBDF16A5D64100C31911 /* AddressBook.framework */,
+				28CABBD516A5C9D700C31911 /* CoreLocation.framework */,
+				28CABBC616A325B400C31911 /* MapKit.framework */,
+				28CABB8E16A324B400C31911 /* Smart2Go */,
+				28CABBB516A324B400C31911 /* Smart2GoTests */,
+				28CABB8716A324B400C31911 /* Frameworks */,
+				28CABB8516A324B400C31911 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28CABB8516A324B400C31911 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28CABB8416A324B400C31911 /* Smart2Go.app */,
+				28CABBAE16A324B400C31911 /* Smart2GoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28CABB8716A324B400C31911 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2880128516AF124E00DDA87F /* JSONKit */,
+				2880127D16ADE96700DDA87F /* SMXML */,
+				28CABB8816A324B400C31911 /* UIKit.framework */,
+				28CABB8A16A324B400C31911 /* Foundation.framework */,
+				28CABB8C16A324B400C31911 /* CoreGraphics.framework */,
+				28CABBAF16A324B400C31911 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28CABB8E16A324B400C31911 /* Smart2Go */ = {
+			isa = PBXGroup;
+			children = (
+				2880126916ADE2E700DDA87F /* Classes */,
+				28CABBE316A5D99300C31911 /* Images */,
+				28CABBD916A5D07A00C31911 /* Views */,
+				28CABBD816A5D06C00C31911 /* StoryBoards */,
+				28CABBD716A5D05B00C31911 /* AppDelegate */,
+				28CABB8F16A324B400C31911 /* Supporting Files */,
+			);
+			path = Smart2Go;
+			sourceTree = "<group>";
+		};
+		28CABB8F16A324B400C31911 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28CABB9016A324B400C31911 /* Smart2Go-Info.plist */,
+				28CABB9116A324B400C31911 /* InfoPlist.strings */,
+				28CABB9416A324B400C31911 /* main.m */,
+				28CABB9616A324B400C31911 /* Smart2Go-Prefix.pch */,
+				28CABB9A16A324B400C31911 /* Default.png */,
+				28CABB9C16A324B400C31911 /* Default@2x.png */,
+				28CABB9E16A324B400C31911 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28CABBB516A324B400C31911 /* Smart2GoTests */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBBB16A324B400C31911 /* Smart2GoTests.h */,
+				28CABBBC16A324B400C31911 /* Smart2GoTests.m */,
+				28CABBB616A324B400C31911 /* Supporting Files */,
+			);
+			path = Smart2GoTests;
+			sourceTree = "<group>";
+		};
+		28CABBB616A324B400C31911 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBB716A324B400C31911 /* Smart2GoTests-Info.plist */,
+				28CABBB816A324B400C31911 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28CABBD716A5D05B00C31911 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				28CABB9716A324B400C31911 /* com_appdy_smart2goAppDelegate.h */,
+				28CABB9816A324B400C31911 /* com_appdy_smart2goAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		28CABBD816A5D06C00C31911 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBA016A324B400C31911 /* MainStoryboard_iPhone.storyboard */,
+				28CABBA316A324B400C31911 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		28CABBD916A5D07A00C31911 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBDA16A5D08000C31911 /* RootViewController */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		28CABBDA16A5D08000C31911 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBA616A324B400C31911 /* com_appdy_smart2goViewController.h */,
+				28CABBA716A324B400C31911 /* com_appdy_smart2goViewController.m */,
+			);
+			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		28CABBDB16A5D27700C31911 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBDC16A5D29700C31911 /* CarLocation.h */,
+				28CABBDD16A5D29700C31911 /* CarLocation.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		28CABBE316A5D99300C31911 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28CABB8316A324B400C31911 /* Smart2Go */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CABBC016A324B400C31911 /* Build configuration list for PBXNativeTarget "Smart2Go" */;
+			buildPhases = (
+				28CABB8016A324B400C31911 /* Sources */,
+				28CABB8116A324B400C31911 /* Frameworks */,
+				28CABB8216A324B400C31911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Smart2Go;
+			productName = Smart2Go;
+			productReference = 28CABB8416A324B400C31911 /* Smart2Go.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28CABBAD16A324B400C31911 /* Smart2GoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CABBC316A324B400C31911 /* Build configuration list for PBXNativeTarget "Smart2GoTests" */;
+			buildPhases = (
+				28CABBA916A324B400C31911 /* Sources */,
+				28CABBAA16A324B400C31911 /* Frameworks */,
+				28CABBAB16A324B400C31911 /* Resources */,
+				28CABBAC16A324B400C31911 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28CABBB416A324B400C31911 /* PBXTargetDependency */,
+			);
+			name = Smart2GoTests;
+			productName = Smart2GoTests;
+			productReference = 28CABBAE16A324B400C31911 /* Smart2GoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28CABB7B16A324B300C31911 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = com.appdy.smart2go;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Hasan Gürcan";
+			};
+			buildConfigurationList = 28CABB7E16A324B300C31911 /* Build configuration list for PBXProject "Smart2Go" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 28CABB7916A324B300C31911;
+			productRefGroup = 28CABB8516A324B400C31911 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28CABB8316A324B400C31911 /* Smart2Go */,
+				28CABBAD16A324B400C31911 /* Smart2GoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28CABB8216A324B400C31911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CABB9316A324B400C31911 /* InfoPlist.strings in Resources */,
+				28CABB9B16A324B400C31911 /* Default.png in Resources */,
+				28CABB9D16A324B400C31911 /* Default@2x.png in Resources */,
+				28CABB9F16A324B400C31911 /* Default-568h@2x.png in Resources */,
+				28CABBA216A324B400C31911 /* MainStoryboard_iPhone.storyboard in Resources */,
+				28CABBA516A324B400C31911 /* MainStoryboard_iPad.storyboard in Resources */,
+				28CABBE216A5D8CE00C31911 /* c2g_logo.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CABBAB16A324B400C31911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CABBBA16A324B400C31911 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28CABBAC16A324B400C31911 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28CABB8016A324B400C31911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */,
+				28CABB9516A324B400C31911 /* main.m in Sources */,
+				28CABB9916A324B400C31911 /* com_appdy_smart2goAppDelegate.m in Sources */,
+				28CABBA816A324B400C31911 /* com_appdy_smart2goViewController.m in Sources */,
+				28CABBDE16A5D29700C31911 /* CarLocation.m in Sources */,
+				2880127616ADE77E00DDA87F /* WSClient.m in Sources */,
+				2880128C16AF187200DDA87F /* FreeCar.m in Sources */,
+				2880129116AF266400DDA87F /* JSONKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CABBA916A324B400C31911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CABBBD16A324B400C31911 /* Smart2GoTests.m in Sources */,
+				2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */,
+				2880129216AF266400DDA87F /* JSONKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28CABBB416A324B400C31911 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28CABB8316A324B400C31911 /* Smart2Go */;
+			targetProxy = 28CABBB316A324B400C31911 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28CABB9116A324B400C31911 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CABB9216A324B400C31911 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		28CABBA016A324B400C31911 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CABBA116A324B400C31911 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		28CABBA316A324B400C31911 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CABBA416A324B400C31911 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		28CABBB816A324B400C31911 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CABBB916A324B400C31911 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28CABBBE16A324B400C31911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28CABBBF16A324B400C31911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28CABBC116A324B400C31911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
+				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		28CABBC216A324B400C31911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
+				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		28CABBC416A324B400C31911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Smart2Go.app/Smart2Go";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
+				INFOPLIST_FILE = "Smart2GoTests/Smart2GoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		28CABBC516A324B400C31911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Smart2Go.app/Smart2Go";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
+				INFOPLIST_FILE = "Smart2GoTests/Smart2GoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28CABB7E16A324B300C31911 /* Build configuration list for PBXProject "Smart2Go" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CABBBE16A324B400C31911 /* Debug */,
+				28CABBBF16A324B400C31911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CABBC016A324B400C31911 /* Build configuration list for PBXNativeTarget "Smart2Go" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CABBC116A324B400C31911 /* Debug */,
+				28CABBC216A324B400C31911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CABBC316A324B400C31911 /* Build configuration list for PBXNativeTarget "Smart2GoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CABBC416A324B400C31911 /* Debug */,
+				28CABBC516A324B400C31911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28CABB7B16A324B300C31911 /* Project object */;
+}

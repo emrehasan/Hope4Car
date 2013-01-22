@@ -18,4 +18,6 @@
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) CLLocation *oldLocation;
 
+@property (nonatomic, retain) NSMutableArray *freeCars;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "com_appdy_smart2goViewController.h"
 #import "CarLocation.h"
+#import "FreeCar.h"
+#import "WSClient.h"
 
 @interface com_appdy_smart2goViewController ()
 
@@ -20,6 +22,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    if(_freeCars == nil) 
+        _freeCars = [[NSMutableArray alloc] initWithCapacity:400];
+    
     //start location manager
     if(_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
@@ -30,6 +35,13 @@
     [_locationManager startUpdatingLocation];
     
     //retrieve cars here
+    //TODO load with MMHUD in async mode
+    WSClient *wsClient = [[WSClient alloc] init];
+    for(FreeCar *freeCar in [wsClient loadFreeCars:@"Berlin"]) {
+        [_freeCars addObject:[freeCar parseToCarLocation]];
+    }
+        
+    NSLog(@"Loaded [%d] freeCars", [_freeCars count]);
     
     //draw cars to maps
     [self addCarsToMap];
@@ -78,16 +90,13 @@
 }
 
 - (void)addCarsToMap {
-    CarLocation *testCar = [[CarLocation alloc] initWithName:@"B-GO-TEST" address:@"richardstraße 111" coordinate:CLLocationCoordinate2DMake(52.5061443443, 13.41149556666)];
-    
-    //TODO add parsed cars to maps now
-    
-    [_mapView addAnnotation:testCar];
+    for(CarLocation *carLoc in _freeCars)
+        [_mapView addAnnotation:carLoc];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-    NSLog(@"Called this");
+    //NSLog(@"Called this");
     
     if([annotation isKindOfClass:[CarLocation class]]){
         MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:@"myidentifier"];

@@ -22,9 +22,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    if(_freeCars == nil) 
-        _freeCars = [[NSMutableArray alloc] initWithCapacity:400];
-    
     //start location manager
     if(_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
@@ -34,17 +31,10 @@
     
     [_locationManager startUpdatingLocation];
     
-    //retrieve cars here
-    //TODO load with MMHUD in async mode
-    WSClient *wsClient = [[WSClient alloc] init];
-    for(FreeCar *freeCar in [wsClient loadFreeCars:@"Berlin"]) {
-        [_freeCars addObject:[freeCar parseToCarLocation]];
-    }
-        
-    NSLog(@"Loaded [%d] freeCars", [_freeCars count]);
+    //add toolbarbutton
+    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(updateCarsWithLoadingHUD)];
     
-    //draw cars to maps
-    [self addCarsToMap];
+    self.toolbarItems = @[updateButton];
 }
 
 //set current location and display cars in the near
@@ -77,7 +67,7 @@
     
     //NSLog(@"Latitude:\t%@\nLongitude:\t%@", latitudeStr, longitudeStr);
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 10, 10);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 500, 500);
     [_mapView setRegion:viewRegion animated:YES];
 }
 
@@ -85,13 +75,90 @@
     _oldLocation = _currentLocation;
     _currentLocation = [locations objectAtIndex:0];
     
+    if(_currentLocation != nil) {
+        [self initialCallsAfterStart];
+    }
+    
     [_locationManager stopUpdatingLocation];
     [self zoomToCurrLocation];
+}
+
+- (void)initialCallsAfterStart {
+    //identify current city
+    //[self identifyCityWithLoadingHUD];
+    //NSLog(@"Identified city:\t%@", _currentCity);
+    //->isDone by loadingCars it will check before
+    
+    //retrieve cars here
+    [self updateCarsWithLoadingHUD];
+    
+    NSLog(@"Loaded [%d] freeCars", [_freeCars count]);
+}
+
+- (void)identifyCityWithLoadingHUD {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:hud];
+    hud.labelText = @"Identifying city";
+    
+    [hud showAnimated:YES whileExecutingBlock:^{
+        [self identifyCity];
+    } completionBlock:^{
+        [hud removeFromSuperview];
+    }];
+}
+
+- (void)updateCarsWithLoadingHUD {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:hud];
+    hud.labelText = @"Loading Free Cars";
+    
+    [hud showAnimated:YES whileExecutingBlock:^{
+        
+        if(_currentCity == nil)
+           [self identifyCity];
+        
+        [self updateCars];
+    } completionBlock:^{
+        [hud removeFromSuperview];
+    }];
+}
+
+- (BOOL) updateCars {
+    WSClient *wsClient = [[WSClient alloc] init];
+    
+    //reset freeCars
+    _freeCars = [[NSMutableArray alloc] initWithCapacity:100];
+    
+    for(FreeCar *freeCar in [wsClient loadFreeCars:_currentCity]) {
+        [_freeCars addObject:[freeCar parseToCarLocation]];
+    }
+    
+    NSLog(@"FreeCars counted:\t%d", [_freeCars count]);
+    
+    [self addCarsToMap];
+    
+    return YES;
+}
+
+- (BOOL) identifyCity {
+    WSClient *wsClient = [[WSClient alloc] init];
+    _currentCity = [wsClient identifyCity:_currentLocation];
+    return YES;
+}
+
+- (BOOL) updateLocation {
+    [_locationManager startUpdatingLocation];
+    return YES;
 }
 
 - (void)addCarsToMap {
     for(CarLocation *carLoc in _freeCars)
         [_mapView addAnnotation:carLoc];
+    [self zoomToCurrLocation];
+}
+
+- (void)resetCarsFromMap {
+    [_mapView removeAnnotations:[_mapView annotations]];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

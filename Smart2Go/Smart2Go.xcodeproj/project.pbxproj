@@ -16,6 +16,8 @@
 		2880128C16AF187200DDA87F /* FreeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880128B16AF187200DDA87F /* FreeCar.m */; };
 		2880129116AF266400DDA87F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129016AF266400DDA87F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2880129216AF266400DDA87F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129016AF266400DDA87F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2880129A16B0A25400DDA87F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129916B0A25400DDA87F /* MBProgressHUD.m */; };
+		2880129B16B0A25400DDA87F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880129916B0A25400DDA87F /* MBProgressHUD.m */; };
 		28CABB8916A324B400C31911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8816A324B400C31911 /* UIKit.framework */; };
 		28CABB8B16A324B400C31911 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8A16A324B400C31911 /* Foundation.framework */; };
 		28CABB8D16A324B400C31911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8C16A324B400C31911 /* CoreGraphics.framework */; };
@@ -59,6 +61,8 @@
 		2880128B16AF187200DDA87F /* FreeCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeCar.m; sourceTree = "<group>"; };
 		2880128F16AF266400DDA87F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Smart2Go/JSONKit.h; sourceTree = "<group>"; };
 		2880129016AF266400DDA87F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Smart2Go/JSONKit.m; sourceTree = "<group>"; };
+		2880129816B0A25400DDA87F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Smart2Go/MBProgressHUD.h; sourceTree = "<group>"; };
+		2880129916B0A25400DDA87F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Smart2Go/MBProgressHUD.m; sourceTree = "<group>"; };
 		28CABB8416A324B400C31911 /* Smart2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB8816A324B400C31911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28CABB8A16A324B400C31911 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -166,6 +170,15 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
+		2880129716B0A23300DDA87F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2880129816B0A25400DDA87F /* MBProgressHUD.h */,
+				2880129916B0A25400DDA87F /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		28CABB7916A324B300C31911 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +204,7 @@
 		28CABB8716A324B400C31911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2880129716B0A23300DDA87F /* MBProgressHUD */,
 				2880128516AF124E00DDA87F /* JSONKit */,
 				2880127D16ADE96700DDA87F /* SMXML */,
 				28CABB8816A324B400C31911 /* UIKit.framework */,
@@ -420,6 +434,7 @@
 				2880127616ADE77E00DDA87F /* WSClient.m in Sources */,
 				2880128C16AF187200DDA87F /* FreeCar.m in Sources */,
 				2880129116AF266400DDA87F /* JSONKit.m in Sources */,
+				2880129A16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +445,7 @@
 				28CABBBD16A324B400C31911 /* Smart2GoTests.m in Sources */,
 				2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */,
 				2880129216AF266400DDA87F /* JSONKit.m in Sources */,
+				2880129B16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

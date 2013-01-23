@@ -20,6 +20,8 @@
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/xml?latlng=%@,%@&sensor=true", latitude, longitude];
     
+    NSLog(@"URLPattern:\t%@",urlPattern );
+    
     //call google-api
     NSData *xmlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlPattern ]];
     NSError *error;
@@ -43,8 +45,8 @@
         NSArray *addressComponents = [[root childNamed:@"result"] childrenNamed:@"address_component"];
         for(SMXMLElement *addressComponent in addressComponents) {
             NSArray *types = [addressComponent childrenNamed:@"type"];
-            if( !(    [[types objectAtIndex:0] isEqualToString:@"locality"]
-                  ||    [[types objectAtIndex:1] isEqualToString:@"locality"])) {
+            if( !( [[(SMXMLElement *)[types objectAtIndex:0] value] isEqualToString:@"locality"]
+                  /*||    [[(SMXMLElement *)[types objectAtIndex:1] value] isEqualToString:@"locality"]*/)) {
                 continue;
             }
             
@@ -62,7 +64,9 @@
     NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:400];
     
     //create api-url
-    NSString *urlPattern = [NSString stringWithFormat:@"http://car4now.herokuapp.com/cars.json?rad=20000&city=%@", city];
+    NSString *urlPattern = [NSString stringWithFormat:@"http://car4now.herokuapp.com/cars.json?city=%@&radius=20000", city];
+    
+    NSLog(@"URL-Pattern FreeCars:\t%@", urlPattern);
     
     //call server-api
     NSError *error;

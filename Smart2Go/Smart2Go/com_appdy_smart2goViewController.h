@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "MBProgressHUD.h"
 
-@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate>
+@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate>
 
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
@@ -18,6 +19,7 @@
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) CLLocation *oldLocation;
 
+@property (nonatomic, copy) NSString *currentCity;
 @property (nonatomic, retain) NSMutableArray *freeCars;
 
 @end

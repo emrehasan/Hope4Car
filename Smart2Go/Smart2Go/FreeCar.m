@@ -13,7 +13,7 @@
 - (CarLocation *)parseToCarLocation {
     CarLocation *carLocation = [[CarLocation alloc] initWithName:self.carName address:self.address coordinate:CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue])];
     
-    NSLog(@"Carname:\t%@\nAddress:\t%@\nlatitude:\t%f\nlongitude:\t%f", self.carName, self.address, [self.latitude doubleValue], [self.longitude doubleValue]);
+    //NSLog(@"Carname:\t%@\nAddress:\t%@\nlatitude:\t%f\nlongitude:\t%f", self.carName, self.address, [self.latitude doubleValue], [self.longitude doubleValue]);
     
     return carLocation;
 }

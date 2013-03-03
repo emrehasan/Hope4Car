@@ -11,12 +11,12 @@
 
 @interface FreeCar : NSObject 
 
-@property (nonatomic, assign) NSString *carName;
-@property (nonatomic, assign) NSString *engineType;
-@property (nonatomic, assign) NSString *exterior;
-@property (nonatomic, assign) NSString *interior;
-@property (nonatomic, assign) NSString *vin;
-@property (nonatomic, assign) NSString *address;
+@property (nonatomic, copy) NSString *carName;
+@property (nonatomic, copy) NSString *engineType;
+@property (nonatomic, copy) NSString *exterior;
+@property (nonatomic, copy) NSString *interior;
+@property (nonatomic, copy) NSString *vin;
+@property (nonatomic, copy) NSString *address;
 
 @property (nonatomic, retain) NSNumber *carID;
 @property (nonatomic, retain) NSNumber *lastRefresh;

@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define CONSUMER_KEY    @"smart2go"
+
 @interface WSClient : NSObject
 
 @property (nonatomic, retain) NSMutableArray *freeCars;

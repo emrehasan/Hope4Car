@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate>
+#import "DemoMenuController.h"
+
+@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate, PaperFoldMenuControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) DemoMenuController *menuController;
+
 
 @end

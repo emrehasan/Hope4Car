@@ -64,7 +64,7 @@
     NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:400];
     
     //create api-url
-    NSString *urlPattern = [NSString stringWithFormat:@"http://car4now.herokuapp.com/cars.json?city=%@&radius=20000", city];
+    NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", city, CONSUMER_KEY];
     
     NSLog(@"URL-Pattern FreeCars:\t%@", urlPattern);
     
@@ -80,40 +80,54 @@
     
     else {
         //create json document
-        NSArray *jsonArr = (NSArray *)[jsonData objectFromJSONData];
+        NSDictionary *jsonResp = (NSDictionary *)[jsonData objectFromJSONData];
+        NSArray *jsonArr = (NSArray *)[jsonResp objectForKey:@"placemarks"];
         if(jsonArr == nil)
             return freeCarsArr;
         
         for(NSDictionary *carDict in jsonArr) {
             FreeCar *buffCar = [[FreeCar alloc] init];
             
-            NSNumber *carID = [NSNumber numberWithInt:[[carDict objectForKey:@"id"] intValue]];
-            NSNumber *lastRefresh = [NSNumber numberWithInt:[[carDict objectForKey:@"last_refresh"] intValue]];
             NSNumber *fuel = [NSNumber numberWithInt:[[carDict objectForKey:@"fuel"] intValue]];
-            NSNumber *distanceTo = [NSNumber numberWithInt:[[carDict objectForKey:@"distance_to"] intValue]];
-            NSNumber *longitude = [NSNumber numberWithDouble:[[carDict objectForKey:@"longitude"] doubleValue]];
-            NSNumber *latitude = [NSNumber numberWithDouble:[[carDict objectForKey:@"latitude"] doubleValue]];
+            NSArray *coordinates = (NSArray *)[carDict objectForKey:@"coordinates"];
+            NSNumber *longitude = [NSNumber numberWithDouble:[[coordinates objectAtIndex:0] doubleValue]];
+            NSNumber *latitude = [NSNumber numberWithDouble:[[coordinates objectAtIndex:1] doubleValue]];
             
             NSString *carName = [carDict objectForKey:@"name"];
-            NSString *engineType = [carDict objectForKey:@"engine_type"];
+            NSString *engineType = [carDict objectForKey:@"engineType"];
             NSString *exterior = [carDict objectForKey:@"exterior"];
             NSString *interior = [carDict objectForKey:@"interior"];
             NSString *vin = [carDict objectForKey:@"vin"];
             NSString *address = [carDict objectForKey:@"address"];
             
             //check if one of the values were nil
-            if(carID == nil|| lastRefresh == nil || fuel == nil || distanceTo == nil ||
+            if(fuel == nil ||
                longitude == nil || latitude == nil || carName == nil || engineType == nil ||
                exterior == nil || interior == nil || vin == nil || address == nil) {
-                NSLog(@"An essential value was nil");
+                /*
+                if(longitude == nil)
+                    NSLog(@"Longitude value was nil");
+                if(latitude == nil)
+                    NSLog(@"Latitude value was nil");
+                if(carName == nil)
+                    NSLog(@"CarName value was nil");
+                if(engineType == nil)
+                    NSLog(@"EngineType value was nil");
+                if(exterior == nil)
+                    NSLog(@"exterior value was nil");
+                if(interior == nil)
+                    NSLog(@"interior value was nil");
+                if(vin == nil)
+                    NSLog(@"vin value was nil");
+                if(address == nil)
+                    NSLog(@"address value was nil");
+                 */
+                NSLog(@"An essential member was nil");
                 continue;
             }
             
             //else
-            buffCar.carID = carID;
-            buffCar.lastRefresh = lastRefresh;
             buffCar.fuel = fuel;
-            buffCar.distanceTo = distanceTo;
             buffCar.longitude = longitude;
             buffCar.latitude = latitude;
             buffCar.carName = carName;

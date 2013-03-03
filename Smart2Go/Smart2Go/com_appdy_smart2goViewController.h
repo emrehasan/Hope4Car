@@ -12,7 +12,9 @@
 #import "MBProgressHUD.h"
 #import "PaperFoldMenuController.h"
 
-@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate>
+@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
+    BOOL isInitialLoad;
+}
 
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 

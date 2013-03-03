@@ -24,23 +24,25 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
                                                              bundle: nil];
-    UINavigationController *rootNavController;// = [mainStoryboard instantiateViewControllerWithIdentifier:@"MainNavController"];
+    UINavigationController *rootNavController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MainNavController"];
     
     for (int i=0; i<2; i++)
     {
+        NSLog(@"I:%d", i);
         if(i == 0) {
-            com_appdy_smart2goViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Hope4CarVC"];
-            [rootViewController setTitle:[NSString stringWithFormat:@"Hope4Car"]];
+            com_appdy_smart2goViewController *mapController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Hope4CarVC"];
+            [mapController setTitle:[NSString stringWithFormat:@"Hope4Car"]];
+            [rootNavController setTitle:@"Hope4Car"];
             
-            rootNavController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+            //[rootNavController setViewControllers:@[mapController] animated:YES];
             [viewControllers addObject:rootNavController];
         }
         
         else if(i == 1) {
-            SettingsVCViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
-            [rootViewController setTitle:[NSString stringWithFormat:@"Settings"]];
+            SettingsVCViewController *settingsController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
+            [settingsController setTitle:[NSString stringWithFormat:@"Settings"]];
             
-            rootNavController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+            rootNavController = [[UINavigationController alloc] initWithRootViewController:settingsController];
             [viewControllers addObject:rootNavController];
         }
         
@@ -48,7 +50,7 @@
             //DO NOTHING
         }
     }
-    [viewControllers addObject:rootNavController];
+    //[viewControllers addObject:rootNavController];
 
     
     

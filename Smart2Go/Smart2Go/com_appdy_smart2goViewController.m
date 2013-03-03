@@ -22,6 +22,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    isInitialLoad = YES;
+    
     //start location manager
     if(_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
@@ -63,7 +65,7 @@
     NSLog(@"Called this one VWA");
     //set the timer
     if(_timer == nil) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:10.0
+        _timer = [NSTimer scheduledTimerWithTimeInterval:60.0
                                                   target:self
                                                 selector:@selector(updateCarsWithoutHUD)
                                                 userInfo:nil
@@ -108,7 +110,11 @@
     }
     
     [_locationManager stopUpdatingLocation];
-    [self zoomToCurrLocation];
+    
+    if(isInitialLoad) {
+        [self zoomToCurrLocation];
+        isInitialLoad = NO;
+    }
 }
 
 - (void)initialCallsAfterStart {
@@ -197,7 +203,7 @@
     
     _freeCars = nil;
 
-    [self zoomToCurrLocation];
+    //[self zoomToCurrLocation];
 }
 
 - (void)resetCarsFromMap {

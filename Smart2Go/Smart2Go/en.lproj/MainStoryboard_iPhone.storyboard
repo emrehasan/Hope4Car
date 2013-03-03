@@ -49,6 +49,7 @@
                     <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF">
                         <barButtonItem key="leftBarButtonItem" image="menuIcon.png" id="mpu-4p-eIf"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="XVi-iX-T5d" id="rsJ-JM-0ES"/>
                     </connections>

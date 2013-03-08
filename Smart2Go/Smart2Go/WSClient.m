@@ -60,14 +60,89 @@
 }
 
 - (NSArray *)loadFreeCars:(NSString *)city {
+    NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:2000];
     
-    NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:400];
+    [freeCars addObjectsFromArray:[self loadFreeCarsDN]];
+    [freeCars addObjectsFromArray:[self loadFreeCarsC2G:city]];
+    
+    return freeCars;
+}
+
+/**
+ *  Will request all free cars for all cities at the drivenow-api
+ *  <p>
+ *  @return {@link NSMutableArray} with {@link FreeCar objects}
+ */
+- (NSArray *)loadFreeCarsDN {
+    NSLog(@"Calling DriveNow FreeCars loading");
+    NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:1100];
+    
+    //create api-url
+    NSString *urlPattern = @"https://de.drive-now.com/php/metropolis/json.vehicle_filter?";
+    
+    //call server-api
+    NSError *error;
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlPattern]];
+    NSURLResponse *response;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //check if xml could be created
+    if(error != nil)
+        NSLog(@"Error Occured:%@", [error description]);
+    
+    else {
+        //create json document
+        NSDictionary *jsonResp = (NSDictionary *)[jsonData objectFromJSONData];
+        NSDictionary *recDict = (NSDictionary *)[jsonResp objectForKey:@"rec"];
+        NSDictionary *vehiclesDict = (NSDictionary *)[recDict objectForKey:@"vehicles"];
+        
+        NSArray *vehiclesArr = (NSArray *)[vehiclesDict objectForKey:@"vehicles"];
+        
+        if(vehiclesArr == nil)
+            return freeCars;
+        
+        //else
+        NSLog(@"Size of DriveNow-Arr:\t%d", [vehiclesArr count]);
+        FreeCar *buffCar;
+        for(NSDictionary *carDict in vehiclesArr) {
+            buffCar = [[FreeCar alloc] init];
+            
+            NSDictionary *positionDict = (NSDictionary *)[carDict objectForKey:@"position"];
+            
+            NSNumber *latitude = [NSNumber numberWithDouble:[[positionDict objectForKey:@"latitude"] doubleValue]];
+            NSNumber *longitude = [NSNumber numberWithDouble:[[positionDict objectForKey:@"longitude"] doubleValue]];
+            NSString *address = [positionDict objectForKey:@"address"];
+            NSNumber *fuel = [NSNumber numberWithInt:[[carDict objectForKey:@"fuelState"] intValue]];
+            NSString *vin = [carDict objectForKey:@"vin"];
+            NSString *carName = [carDict objectForKey:@"personalName"];
+            NSString *engineType = [carDict objectForKey:@"fuelType"];
+            NSString *interior = [carDict objectForKey:@"innerCleanliness"];
+            
+            //set freecar members now
+            buffCar.isCar2Go = NO;
+            buffCar.latitude = latitude;
+            buffCar.longitude = longitude;
+            buffCar.address = address;
+            buffCar.fuel = fuel;
+            buffCar.engineType = engineType;
+            buffCar.interior = interior;
+            buffCar.carName = carName;
+            buffCar.vin = vin;
+            
+            [freeCars addObject:buffCar];
+        }
+    }
+    
+    return freeCars;
+}
+
+- (NSArray *)loadFreeCarsC2G:(NSString *)city {
+    
+    NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:950];
     
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", city, CONSUMER_KEY];
-    
-    NSLog(@"URL-Pattern FreeCars:\t%@", urlPattern);
-    
+        
     //call server-api
     NSError *error;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlPattern]];
@@ -85,8 +160,9 @@
         if(jsonArr == nil)
             return freeCarsArr;
         
+        FreeCar *buffCar;
         for(NSDictionary *carDict in jsonArr) {
-            FreeCar *buffCar = [[FreeCar alloc] init];
+            buffCar = [[FreeCar alloc] init];
             
             NSNumber *fuel = [NSNumber numberWithInt:[[carDict objectForKey:@"fuel"] intValue]];
             NSArray *coordinates = (NSArray *)[carDict objectForKey:@"coordinates"];
@@ -127,6 +203,7 @@
             }
             
             //else
+            buffCar.isCar2Go = YES;
             buffCar.fuel = fuel;
             buffCar.longitude = longitude;
             buffCar.latitude = latitude;

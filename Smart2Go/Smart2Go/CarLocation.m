@@ -11,7 +11,7 @@
 
 @implementation CarLocation
 
-- (id) initWithName: (NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate {
+- (id) initWithName: (NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate isCar2Go:(BOOL)isC2G {
     if(self = [super init]) {
         if([name isKindOfClass:[NSString class]])
             _name = name;
@@ -20,6 +20,7 @@
         
         _address = address;
         _coordinate = coordinate;
+        _isC2G = isC2G;
     }
     
     return self;

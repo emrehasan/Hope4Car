@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28040DE616EA08DF009C826C /* dn_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 28040DE516EA08DF009C826C /* dn_logo.jpeg */; };
+		28040DEA16EA3FCD009C826C /* CredentialsC2GVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */; };
+		28040DED16EA4136009C826C /* CredentialsDNVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28040DEC16EA4136009C826C /* CredentialsDNVC.m */; };
+		28040DF116EA484A009C826C /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DEE16EA484A009C826C /* more.png */; };
+		28040DF216EA484A009C826C /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DEF16EA484A009C826C /* home@2x.png */; };
+		28040DF316EA484A009C826C /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DF016EA484A009C826C /* home.png */; };
 		2880127616ADE77E00DDA87F /* WSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127516ADE77E00DDA87F /* WSClient.m */; };
 		2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
 		2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
@@ -41,39 +47,9 @@
 		28CABBDE16A5D29700C31911 /* CarLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CABBDD16A5D29700C31911 /* CarLocation.m */; };
 		28CABBE016A5D64100C31911 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABBDF16A5D64100C31911 /* AddressBook.framework */; };
 		28CABBE216A5D8CE00C31911 /* c2g_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */; };
-		28EBC7AE16E3D9E80039BB8B /* PaperFoldMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7AC16E3D9E80039BB8B /* PaperFoldMenuController.m */; };
 		28EBC7CA16E3DC6B0039BB8B /* cellBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EBC7C816E3DC6B0039BB8B /* cellBg@2x.png */; };
 		28EBC7CB16E3DC6B0039BB8B /* cellBgSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EBC7C916E3DC6B0039BB8B /* cellBgSelected@2x.png */; };
-		28EBC7DD16E3DD260039BB8B /* PaperFoldMenuController.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7AB16E3D9E80039BB8B /* PaperFoldMenuController.h */; };
-		28EBC7DE16E3DD260039BB8B /* PaperFoldMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7AC16E3D9E80039BB8B /* PaperFoldMenuController.m */; };
-		28EBC7DF16E3DD260039BB8B /* PaperFoldMenuControllerDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7AD16E3D9E80039BB8B /* PaperFoldMenuControllerDelegate.h */; };
-		28EBC7F816E3DEFF0039BB8B /* FacingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E216E3DEFF0039BB8B /* FacingView.m */; };
-		28EBC7F916E3DEFF0039BB8B /* FoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E416E3DEFF0039BB8B /* FoldView.m */; };
-		28EBC7FA16E3DEFF0039BB8B /* MultiFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E616E3DEFF0039BB8B /* MultiFoldView.m */; };
-		28EBC7FB16E3DEFF0039BB8B /* PaperFoldNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E916E3DEFF0039BB8B /* PaperFoldNavigationController.m */; };
-		28EBC7FD16E3DEFF0039BB8B /* PaperFoldSwipeHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7EC16E3DEFF0039BB8B /* PaperFoldSwipeHintView.m */; };
-		28EBC7FE16E3DEFF0039BB8B /* PaperFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7EE16E3DEFF0039BB8B /* PaperFoldView.m */; };
-		28EBC7FF16E3DEFF0039BB8B /* swipe_guide.psd in Resources */ = {isa = PBXBuildFile; fileRef = 28EBC7F016E3DEFF0039BB8B /* swipe_guide.psd */; };
-		28EBC80016E3DEFF0039BB8B /* swipe_guide2.psd in Resources */ = {isa = PBXBuildFile; fileRef = 28EBC7F116E3DEFF0039BB8B /* swipe_guide2.psd */; };
-		28EBC80116E3DEFF0039BB8B /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F316E3DEFF0039BB8B /* ShadowView.m */; };
-		28EBC80216E3DEFF0039BB8B /* TouchThroughUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F516E3DEFF0039BB8B /* TouchThroughUIView.m */; };
-		28EBC80316E3DEFF0039BB8B /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F716E3DEFF0039BB8B /* UIView+Screenshot.m */; };
-		28EBC80416E3DF1A0039BB8B /* FacingView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E116E3DEFF0039BB8B /* FacingView.h */; };
-		28EBC80516E3DF1A0039BB8B /* FoldView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E316E3DEFF0039BB8B /* FoldView.h */; };
-		28EBC80616E3DF1A0039BB8B /* MultiFoldView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E516E3DEFF0039BB8B /* MultiFoldView.h */; };
-		28EBC80716E3DF1A0039BB8B /* PaperFoldConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E716E3DEFF0039BB8B /* PaperFoldConstants.h */; };
-		28EBC80816E3DF1A0039BB8B /* PaperFoldNavigationController.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7E816E3DEFF0039BB8B /* PaperFoldNavigationController.h */; };
-		28EBC80916E3DF1A0039BB8B /* PaperFoldSwipeHintView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7EB16E3DEFF0039BB8B /* PaperFoldSwipeHintView.h */; };
-		28EBC80A16E3DF1A0039BB8B /* PaperFoldView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7ED16E3DEFF0039BB8B /* PaperFoldView.h */; };
-		28EBC80B16E3DF1A0039BB8B /* swipe_guide.psd in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F016E3DEFF0039BB8B /* swipe_guide.psd */; };
-		28EBC80C16E3DF1A0039BB8B /* swipe_guide2.psd in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F116E3DEFF0039BB8B /* swipe_guide2.psd */; };
-		28EBC80D16E3DF1A0039BB8B /* ShadowView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F216E3DEFF0039BB8B /* ShadowView.h */; };
-		28EBC80E16E3DF1A0039BB8B /* TouchThroughUIView.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F416E3DEFF0039BB8B /* TouchThroughUIView.h */; };
-		28EBC80F16E3DF1A0039BB8B /* UIView+Screenshot.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC7F616E3DEFF0039BB8B /* UIView+Screenshot.h */; };
 		28EBC81116E3DF7B0039BB8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EBC81016E3DF7B0039BB8B /* QuartzCore.framework */; };
-		28EBC85E16E401460039BB8B /* DemoMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC85D16E401460039BB8B /* DemoMenuController.m */; };
-		28EBC85F16E401720039BB8B /* DemoMenuController.h in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC85C16E401460039BB8B /* DemoMenuController.h */; };
-		28EBC86016E401720039BB8B /* DemoMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBC85D16E401460039BB8B /* DemoMenuController.m */; };
 		28EBC86116E401720039BB8B /* com_appdy_smart2goViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 28CABBA616A324B400C31911 /* com_appdy_smart2goViewController.h */; };
 		28EBC86216E401720039BB8B /* SettingsVCViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 28C935B116D9569100D4DC9B /* SettingsVCViewController.h */; };
 		28EBC86316E401720039BB8B /* com_appdy_smart2goAppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB9716A324B400C31911 /* com_appdy_smart2goAppDelegate.h */; };
@@ -92,6 +68,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28040DE516EA08DF009C826C /* dn_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dn_logo.jpeg; sourceTree = "<group>"; };
+		28040DE816EA3FCD009C826C /* CredentialsC2GVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsC2GVC.h; sourceTree = "<group>"; };
+		28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsC2GVC.m; sourceTree = "<group>"; };
+		28040DEB16EA4136009C826C /* CredentialsDNVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsDNVC.h; sourceTree = "<group>"; };
+		28040DEC16EA4136009C826C /* CredentialsDNVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsDNVC.m; sourceTree = "<group>"; };
+		28040DEE16EA484A009C826C /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		28040DEF16EA484A009C826C /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		28040DF016EA484A009C826C /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		2880127416ADE77E00DDA87F /* WSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSClient.h; sourceTree = "<group>"; };
 		2880127516ADE77E00DDA87F /* WSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSClient.m; sourceTree = "<group>"; };
 		2880127E16ADEDB500DDA87F /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMXMLDocument.h; path = Smart2Go/SMXMLDocument.h; sourceTree = "<group>"; };
@@ -133,35 +117,9 @@
 		28CABBDD16A5D29700C31911 /* CarLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarLocation.m; sourceTree = "<group>"; };
 		28CABBDF16A5D64100C31911 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c2g_logo.jpeg; sourceTree = "<group>"; };
-		28EBC7AB16E3D9E80039BB8B /* PaperFoldMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldMenuController.h; sourceTree = "<group>"; };
-		28EBC7AC16E3D9E80039BB8B /* PaperFoldMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldMenuController.m; sourceTree = "<group>"; };
-		28EBC7AD16E3D9E80039BB8B /* PaperFoldMenuControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldMenuControllerDelegate.h; sourceTree = "<group>"; };
 		28EBC7C816E3DC6B0039BB8B /* cellBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellBg@2x.png"; sourceTree = "<group>"; };
 		28EBC7C916E3DC6B0039BB8B /* cellBgSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellBgSelected@2x.png"; sourceTree = "<group>"; };
-		28EBC7E116E3DEFF0039BB8B /* FacingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacingView.h; sourceTree = "<group>"; };
-		28EBC7E216E3DEFF0039BB8B /* FacingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacingView.m; sourceTree = "<group>"; };
-		28EBC7E316E3DEFF0039BB8B /* FoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldView.h; sourceTree = "<group>"; };
-		28EBC7E416E3DEFF0039BB8B /* FoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldView.m; sourceTree = "<group>"; };
-		28EBC7E516E3DEFF0039BB8B /* MultiFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiFoldView.h; sourceTree = "<group>"; };
-		28EBC7E616E3DEFF0039BB8B /* MultiFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiFoldView.m; sourceTree = "<group>"; };
-		28EBC7E716E3DEFF0039BB8B /* PaperFoldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldConstants.h; sourceTree = "<group>"; };
-		28EBC7E816E3DEFF0039BB8B /* PaperFoldNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldNavigationController.h; sourceTree = "<group>"; };
-		28EBC7E916E3DEFF0039BB8B /* PaperFoldNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldNavigationController.m; sourceTree = "<group>"; };
-		28EBC7EB16E3DEFF0039BB8B /* PaperFoldSwipeHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldSwipeHintView.h; sourceTree = "<group>"; };
-		28EBC7EC16E3DEFF0039BB8B /* PaperFoldSwipeHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldSwipeHintView.m; sourceTree = "<group>"; };
-		28EBC7ED16E3DEFF0039BB8B /* PaperFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldView.h; sourceTree = "<group>"; };
-		28EBC7EE16E3DEFF0039BB8B /* PaperFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldView.m; sourceTree = "<group>"; };
-		28EBC7F016E3DEFF0039BB8B /* swipe_guide.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide.psd; sourceTree = "<group>"; };
-		28EBC7F116E3DEFF0039BB8B /* swipe_guide2.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide2.psd; sourceTree = "<group>"; };
-		28EBC7F216E3DEFF0039BB8B /* ShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
-		28EBC7F316E3DEFF0039BB8B /* ShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
-		28EBC7F416E3DEFF0039BB8B /* TouchThroughUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchThroughUIView.h; sourceTree = "<group>"; };
-		28EBC7F516E3DEFF0039BB8B /* TouchThroughUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchThroughUIView.m; sourceTree = "<group>"; };
-		28EBC7F616E3DEFF0039BB8B /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
-		28EBC7F716E3DEFF0039BB8B /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
 		28EBC81016E3DF7B0039BB8B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		28EBC85C16E401460039BB8B /* DemoMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoMenuController.h; sourceTree = "<group>"; };
-		28EBC85D16E401460039BB8B /* DemoMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoMenuController.m; sourceTree = "<group>"; };
 		28EBC86416E40CAC0039BB8B /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		28EBC86516E40CAC0039BB8B /* menuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuIcon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +155,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28040DE716EA3F81009C826C /* OptionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28040DE816EA3FCD009C826C /* CredentialsC2GVC.h */,
+				28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */,
+				28040DEB16EA4136009C826C /* CredentialsDNVC.h */,
+				28040DEC16EA4136009C826C /* CredentialsDNVC.m */,
+			);
+			name = OptionViewController;
+			sourceTree = "<group>";
+		};
 		2880126916ADE2E700DDA87F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +255,6 @@
 				2880129716B0A23300DDA87F /* MBProgressHUD */,
 				2880128516AF124E00DDA87F /* JSONKit */,
 				2880127D16ADE96700DDA87F /* SMXML */,
-				28EBC7A916E3D9E80039BB8B /* PaperFoldMenuController */,
 				28EBC81016E3DF7B0039BB8B /* QuartzCore.framework */,
 				28CABBDF16A5D64100C31911 /* AddressBook.framework */,
 				28CABBD516A5C9D700C31911 /* CoreLocation.framework */,
@@ -368,6 +336,7 @@
 			children = (
 				28CABBDA16A5D08000C31911 /* RootViewController */,
 				28C935B016D9566700D4DC9B /* SettingsViewController */,
+				28040DE716EA3F81009C826C /* OptionViewController */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -375,8 +344,6 @@
 		28CABBDA16A5D08000C31911 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
-				28EBC85C16E401460039BB8B /* DemoMenuController.h */,
-				28EBC85D16E401460039BB8B /* DemoMenuController.m */,
 				28CABBA616A324B400C31911 /* com_appdy_smart2goViewController.h */,
 				28CABBA716A324B400C31911 /* com_appdy_smart2goViewController.m */,
 			);
@@ -395,6 +362,10 @@
 		28CABBE316A5D99300C31911 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				28040DEE16EA484A009C826C /* more.png */,
+				28040DEF16EA484A009C826C /* home@2x.png */,
+				28040DF016EA484A009C826C /* home.png */,
+				28040DE516EA08DF009C826C /* dn_logo.jpeg */,
 				28EBC86416E40CAC0039BB8B /* menuIcon.png */,
 				28EBC86516E40CAC0039BB8B /* menuIcon@2x.png */,
 				28EBC7C816E3DC6B0039BB8B /* cellBg@2x.png */,
@@ -402,53 +373,6 @@
 				28CABBE116A5D8CE00C31911 /* c2g_logo.jpeg */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		28EBC7A916E3D9E80039BB8B /* PaperFoldMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				28EBC7E016E3DEFF0039BB8B /* PaperFold */,
-				28EBC7AB16E3D9E80039BB8B /* PaperFoldMenuController.h */,
-				28EBC7AC16E3D9E80039BB8B /* PaperFoldMenuController.m */,
-				28EBC7AD16E3D9E80039BB8B /* PaperFoldMenuControllerDelegate.h */,
-			);
-			path = PaperFoldMenuController;
-			sourceTree = "<group>";
-		};
-		28EBC7E016E3DEFF0039BB8B /* PaperFold */ = {
-			isa = PBXGroup;
-			children = (
-				28EBC7E116E3DEFF0039BB8B /* FacingView.h */,
-				28EBC7E216E3DEFF0039BB8B /* FacingView.m */,
-				28EBC7E316E3DEFF0039BB8B /* FoldView.h */,
-				28EBC7E416E3DEFF0039BB8B /* FoldView.m */,
-				28EBC7E516E3DEFF0039BB8B /* MultiFoldView.h */,
-				28EBC7E616E3DEFF0039BB8B /* MultiFoldView.m */,
-				28EBC7E716E3DEFF0039BB8B /* PaperFoldConstants.h */,
-				28EBC7E816E3DEFF0039BB8B /* PaperFoldNavigationController.h */,
-				28EBC7E916E3DEFF0039BB8B /* PaperFoldNavigationController.m */,
-				28EBC7EB16E3DEFF0039BB8B /* PaperFoldSwipeHintView.h */,
-				28EBC7EC16E3DEFF0039BB8B /* PaperFoldSwipeHintView.m */,
-				28EBC7ED16E3DEFF0039BB8B /* PaperFoldView.h */,
-				28EBC7EE16E3DEFF0039BB8B /* PaperFoldView.m */,
-				28EBC7EF16E3DEFF0039BB8B /* Resources */,
-				28EBC7F216E3DEFF0039BB8B /* ShadowView.h */,
-				28EBC7F316E3DEFF0039BB8B /* ShadowView.m */,
-				28EBC7F416E3DEFF0039BB8B /* TouchThroughUIView.h */,
-				28EBC7F516E3DEFF0039BB8B /* TouchThroughUIView.m */,
-				28EBC7F616E3DEFF0039BB8B /* UIView+Screenshot.h */,
-				28EBC7F716E3DEFF0039BB8B /* UIView+Screenshot.m */,
-			);
-			path = PaperFold;
-			sourceTree = "<group>";
-		};
-		28EBC7EF16E3DEFF0039BB8B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				28EBC7F016E3DEFF0039BB8B /* swipe_guide.psd */,
-				28EBC7F116E3DEFF0039BB8B /* swipe_guide2.psd */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,10 +456,12 @@
 				28CABBE216A5D8CE00C31911 /* c2g_logo.jpeg in Resources */,
 				28EBC7CA16E3DC6B0039BB8B /* cellBg@2x.png in Resources */,
 				28EBC7CB16E3DC6B0039BB8B /* cellBgSelected@2x.png in Resources */,
-				28EBC7FF16E3DEFF0039BB8B /* swipe_guide.psd in Resources */,
-				28EBC80016E3DEFF0039BB8B /* swipe_guide2.psd in Resources */,
 				28EBC86616E40CAC0039BB8B /* menuIcon.png in Resources */,
 				28EBC86716E40CAC0039BB8B /* menuIcon@2x.png in Resources */,
+				28040DE616EA08DF009C826C /* dn_logo.jpeg in Resources */,
+				28040DF116EA484A009C826C /* more.png in Resources */,
+				28040DF216EA484A009C826C /* home@2x.png in Resources */,
+				28040DF316EA484A009C826C /* home.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,26 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28EBC85F16E401720039BB8B /* DemoMenuController.h in Sources */,
-				28EBC86016E401720039BB8B /* DemoMenuController.m in Sources */,
 				28EBC86116E401720039BB8B /* com_appdy_smart2goViewController.h in Sources */,
 				28EBC86216E401720039BB8B /* SettingsVCViewController.h in Sources */,
 				28EBC86316E401720039BB8B /* com_appdy_smart2goAppDelegate.h in Sources */,
-				28EBC80416E3DF1A0039BB8B /* FacingView.h in Sources */,
-				28EBC80516E3DF1A0039BB8B /* FoldView.h in Sources */,
-				28EBC80616E3DF1A0039BB8B /* MultiFoldView.h in Sources */,
-				28EBC80716E3DF1A0039BB8B /* PaperFoldConstants.h in Sources */,
-				28EBC80816E3DF1A0039BB8B /* PaperFoldNavigationController.h in Sources */,
-				28EBC80916E3DF1A0039BB8B /* PaperFoldSwipeHintView.h in Sources */,
-				28EBC80A16E3DF1A0039BB8B /* PaperFoldView.h in Sources */,
-				28EBC80B16E3DF1A0039BB8B /* swipe_guide.psd in Sources */,
-				28EBC80C16E3DF1A0039BB8B /* swipe_guide2.psd in Sources */,
-				28EBC80D16E3DF1A0039BB8B /* ShadowView.h in Sources */,
-				28EBC80E16E3DF1A0039BB8B /* TouchThroughUIView.h in Sources */,
-				28EBC80F16E3DF1A0039BB8B /* UIView+Screenshot.h in Sources */,
-				28EBC7DD16E3DD260039BB8B /* PaperFoldMenuController.h in Sources */,
-				28EBC7DE16E3DD260039BB8B /* PaperFoldMenuController.m in Sources */,
-				28EBC7DF16E3DD260039BB8B /* PaperFoldMenuControllerDelegate.h in Sources */,
 				2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */,
 				28CABB9516A324B400C31911 /* main.m in Sources */,
 				28CABB9916A324B400C31911 /* com_appdy_smart2goAppDelegate.m in Sources */,
@@ -600,15 +509,7 @@
 				2880129116AF266400DDA87F /* JSONKit.m in Sources */,
 				2880129A16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
 				28C935B316D9569100D4DC9B /* SettingsVCViewController.m in Sources */,
-				28EBC7F816E3DEFF0039BB8B /* FacingView.m in Sources */,
-				28EBC7F916E3DEFF0039BB8B /* FoldView.m in Sources */,
-				28EBC7FA16E3DEFF0039BB8B /* MultiFoldView.m in Sources */,
-				28EBC7FB16E3DEFF0039BB8B /* PaperFoldNavigationController.m in Sources */,
-				28EBC7FD16E3DEFF0039BB8B /* PaperFoldSwipeHintView.m in Sources */,
-				28EBC7FE16E3DEFF0039BB8B /* PaperFoldView.m in Sources */,
-				28EBC80116E3DEFF0039BB8B /* ShadowView.m in Sources */,
-				28EBC80216E3DEFF0039BB8B /* TouchThroughUIView.m in Sources */,
-				28EBC80316E3DEFF0039BB8B /* UIView+Screenshot.m in Sources */,
+				28040DED16EA4136009C826C /* CredentialsDNVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,8 +521,7 @@
 				2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */,
 				2880129216AF266400DDA87F /* JSONKit.m in Sources */,
 				2880129B16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
-				28EBC7AE16E3D9E80039BB8B /* PaperFoldMenuController.m in Sources */,
-				28EBC85E16E401460039BB8B /* DemoMenuController.m in Sources */,
+				28040DEA16EA3FCD009C826C /* CredentialsC2GVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

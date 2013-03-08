@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CarLocation.h"
 
-@interface FreeCar : NSObject 
+@interface FreeCar : NSObject
+
+@property (nonatomic, assign) BOOL isCar2Go;
 
 @property (nonatomic, copy) NSString *carName;
 @property (nonatomic, copy) NSString *engineType;

@@ -46,7 +46,7 @@
     self.toolbarItems = @[updateButton, sliderView];
     
     //set time
-    _timer = [NSTimer scheduledTimerWithTimeInterval:30.0
+    _timer = [NSTimer scheduledTimerWithTimeInterval:60.0
                                               target:self
                                             selector:@selector(updateCarsWithLoadingHUD)
                                             userInfo:nil
@@ -99,6 +99,10 @@
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 500, 500);
     [_mapView setRegion:viewRegion animated:YES];
+    
+    //draw circle with radius
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:_currentLocation.coordinate radius:[_radius doubleValue]];
+    [_mapView addOverlay:circle];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -244,21 +248,33 @@
  *
  */
 - (NSString *) getDistanceAsString:(CLLocation *)location1 location2:(CLLocation *) location2 {
-    //TODO add this to all labels of MKAnnotations
-    return nil;
+    CLLocationDistance distance = [location1 distanceFromLocation:location2];
+    NSString *retValue = [NSString stringWithFormat:@"%.2f", distance ];
+    return retValue;
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:overlay];
+    circleView.fillColor = [UIColor blueColor];
+    circleView.alpha = 0.2;
+    
+    return circleView;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-    //NSLog(@"Called this");
-    
     if([annotation isKindOfClass:[CarLocation class]]){
+        CarLocation *buffCarLoc = annotation;
         MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:@"myidentifier"];
         if(annotationView == nil) {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myidentifier"];
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
-            annotationView.image = [UIImage imageNamed:@"c2g_logo.jpeg"];
+            
+            if(buffCarLoc.isC2G)
+                annotationView.image = [UIImage imageNamed:@"c2g_logo.jpeg"];
+            else
+                annotationView.image = [UIImage imageNamed:@"dn_logo.jpeg"];
         }
         
         else

@@ -10,7 +10,6 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MBProgressHUD.h"
-#import "PaperFoldMenuController.h"
 
 @interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
     BOOL isInitialLoad;
@@ -23,7 +22,7 @@
 @property (nonatomic, retain) CLLocation *oldLocation;
 
 @property (nonatomic, copy) NSString *currentCity;
-@property (nonatomic, retain) NSMutableArray *freeCars;
+@property (atomic, retain) NSMutableArray *freeCars;
 
 @property (nonatomic, retain) NSTimer *timer;
 

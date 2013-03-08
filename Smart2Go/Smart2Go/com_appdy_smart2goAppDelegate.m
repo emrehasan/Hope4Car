@@ -7,61 +7,14 @@
 //
 
 #import "com_appdy_smart2goAppDelegate.h"
-#import "DemoMenuController.h"
-#import "com_appdy_smart2goViewController.h"
-#import "SettingsVCViewController.h"
 
 @implementation com_appdy_smart2goAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _menuController = [[DemoMenuController alloc] initWithMenuWidth:250.0 numberOfFolds:3];
-    [_menuController setDelegate:self];
-    [self.window setRootViewController:_menuController];
-    
-    NSMutableArray *viewControllers = [NSMutableArray array];
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-                                                             bundle: nil];
-    UINavigationController *rootNavController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MainNavController"];
-    
-    for (int i=0; i<2; i++)
-    {
-        NSLog(@"I:%d", i);
-        if(i == 0) {
-            com_appdy_smart2goViewController *mapController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Hope4CarVC"];
-            [mapController setTitle:[NSString stringWithFormat:@"Hope4Car"]];
-            [rootNavController setTitle:@"Hope4Car"];
-            
-            //[rootNavController setViewControllers:@[mapController] animated:YES];
-            [viewControllers addObject:rootNavController];
-        }
-        
-        else if(i == 1) {
-            SettingsVCViewController *settingsController = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
-            [settingsController setTitle:[NSString stringWithFormat:@"Settings"]];
-            
-            rootNavController = [[UINavigationController alloc] initWithRootViewController:settingsController];
-            [viewControllers addObject:rootNavController];
-        }
-        
-        else {
-            //DO NOTHING
-        }
-    }
-    //[viewControllers addObject:rootNavController];
-
-    
-    
-    [_menuController setViewControllers:viewControllers];
     // Override point for customization after application launch.
     return YES;
-}
-
-- (void)paperFoldMenuController:(PaperFoldMenuController *)paperFoldMenuController didSelectViewController:(UIViewController *)viewController
-{
-    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

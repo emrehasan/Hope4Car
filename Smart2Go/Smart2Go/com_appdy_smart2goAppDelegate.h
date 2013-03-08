@@ -9,12 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "DemoMenuController.h"
-
-@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate, PaperFoldMenuControllerDelegate>
+@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong) DemoMenuController *menuController;
+
+//credentials c2g
+@property (nonatomic, assign) NSString *usernameC2G;
+@property (nonatomic, assign) NSString *passwordC2G;
+
+//credentials dn
+@property (nonatomic, assign) NSString *usernameDN;
+@property (nonatomic, assign) NSString *passwordDN;
+
+- (void)getUserDefaults;
+- (void)setUserDefaults;
 
 
 @end

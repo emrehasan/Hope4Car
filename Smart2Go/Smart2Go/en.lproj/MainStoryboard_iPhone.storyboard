@@ -7,29 +7,32 @@
         <!--Navigation Controller-->
         <scene sceneID="9Q2-r8-56y">
             <objects>
-                <navigationController storyboardIdentifier="MainNavController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="FKh-At-QUS" sceneMemberID="viewController">
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4I-Po-Ft4">
+                <navigationController storyboardIdentifier="MainNavController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKh-At-QUS" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="D4I-Po-Ft4">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dSU-cF-FZH">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="VnG-9E-uaR"/>
+                        <segue destination="fZy-nW-Xet" kind="relationship" relationship="rootViewController" id="Qek-GT-81I"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4c-qu-rOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="-12"/>
+            <point key="canvasLocation" x="-696" y="204"/>
         </scene>
-        <!--Com appdy smart 2go View Controller - Hope4CarVC-->
+        <!--Com appdy smart 2go View Controller - Hope4Car-->
         <scene sceneID="5">
             <objects>
-                <viewController storyboardIdentifier="Hope4CarVC" title="Hope4CarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="com_appdy_smart2goViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Hope4CarVC" title="Hope4Car" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="com_appdy_smart2goViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-iX-T5d">
@@ -46,31 +49,56 @@
                             <constraint firstItem="XVi-iX-T5d" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="rbP-FU-iAY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF">
-                        <barButtonItem key="leftBarButtonItem" image="menuIcon.png" id="mpu-4p-eIf"/>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home.png" id="ptj-bm-N2L"/>
+                    <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="XVi-iX-T5d" id="rsJ-JM-0ES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="-59"/>
+            <point key="canvasLocation" x="613" y="-621"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab Bar Controller - Hope4Car-->
+        <scene sceneID="13z-47-bqB">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="fZy-nW-Xet" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Hope4Car" id="vGC-4x-MDE"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="uyv-kn-sav">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="kf2-5v-vPs"/>
+                        <segue destination="QBM-YH-Dly" kind="relationship" relationship="viewControllers" id="5y4-yx-hrc"/>
+                        <segue destination="n4Y-Qg-Fhy" kind="relationship" relationship="viewControllers" id="qQB-MR-iz1"/>
+                        <segue destination="tLR-0z-Y7W" kind="relationship" relationship="viewControllers" id="P89-Ez-OnF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uD0-oV-Qud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-167" y="220"/>
+        </scene>
+        <!--SettingsVC View Controller - Settings-->
         <scene sceneID="zfZ-qm-cqV">
             <objects>
-                <viewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBM-YH-Dly" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBM-YH-Dly" customClass="SettingsVCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aAN-qn-KHW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-Xx-3Xm">
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0m9-DM-8mH"/>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-0H-bgy"/>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="aE1-YR-Afk"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="aE1-YR-Afk">
+                                        <connections>
+                                            <action selector="radiusValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="Jvz-qj-z9o"/>
+                                        </connections>
+                                    </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car2Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-rj-181">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -91,7 +119,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="waq-8X-XU2"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="waq-8X-XU2">
+                                        <connections>
+                                            <action selector="fuelMinValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="sHJ-sV-tzI"/>
+                                        </connections>
+                                    </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fuel Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-62-DYB">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -102,7 +134,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H94-9W-Vps"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H94-9W-Vps">
+                                        <connections>
+                                            <action selector="fuelMaxValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="fFb-Mg-Wf8"/>
+                                        </connections>
+                                    </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fuel Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OY-2K-za7">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -113,52 +149,53 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-Na-0xc"/>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-u4-YdJ"/>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-Ad-YZo">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-Na-0xc">
+                                        <connections>
+                                            <action selector="switchedFuelMin:" destination="QBM-YH-Dly" eventType="valueChanged" id="4TT-bO-3b2"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-u4-YdJ">
+                                        <connections>
+                                            <action selector="switchedFuelMax:" destination="QBM-YH-Dly" eventType="valueChanged" id="Ae7-HS-U9O"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="PvP-Ad-YZo" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="4jS-34-Nks"/>
                                     <constraint firstItem="Pr0-KN-PgK" firstAttribute="bottom" secondItem="FaS-0H-bgy" secondAttribute="bottom" type="default" id="6y3-2u-XFW"/>
-                                    <constraint firstAttribute="bottom" secondItem="H94-9W-Vps" secondAttribute="bottom" constant="144" id="8Mo-bg-H2v"/>
                                     <constraint firstAttribute="trailing" secondItem="H94-9W-Vps" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8Zc-ng-O9k"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="top" secondItem="GO8-3d-uSI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8bM-Hw-7zz"/>
-                                    <constraint firstItem="g3A-2s-Kfw" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="440" id="9Ol-lw-Fm2"/>
                                     <constraint firstItem="gR1-rj-181" firstAttribute="bottom" secondItem="0m9-DM-8mH" secondAttribute="bottom" type="default" id="Afc-Lz-AR7"/>
                                     <constraint firstItem="fOR-pD-EzP" firstAttribute="leading" secondItem="GO8-3d-uSI" secondAttribute="leading" type="default" id="EUd-O4-0fm"/>
+                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="bottom" secondItem="v4B-Na-0xc" secondAttribute="bottom" type="default" id="ExX-23-TFJ"/>
                                     <constraint firstItem="gR1-rj-181" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GUH-HE-ai1"/>
                                     <constraint firstItem="GO8-3d-uSI" firstAttribute="centerX" secondItem="aE1-YR-Afk" secondAttribute="centerX" type="default" id="GzZ-7I-8wK"/>
                                     <constraint firstItem="Kl5-u4-YdJ" firstAttribute="centerY" secondItem="0OY-2K-za7" secondAttribute="centerY" type="default" id="Hp7-q5-vs2"/>
                                     <constraint firstAttribute="trailing" secondItem="v4B-Na-0xc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KJe-ix-4Qt"/>
                                     <constraint firstItem="z6W-62-DYB" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LfA-WG-S3t"/>
+                                    <constraint firstItem="FaS-0H-bgy" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="94" id="SP1-k4-lSv"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SRr-zH-VgU"/>
-                                    <constraint firstItem="Kl5-u4-YdJ" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="427" id="Sy2-oc-Zos"/>
-                                    <constraint firstItem="FaS-0H-bgy" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="176" id="TR1-RH-az9"/>
+                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="156" id="Sg9-bO-Vr7"/>
                                     <constraint firstItem="g3A-2s-Kfw" firstAttribute="leading" secondItem="fOR-pD-EzP" secondAttribute="leading" type="default" id="UW8-jr-HcM"/>
-                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="328" id="V2j-IK-9Kl"/>
-                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="341" id="V4M-JS-dZp"/>
                                     <constraint firstAttribute="trailing" secondItem="Kl5-u4-YdJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VuH-i5-zDd"/>
                                     <constraint firstAttribute="trailing" secondItem="waq-8X-XU2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W2r-ye-068"/>
                                     <constraint firstAttribute="trailing" secondItem="FaS-0H-bgy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W7I-hH-ZJh"/>
-                                    <constraint firstItem="PvP-Ad-YZo" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZBj-Xy-SBb"/>
-                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="248" id="cju-Tk-EJL"/>
+                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="WsX-EE-hva"/>
+                                    <constraint firstItem="z6W-62-DYB" firstAttribute="baseline" secondItem="fOR-pD-EzP" secondAttribute="baseline" type="default" id="YK8-UB-PEP"/>
+                                    <constraint firstItem="g3A-2s-Kfw" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="358" id="d8K-cm-GaW"/>
                                     <constraint firstItem="Pr0-KN-PgK" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eiV-Z1-Tqg"/>
-                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="238" id="gba-sD-3sj"/>
-                                    <constraint firstItem="H94-9W-Vps" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="470" id="ihM-DM-bef"/>
-                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="ij2-4m-Kc3"/>
+                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="243" id="gdi-xu-Z2z"/>
+                                    <constraint firstItem="Kl5-u4-YdJ" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="345" id="giT-4U-79E"/>
+                                    <constraint firstItem="0m9-DM-8mH" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="31" id="kby-50-vrS"/>
+                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="289" id="khN-Yw-nc8"/>
                                     <constraint firstItem="MM6-1s-Ip3" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lsZ-CK-3aZ"/>
                                     <constraint firstItem="0OY-2K-za7" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mS1-Ai-8sB"/>
-                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="371" id="mnI-b7-Vqw"/>
-                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="centerY" secondItem="z6W-62-DYB" secondAttribute="centerY" type="default" id="pcS-io-kHJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="H94-9W-Vps" secondAttribute="bottom" constant="138" id="oJ2-5g-uKw"/>
+                                    <constraint firstItem="H94-9W-Vps" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="388" id="pCO-aj-Uhf"/>
                                     <constraint firstItem="waq-8X-XU2" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rxQ-yn-Ifj"/>
                                     <constraint firstItem="H94-9W-Vps" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="u0X-ia-r5g"/>
                                     <constraint firstAttribute="trailing" secondItem="0m9-DM-8mH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vI3-2c-CfD"/>
-                                    <constraint firstItem="0m9-DM-8mH" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="113" id="vUZ-aP-D8F"/>
                                     <constraint firstAttribute="trailing" secondItem="aE1-YR-Afk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xYl-iN-PXF"/>
+                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="166" id="yXG-DN-WCO"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -170,37 +207,199 @@
                             <constraint firstAttribute="bottom" secondItem="T4b-Xx-3Xm" secondAttribute="bottom" constant="-132" id="srJ-DM-79K"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="more.png" id="g9a-E3-LGU"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DXy-Pa-De6">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="menuIcon.png" id="jeM-jS-EJd"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JoZ-za-WH7">
-                            <rect key="frame" x="151" y="13" width="18" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
+                    <navigationItem key="navigationItem" title="Settings" id="DXy-Pa-De6">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="apL-gT-K3M">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JoZ-za-WH7">
+                                <rect key="frame" x="297" y="12" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="car2GoSwitch" destination="0m9-DM-8mH" id="fPh-L1-J7a"/>
+                        <outlet property="driveNowSwitch" destination="FaS-0H-bgy" id="sI9-5I-87r"/>
+                        <outlet property="fuelMax" destination="H94-9W-Vps" id="Ah0-Hf-5HY"/>
+                        <outlet property="fuelMaxLabel" destination="g3A-2s-Kfw" id="d4t-mp-PDq"/>
+                        <outlet property="fuelMaxSwitch" destination="Kl5-u4-YdJ" id="VIo-Yu-yk6"/>
+                        <outlet property="fuelMin" destination="waq-8X-XU2" id="0qc-iy-aE4"/>
+                        <outlet property="fuelMinLabel" destination="fOR-pD-EzP" id="GdX-5X-vXX"/>
+                        <outlet property="fuelMinSwitch" destination="v4B-Na-0xc" id="Cqa-te-nr5"/>
+                        <outlet property="radiusLabel" destination="GO8-3d-uSI" id="f8f-am-eLK"/>
+                        <outlet property="radiusSlider" destination="aE1-YR-Afk" id="Bbj-G1-hnP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpB-Vl-1gj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="636"/>
+            <point key="canvasLocation" x="619" y="-12"/>
+        </scene>
+        <!--CredentialsC2GVC - Option-->
+        <scene sceneID="Ol9-a5-5B3">
+            <objects>
+                <viewController title="Option" id="n4Y-Qg-Fhy" customClass="CredentialsC2GVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="z51-PL-qqC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionCell" id="Ynv-e7-cGv">
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionLoginCell" id="rNN-Lb-Q8j">
+                                <rect key="frame" x="0.0" y="91" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.0" green="0.60000002379999995" blue="0.59607845540000004" alpha="1" colorSpace="deviceRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="n4Y-Qg-Fhy" id="1Ec-ZQ-xUS"/>
+                            <outlet property="delegate" destination="n4Y-Qg-Fhy" id="yF5-bk-3Ws"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Car2Go" id="hM4-Re-GMO"/>
+                    <navigationItem key="navigationItem" title="Credentials Car2Go" id="SkZ-Pg-JsC">
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="0JA-BP-IoO">
+                            <connections>
+                                <action selector="saveUserSettings:" destination="n4Y-Qg-Fhy" id="hOO-4x-mOE"/>
+                            </connections>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="0JA-BP-IoO" id="RyI-vY-t8W"/>
+                        </connections>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nRh-V1-6a0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="580"/>
+        </scene>
+        <!--CredentialsDNVC - Option-->
+        <scene sceneID="1zG-k2-08R">
+            <objects>
+                <viewController title="Option" id="tLR-0z-Y7W" customClass="CredentialsDNVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="V76-9O-MoN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionCell" id="0hp-6V-3CU">
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="optionLoginCell" id="SBf-cP-mBi">
+                                <rect key="frame" x="0.0" y="91" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.0" green="0.60000002379999995" blue="0.59607845540000004" alpha="1" colorSpace="deviceRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="tLR-0z-Y7W" id="YW8-IE-6sR"/>
+                            <outlet property="delegate" destination="tLR-0z-Y7W" id="9wx-IU-Rm2"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="DriveNow" id="fAm-XC-V0W"/>
+                    <navigationItem key="navigationItem" title="Credentials DriveNow" id="Zmr-Xz-096">
+                        <barButtonItem key="backBarButtonItem" title="Menü" id="fJB-vJ-7Kz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="aaJ-te-D97">
+                            <connections>
+                                <action selector="saveUserSettings:" destination="tLR-0z-Y7W" id="wJc-45-dib"/>
+                            </connections>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="aaJ-te-D97" id="0zd-aX-CfF"/>
+                        </connections>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wmB-ah-pqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="1202"/>
         </scene>
     </scenes>
     <resources>
-        <image name="menuIcon.png" width="26" height="19"/>
+        <image name="home.png" width="29" height="29"/>
+        <image name="more.png" width="28" height="28"/>
     </resources>
+    <classes>
+        <class className="CredentialsC2GVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CredentialsC2GVC.h"/>
+            <relationships>
+                <relationship kind="action" name="saveUserSettings:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+            </relationships>
+        </class>
+        <class className="CredentialsDNVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CredentialsDNVC.h"/>
+            <relationships>
+                <relationship kind="action" name="saveUserSettings:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SettingsVCViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVCViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fuelMaxValueChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="fuelMinValueChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="radiusValueChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="switchedFuelMax:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="switchedFuelMin:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="car2GoSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="driveNowSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="fuelMax" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="fuelMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fuelMaxSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="fuelMin" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="fuelMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fuelMinSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="radiusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="radiusSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="com_appdy_smart2goViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/com_appdy_smart2goViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

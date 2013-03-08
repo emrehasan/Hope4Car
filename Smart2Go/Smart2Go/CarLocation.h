@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, assign) BOOL isC2G;
 
 /**
  *  Create a CarLocation instance
@@ -25,7 +26,7 @@
  *  <p>
  *  @return {@link CarLocation} the created instance 
  */
-- (id) initWithName: (NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate;
+- (id) initWithName: (NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate isCar2Go:(BOOL)isC2G;
 
 /**
  *  Call this method to get a {@link MKMapItem} that you need 

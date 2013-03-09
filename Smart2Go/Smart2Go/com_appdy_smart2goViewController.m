@@ -56,7 +56,7 @@
     //set necessary settings
     //set radius per default to 1000 meters
     if(_radius == nil)
-        _radius = [NSNumber numberWithInt:1000];
+        _radius = [NSNumber numberWithInt:600];
 }
 
 //set current location and display cars in the near

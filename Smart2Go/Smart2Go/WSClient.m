@@ -19,9 +19,7 @@
     
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/xml?latlng=%@,%@&sensor=true", latitude, longitude];
-    
-    NSLog(@"URLPattern:\t%@",urlPattern );
-    
+        
     //call google-api
     NSData *xmlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlPattern ]];
     NSError *error;
@@ -52,6 +50,7 @@
             
             //else
             NSString *cityLabel = [[addressComponent childNamed:@"short_name"] value];
+            NSLog(@"City-Label:\t%@", cityLabel);
             return cityLabel;
         }
     }
@@ -62,7 +61,7 @@
 - (NSArray *)loadFreeCars:(NSString *)city {
     NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:2000];
     
-    [freeCars addObjectsFromArray:[self loadFreeCarsDN]];
+    [freeCars addObjectsFromArray:[self loadFreeCarsDN:city]];
     [freeCars addObjectsFromArray:[self loadFreeCarsC2G:city]];
     
     return freeCars;
@@ -73,12 +72,15 @@
  *  <p>
  *  @return {@link NSMutableArray} with {@link FreeCar objects}
  */
-- (NSArray *)loadFreeCarsDN {
+- (NSArray *)loadFreeCarsDN:(NSString *)city {
     NSLog(@"Calling DriveNow FreeCars loading");
     NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:1100];
     
+    //retrieve
+    NSString *cityID = [self getCityIDForDriveNow:city];
+    
     //create api-url
-    NSString *urlPattern = @"https://de.drive-now.com/php/metropolis/json.vehicle_filter?";
+    NSString *urlPattern = [NSString stringWithFormat:@"https://www.drive-now.com/php/metropolis/json.vehicle_filter?cit=%@", cityID];
     
     //call server-api
     NSError *error;
@@ -136,12 +138,46 @@
     return freeCars;
 }
 
+- (NSString *)getCityIDForDriveNow:(NSString *)city {
+    if([city isEqualToString:@"Berlin"])
+        return @"6099";
+    else if([city isEqualToString:@"Düsseldorf"])
+        return @"";
+    else if([city isEqualToString:@"Düsseldorf"])
+        return @"";
+    else if([city isEqualToString:@"Düsseldorf"])
+        return @"";
+    else
+        return @"-1";
+}
+
+/**
+ *  Return the correct identifier for the car2go-API
+ *  <p>
+ *  In this case all cities that are responded by google 
+ *  are the same as awaited from the car2go-API except for
+ *  Düsseldorf that is awaited as Duesseldorf
+ *  <p>
+ *  @param city - the city that was retrieved by the Google-API
+ *  <p>
+ *  @return the correct identifier as awaited by the Car2Go-API
+ */
+- (NSString *)getCityForCar2Go:(NSString *)city {
+    if([city isEqualToString:@"Düsseldor"])
+        return @"Duesseldorf";
+    else
+        return city;
+}
+
 - (NSArray *)loadFreeCarsC2G:(NSString *)city {
     
     NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:950];
     
+    //identify cityID
+    NSString *cityID = [self getCityForCar2Go:city];
+    
     //create api-url
-    NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", city, CONSUMER_KEY];
+    NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", cityID, CONSUMER_KEY];
         
     //call server-api
     NSError *error;

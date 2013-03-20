@@ -16,19 +16,17 @@
     com_appdy_smart2goAppDelegate *delegate;
 	delegate = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
     
-    delegate.usernameC2G = _usernameTextfield.text;
-    delegate.passwordC2G = _passwordTextfield.text;
+    delegate.usernameDN = _usernameTextfield.text;
+    delegate.passwordDN = _passwordTextfield.text;
     
-    _username = delegate.usernameC2G;
-    _password = delegate.passwordC2G;
-
-    [self.navigationItem setPrompt:@"Daten sind korrekt!"];
-    self.navigationItem.leftBarButtonItem.title = @"Zurück";
+    username = delegate.usernameDN;
+    password = delegate.passwordDN;
+    
+    [self.navigationItem setPrompt:@"Saved data"];
     
     //save user credentials
     [delegate setUserDefaults];
 }
-
 
 - (BOOL)containsSubstring:(NSString *)string subString:(NSString *)subString {
     NSRange textRange;
@@ -64,8 +62,8 @@
     com_appdy_smart2goAppDelegate *delegate;
 	delegate = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
     
-    _username = delegate.usernameC2G;
-    _password = delegate.passwordC2G;
+    username = delegate.usernameDN;
+    password = delegate.passwordDN;
     
     [super viewDidLoad];
 }
@@ -79,7 +77,7 @@
 	return YES;
 }
 
-#pragma mark - table view 
+#pragma mark - table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 	return 2;
@@ -123,28 +121,27 @@
         {
             case 0:
                 cell.textLabel.text = @"Email";
-                inputField.text = _username;
+                inputField.text = username;
                 inputField.keyboardType = UIKeyboardTypeEmailAddress;
                 _usernameTextfield = inputField;
                 _usernameTextfield.delegate = self;
                 break;
             case 1:
                 cell.textLabel.text = @"Password";
-                inputField.text = _password;
+                inputField.text = password;
                 inputField.keyboardType = UIKeyboardTypeDefault;
                 inputField.secureTextEntry = YES;
                 _passwordTextfield = inputField;
                 _passwordTextfield.delegate = self;
                 break;
                 
-            default: 
+            default:
                 break;
         }
     }
     
     else {
-        //DO NOTHING
-        //YOU COULD TEST IF THE USER CAN LOG IN and show in prompt
+        //DO NOTHING YET BUT you could test login and show in prompt
     }
     
     return cell;
@@ -162,7 +159,7 @@
         
         UIBarButtonItem *activityButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
         [activityIndicator startAnimating];
-
+        
         [self.navigationItem setRightBarButtonItem:activityButton];
         
         [self.navigationItem setPrompt:@"Connecting..."];
@@ -172,12 +169,27 @@
     }
     
     //else
-        //do nothing
+    //do nothing
 }
 
 - (UIColor *) deepBlueColor
 {
     return [UIColor colorWithRed:51.0f/255.0f green:102.0f/255.0f blue:153.0f/255.0f alpha:1];
 }
+
+-(void)backToMenu {
+    [self performSegueWithIdentifier:@"backToMenu" sender:self];
+}
+
+/*
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ if([[segue identifier] isEqualToString:@"backToMenu"]) {
+ NSLog(@"WIll prepare backtomenu-segue ");
+ }
+ }*/
+
+
+
+
 
 @end

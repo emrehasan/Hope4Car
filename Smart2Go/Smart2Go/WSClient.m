@@ -10,6 +10,7 @@
 #import "SMXMLDocument.h"
 #import "JSONKit.h"
 #import "FreeCar.h"
+#import "com_appdy_smart2goAppDelegate.h"
 
 @implementation WSClient
 
@@ -59,10 +60,14 @@
 }
 
 - (NSArray *)loadFreeCars:(NSString *)city {
+    com_appdy_smart2goAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:2000];
     
-    [freeCars addObjectsFromArray:[self loadFreeCarsDN:city]];
-    [freeCars addObjectsFromArray:[self loadFreeCarsC2G:city]];
+    if(delegate.searchDN)
+        [freeCars addObjectsFromArray:[self loadFreeCarsDN:city]];
+    
+    if(delegate.searchC2G)
+        [freeCars addObjectsFromArray:[self loadFreeCarsC2G:city]];
     
     return freeCars;
 }

@@ -50,7 +50,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home.png" id="ptj-bm-N2L"/>
-                    <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF"/>
+                    <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="saN-33-iSJ"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="XVi-iX-T5d" id="rsJ-JM-0ES"/>
@@ -58,14 +60,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-621"/>
+            <point key="canvasLocation" x="619" y="-623"/>
         </scene>
         <!--Tab Bar Controller - Hope4Car-->
         <scene sceneID="13z-47-bqB">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="fZy-nW-Xet" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Hope4Car" id="vGC-4x-MDE"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uyv-kn-sav">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -92,9 +94,17 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-Xx-3Xm">
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0m9-DM-8mH"/>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-0H-bgy"/>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="aE1-YR-Afk">
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0m9-DM-8mH">
+                                        <connections>
+                                            <action selector="switchedSearchC2G:" destination="QBM-YH-Dly" eventType="valueChanged" id="Kb5-oL-eb1"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-0H-bgy">
+                                        <connections>
+                                            <action selector="switchedSearchDN:" destination="QBM-YH-Dly" eventType="valueChanged" id="uDb-jW-f9h"/>
+                                        </connections>
+                                    </switch>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="aE1-YR-Afk">
                                         <connections>
                                             <action selector="radiusValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="Jvz-qj-z9o"/>
                                         </connections>
@@ -134,68 +144,39 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H94-9W-Vps">
-                                        <connections>
-                                            <action selector="fuelMaxValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="fFb-Mg-Wf8"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fuel Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OY-2K-za7">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3A-2s-Kfw">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-Na-0xc">
                                         <connections>
                                             <action selector="switchedFuelMin:" destination="QBM-YH-Dly" eventType="valueChanged" id="4TT-bO-3b2"/>
                                         </connections>
                                     </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-u4-YdJ">
-                                        <connections>
-                                            <action selector="switchedFuelMax:" destination="QBM-YH-Dly" eventType="valueChanged" id="Ae7-HS-U9O"/>
-                                        </connections>
-                                    </switch>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="309" id="6v0-Zb-RhV"/>
                                     <constraint firstItem="Pr0-KN-PgK" firstAttribute="bottom" secondItem="FaS-0H-bgy" secondAttribute="bottom" type="default" id="6y3-2u-XFW"/>
-                                    <constraint firstAttribute="trailing" secondItem="H94-9W-Vps" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8Zc-ng-O9k"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="top" secondItem="GO8-3d-uSI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8bM-Hw-7zz"/>
                                     <constraint firstItem="gR1-rj-181" firstAttribute="bottom" secondItem="0m9-DM-8mH" secondAttribute="bottom" type="default" id="Afc-Lz-AR7"/>
                                     <constraint firstItem="fOR-pD-EzP" firstAttribute="leading" secondItem="GO8-3d-uSI" secondAttribute="leading" type="default" id="EUd-O4-0fm"/>
-                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="bottom" secondItem="v4B-Na-0xc" secondAttribute="bottom" type="default" id="ExX-23-TFJ"/>
                                     <constraint firstItem="gR1-rj-181" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GUH-HE-ai1"/>
                                     <constraint firstItem="GO8-3d-uSI" firstAttribute="centerX" secondItem="aE1-YR-Afk" secondAttribute="centerX" type="default" id="GzZ-7I-8wK"/>
-                                    <constraint firstItem="Kl5-u4-YdJ" firstAttribute="centerY" secondItem="0OY-2K-za7" secondAttribute="centerY" type="default" id="Hp7-q5-vs2"/>
                                     <constraint firstAttribute="trailing" secondItem="v4B-Na-0xc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KJe-ix-4Qt"/>
                                     <constraint firstItem="z6W-62-DYB" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LfA-WG-S3t"/>
                                     <constraint firstItem="FaS-0H-bgy" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="94" id="SP1-k4-lSv"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SRr-zH-VgU"/>
-                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="156" id="Sg9-bO-Vr7"/>
-                                    <constraint firstItem="g3A-2s-Kfw" firstAttribute="leading" secondItem="fOR-pD-EzP" secondAttribute="leading" type="default" id="UW8-jr-HcM"/>
-                                    <constraint firstAttribute="trailing" secondItem="Kl5-u4-YdJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VuH-i5-zDd"/>
+                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="324" id="VoR-No-MjJ"/>
                                     <constraint firstAttribute="trailing" secondItem="waq-8X-XU2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W2r-ye-068"/>
                                     <constraint firstAttribute="trailing" secondItem="FaS-0H-bgy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W7I-hH-ZJh"/>
-                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="WsX-EE-hva"/>
-                                    <constraint firstItem="z6W-62-DYB" firstAttribute="baseline" secondItem="fOR-pD-EzP" secondAttribute="baseline" type="default" id="YK8-UB-PEP"/>
-                                    <constraint firstItem="g3A-2s-Kfw" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="358" id="d8K-cm-GaW"/>
+                                    <constraint firstAttribute="bottom" secondItem="waq-8X-XU2" secondAttribute="bottom" constant="171" id="Y6s-Fs-zAJ"/>
+                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="220" id="YxY-Xc-RBa"/>
+                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="210" id="Z3v-pu-SoG"/>
                                     <constraint firstItem="Pr0-KN-PgK" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eiV-Z1-Tqg"/>
-                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="243" id="gdi-xu-Z2z"/>
-                                    <constraint firstItem="Kl5-u4-YdJ" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="345" id="giT-4U-79E"/>
+                                    <constraint firstItem="z6W-62-DYB" firstAttribute="bottom" secondItem="v4B-Na-0xc" secondAttribute="bottom" type="default" id="gFu-1K-Fi3"/>
                                     <constraint firstItem="0m9-DM-8mH" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="31" id="kby-50-vrS"/>
-                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="289" id="khN-Yw-nc8"/>
                                     <constraint firstItem="MM6-1s-Ip3" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lsZ-CK-3aZ"/>
-                                    <constraint firstItem="0OY-2K-za7" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mS1-Ai-8sB"/>
-                                    <constraint firstAttribute="bottom" secondItem="H94-9W-Vps" secondAttribute="bottom" constant="138" id="oJ2-5g-uKw"/>
-                                    <constraint firstItem="H94-9W-Vps" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="388" id="pCO-aj-Uhf"/>
                                     <constraint firstItem="waq-8X-XU2" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rxQ-yn-Ifj"/>
-                                    <constraint firstItem="H94-9W-Vps" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="u0X-ia-r5g"/>
                                     <constraint firstAttribute="trailing" secondItem="0m9-DM-8mH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vI3-2c-CfD"/>
+                                    <constraint firstItem="waq-8X-XU2" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="wt0-UV-kVu"/>
                                     <constraint firstAttribute="trailing" secondItem="aE1-YR-Afk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xYl-iN-PXF"/>
-                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="166" id="yXG-DN-WCO"/>
+                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="355" id="zRX-XV-mmO"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -211,8 +192,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" id="DXy-Pa-De6">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="apL-gT-K3M">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JoZ-za-WH7">
-                                <rect key="frame" x="297" y="12" width="18" height="19"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JoZ-za-WH7">
+                                <rect key="frame" x="297" y="11" width="18" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -230,9 +211,6 @@
                     <connections>
                         <outlet property="car2GoSwitch" destination="0m9-DM-8mH" id="fPh-L1-J7a"/>
                         <outlet property="driveNowSwitch" destination="FaS-0H-bgy" id="sI9-5I-87r"/>
-                        <outlet property="fuelMax" destination="H94-9W-Vps" id="Ah0-Hf-5HY"/>
-                        <outlet property="fuelMaxLabel" destination="g3A-2s-Kfw" id="d4t-mp-PDq"/>
-                        <outlet property="fuelMaxSwitch" destination="Kl5-u4-YdJ" id="VIo-Yu-yk6"/>
                         <outlet property="fuelMin" destination="waq-8X-XU2" id="0qc-iy-aE4"/>
                         <outlet property="fuelMinLabel" destination="fOR-pD-EzP" id="GdX-5X-vXX"/>
                         <outlet property="fuelMinSwitch" destination="v4B-Na-0xc" id="Cqa-te-nr5"/>
@@ -275,8 +253,8 @@
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="n4Y-Qg-Fhy" id="1Ec-ZQ-xUS"/>
-                            <outlet property="delegate" destination="n4Y-Qg-Fhy" id="yF5-bk-3Ws"/>
+                            <outlet property="dataSource" destination="n4Y-Qg-Fhy" id="6wH-IU-oPM"/>
+                            <outlet property="delegate" destination="n4Y-Qg-Fhy" id="1U7-Io-usz"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Car2Go" id="hM4-Re-GMO"/>
@@ -373,16 +351,13 @@
         <class className="SettingsVCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVCViewController.h"/>
             <relationships>
-                <relationship kind="action" name="fuelMaxValueChanged:" candidateClass="UISlider"/>
                 <relationship kind="action" name="fuelMinValueChanged:" candidateClass="UISlider"/>
                 <relationship kind="action" name="radiusValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="switchedFuelMax:" candidateClass="UISwitch"/>
                 <relationship kind="action" name="switchedFuelMin:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="switchedSearchC2G:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="switchedSearchDN:" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="car2GoSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="driveNowSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="fuelMax" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="fuelMaxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fuelMaxSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="fuelMin" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="fuelMinLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fuelMinSwitch" candidateClass="UISwitch"/>

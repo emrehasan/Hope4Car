@@ -22,8 +22,7 @@
     username = delegate.usernameDN;
     password = delegate.passwordDN;
     
-    [self.navigationItem setPrompt:@"Daten sind korrekt!"];
-    self.navigationItem.leftBarButtonItem.title = @"Zurück";
+    [self.navigationItem setPrompt:@"Saved data"];
     
     //save user credentials
     [delegate setUserDefaults];
@@ -73,6 +72,11 @@
     [super viewDidUnload];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    //add toolbarbutton
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = nil;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;

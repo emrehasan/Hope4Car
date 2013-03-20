@@ -26,6 +26,22 @@
     return self;
 }
 
+- (id) initWithName: (NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate isCar2Go:(BOOL)isC2G fuelState:(NSNumber *)fuelState {
+    if(self = [super init]) {
+        if([name isKindOfClass:[NSString class]])
+            _name = name;
+        else
+            _name = @"B-GO-XXXX";
+        
+        _address = address;
+        _coordinate = coordinate;
+        _isC2G = isC2G;
+        _fuelState = fuelState;
+    }
+    
+    return self;
+}
+
 - (NSString *)title {
     return _name;
 }

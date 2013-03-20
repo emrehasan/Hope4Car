@@ -10,13 +10,12 @@
 #import <dispatch/dispatch.h>
 #import "com_appdy_smart2goAppDelegate.h"
 
-@interface CredentialsC2GVC : UITableViewController<UITableViewDelegate,
-                                                        UITableViewDataSource,
-                                                        UITextFieldDelegate>
+@interface CredentialsC2GVC: UITableViewController<UITableViewDelegate,
+        UITableViewDataSource, UITextFieldDelegate>
 {
     NSString *username;
 	NSString *password;
-
+    
 }
 
 @property (assign, nonatomic) NSString *username;

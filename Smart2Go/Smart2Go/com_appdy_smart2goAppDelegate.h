@@ -9,6 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define USERNAME_C2G_KEY    @"com.appdy.hope4car_username_c2g"
+#define PASSWORD_C2G_KEY    @"com.appdy.hope4car_username_c2g"
+
+#define USERNAME_DN_KEY     @"com.appdy.hope4car_username_dn"
+#define PASSWORD_DN_KEY     @"com.appdy.hope4car_password_dn"
+
+#define RADIUS_KEY          @"com.appdy.hope4car_radius"
+#define FUEL_MIN_KEY        @"com.appdy.hope4car_fuel_min"
+#define FUEL_MAX_KEY        @"com.appdy.hope4car_fuel_max"
+
+#define SEARCH_C2G_KEY      @"com.appdy.hope4car_search_c2g"
+#define SEARCH_DN_KEY       @"com.appdy.hope4car_search_dn"
+
+#define LOAD_ALL_CARS       @"com.appdy.hope4car_load_all_cars"
+
 @interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -20,6 +35,18 @@
 //credentials dn
 @property (nonatomic, assign) NSString *usernameDN;
 @property (nonatomic, assign) NSString *passwordDN;
+
+//settings
+@property (nonatomic, retain) NSNumber *radius;
+@property (nonatomic, retain) NSNumber *fuelMin;
+@property (nonatomic, retain) NSNumber *fuelMax;
+
+@property (nonatomic, assign) BOOL searchC2G;
+@property (nonatomic, assign) BOOL searchDN;
+
+@property (nonatomic, assign) NSString *locCity;
+@property (nonatomic, retain) CLLocation *lastLoc;
+
 
 - (void)getUserDefaults;
 - (void)setUserDefaults;

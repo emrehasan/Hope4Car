@@ -22,6 +22,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //set delegate
+    _delegate = [[UIApplication sharedApplication] delegate];
+    [_delegate getUserDefaults];
+    
+    _delegate.fuelMin = [NSNumber numberWithInt:0];
+    [_delegate setUserDefaults];
+    
     isInitialLoad = YES;
     
     //start location manager
@@ -32,45 +39,27 @@
     }
     
     [_locationManager startUpdatingLocation];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"Called VWA-RootView");
+    [_delegate getUserDefaults];
     
+    //set necessary settings
+    //set radius per default to 500 meters
+    _radius = _delegate.radius;
+    if(_radius == nil)
+        _radius = [NSNumber numberWithInt:500];
+    else
+        NSLog(@"Set radius to %d m", [_radius intValue]);    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     //add toolbarbutton
     UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(updateCarsWithLoadingHUD)];
     
-    UISlider *slider = [[UISlider alloc] init];
-    [slider setMaximumValue:20.0f];
-    [slider setMinimumValue:0.0f];
-    UIBarButtonItem *sliderView = [[UIBarButtonItem alloc] initWithCustomView:slider];
-    [sliderView setWidth:200.0];
-
-    
-    self.toolbarItems = @[updateButton, sliderView];
-    
-    //set time
-    _timer = [NSTimer scheduledTimerWithTimeInterval:60.0
-                                              target:self
-                                            selector:@selector(updateCarsWithLoadingHUD)
-                                            userInfo:nil
-                                             repeats:YES];
-    NSLog(@"Called this one VDA");
-    
-    //set necessary settings
-    //set radius per default to 1000 meters
-    if(_radius == nil)
-        _radius = [NSNumber numberWithInt:600];
-}
-
-//set current location and display cars in the near
-- (void) viewWillAppear:(BOOL)animated {
-    
-    NSLog(@"Called this one VWA");
-    //set the timer
-    if(_timer == nil) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:60.0
-                                                  target:self
-                                                selector:@selector(updateCarsWithoutHUD)
-                                                userInfo:nil
-                                                 repeats:YES];
-    }
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = updateButton;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -91,13 +80,15 @@
 }
 
 - (void)zoomToCurrLocation {
+    //remove old overlay
+    [_mapView removeOverlays:[_mapView overlays]];
     
     NSNumber *latitude = [NSNumber numberWithDouble:_currentLocation.coordinate.latitude];
     NSNumber *longitude = [NSNumber numberWithDouble:_currentLocation.coordinate.longitude];
     
     CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 500, 500);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 800, 800);
     [_mapView setRegion:viewRegion animated:YES];
     
     //draw circle with radius
@@ -114,11 +105,15 @@
     }
     
     [_locationManager stopUpdatingLocation];
+    [self zoomToCurrLocation];
     
     if(isInitialLoad) {
         [self zoomToCurrLocation];
         isInitialLoad = NO;
     }
+    
+    //set location to appdelegate
+    _delegate.lastLoc = _currentLocation;
 }
 
 - (void)initialCallsAfterStart {
@@ -154,6 +149,7 @@
     hud.labelText = @"Loading Free Cars";
     
     [hud showAnimated:YES whileExecutingBlock:^{
+        
         if(_currentCity == nil)
            [self identifyCity];
         
@@ -181,13 +177,15 @@
     NSLog(@"FreeCars counted:\t%d", [_freeCars count]);
     
     [self addCarsToMap];
-    
     return YES;
 }
 
 - (BOOL) identifyCity {
     WSClient *wsClient = [[WSClient alloc] init];
     _currentCity = [wsClient identifyCity:_currentLocation];
+    
+    _delegate.locCity = _currentCity;
+    
     return YES;
 }
 
@@ -197,17 +195,28 @@
 }
 
 - (void)addCarsToMap {
-    for(CarLocation *carLoc in _freeCars) {
-
-        CLLocation *currCarLocation = [[CLLocation alloc] initWithCoordinate: carLoc.coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
-        
-        if([self isLocationInRadius:_currentLocation location2:currCarLocation radius:_radius])
-            [_mapView addAnnotation:carLoc];
-    }
+    [_delegate getUserDefaults];
+    [self zoomToCurrLocation];
     
-    _freeCars = nil;
+    @synchronized(_freeCars) {
+        for(CarLocation *carLoc in _freeCars) {
 
-    //[self zoomToCurrLocation];
+            CLLocation *currCarLocation = [[CLLocation alloc] initWithCoordinate: carLoc.coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
+            
+            if([self isLocationInRadius:_currentLocation location2:currCarLocation radius:_radius]) {
+                
+                if(!_delegate.fuelMin)
+                    _delegate.fuelMin = [NSNumber numberWithInt:0];
+                
+                NSLog(@"FuelMin:\t%d", [_delegate.fuelMin intValue]);
+                
+                if([carLoc.fuelState intValue] >= [_delegate.fuelMin intValue])
+                    [_mapView addAnnotation:carLoc];
+            }
+                    
+        }
+    }
+    _freeCars = nil;
 }
 
 - (void)resetCarsFromMap {

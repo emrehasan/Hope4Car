@@ -10,10 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MBProgressHUD.h"
+#import "com_appdy_smart2goAppDelegate.h"
 
 @interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
     BOOL isInitialLoad;
 }
+
+@property (atomic, assign) com_appdy_smart2goAppDelegate *delegate;
 
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
@@ -26,6 +29,6 @@
 
 @property (nonatomic, retain) NSTimer *timer;
 
-@property (nonatomic, copy) NSNumber *radius;
+@property (nonatomic, retain) NSNumber *radius;
 
 @end

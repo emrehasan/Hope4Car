@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		28040DE616EA08DF009C826C /* dn_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 28040DE516EA08DF009C826C /* dn_logo.jpeg */; };
-		28040DEA16EA3FCD009C826C /* CredentialsC2GVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */; };
 		28040DED16EA4136009C826C /* CredentialsDNVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28040DEC16EA4136009C826C /* CredentialsDNVC.m */; };
 		28040DF116EA484A009C826C /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DEE16EA484A009C826C /* more.png */; };
 		28040DF216EA484A009C826C /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DEF16EA484A009C826C /* home@2x.png */; };
 		28040DF316EA484A009C826C /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DF016EA484A009C826C /* home.png */; };
+		2812260A16F8CBFC0012ECFB /* CredentialsC2GVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2812260916F8CBFC0012ECFB /* CredentialsC2GVC.m */; };
+		285132F416EF941100CAC937 /* RNBlurModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285132F316EF941100CAC937 /* RNBlurModalView.m */; };
+		285132F616EF946400CAC937 /* RNBlurModalView.h in Sources */ = {isa = PBXBuildFile; fileRef = 285132F216EF941100CAC937 /* RNBlurModalView.h */; };
+		285132F816EF947D00CAC937 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285132F716EF947D00CAC937 /* Accelerate.framework */; };
+		285132F916EF949B00CAC937 /* RNBlurModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285132F316EF941100CAC937 /* RNBlurModalView.m */; };
 		2880127616ADE77E00DDA87F /* WSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127516ADE77E00DDA87F /* WSClient.m */; };
 		2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
 		2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
@@ -69,13 +73,16 @@
 
 /* Begin PBXFileReference section */
 		28040DE516EA08DF009C826C /* dn_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dn_logo.jpeg; sourceTree = "<group>"; };
-		28040DE816EA3FCD009C826C /* CredentialsC2GVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsC2GVC.h; sourceTree = "<group>"; };
-		28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsC2GVC.m; sourceTree = "<group>"; };
 		28040DEB16EA4136009C826C /* CredentialsDNVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsDNVC.h; sourceTree = "<group>"; };
 		28040DEC16EA4136009C826C /* CredentialsDNVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsDNVC.m; sourceTree = "<group>"; };
 		28040DEE16EA484A009C826C /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 		28040DEF16EA484A009C826C /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 		28040DF016EA484A009C826C /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		2812260816F8CBFC0012ECFB /* CredentialsC2GVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsC2GVC.h; sourceTree = "<group>"; };
+		2812260916F8CBFC0012ECFB /* CredentialsC2GVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsC2GVC.m; sourceTree = "<group>"; };
+		285132F216EF941100CAC937 /* RNBlurModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNBlurModalView.h; sourceTree = "<group>"; };
+		285132F316EF941100CAC937 /* RNBlurModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNBlurModalView.m; sourceTree = "<group>"; };
+		285132F716EF947D00CAC937 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		2880127416ADE77E00DDA87F /* WSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSClient.h; sourceTree = "<group>"; };
 		2880127516ADE77E00DDA87F /* WSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSClient.m; sourceTree = "<group>"; };
 		2880127E16ADEDB500DDA87F /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMXMLDocument.h; path = Smart2Go/SMXMLDocument.h; sourceTree = "<group>"; };
@@ -129,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285132F816EF947D00CAC937 /* Accelerate.framework in Frameworks */,
 				28EBC81116E3DF7B0039BB8B /* QuartzCore.framework in Frameworks */,
 				28CABBE016A5D64100C31911 /* AddressBook.framework in Frameworks */,
 				28CABBD616A5C9D700C31911 /* CoreLocation.framework in Frameworks */,
@@ -158,12 +166,21 @@
 		28040DE716EA3F81009C826C /* OptionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				28040DE816EA3FCD009C826C /* CredentialsC2GVC.h */,
-				28040DE916EA3FCD009C826C /* CredentialsC2GVC.m */,
 				28040DEB16EA4136009C826C /* CredentialsDNVC.h */,
 				28040DEC16EA4136009C826C /* CredentialsDNVC.m */,
+				2812260816F8CBFC0012ECFB /* CredentialsC2GVC.h */,
+				2812260916F8CBFC0012ECFB /* CredentialsC2GVC.m */,
 			);
 			name = OptionViewController;
+			sourceTree = "<group>";
+		};
+		285132F516EF941700CAC937 /* RNBlurModal */ = {
+			isa = PBXGroup;
+			children = (
+				285132F216EF941100CAC937 /* RNBlurModalView.h */,
+				285132F316EF941100CAC937 /* RNBlurModalView.m */,
+			);
+			name = RNBlurModal;
 			sourceTree = "<group>";
 		};
 		2880126916ADE2E700DDA87F /* Classes */ = {
@@ -252,9 +269,11 @@
 		28CABB8716A324B400C31911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				285132F516EF941700CAC937 /* RNBlurModal */,
 				2880129716B0A23300DDA87F /* MBProgressHUD */,
 				2880128516AF124E00DDA87F /* JSONKit */,
 				2880127D16ADE96700DDA87F /* SMXML */,
+				285132F716EF947D00CAC937 /* Accelerate.framework */,
 				28EBC81016E3DF7B0039BB8B /* QuartzCore.framework */,
 				28CABBDF16A5D64100C31911 /* AddressBook.framework */,
 				28CABBD516A5C9D700C31911 /* CoreLocation.framework */,
@@ -496,6 +515,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285132F916EF949B00CAC937 /* RNBlurModalView.m in Sources */,
+				285132F616EF946400CAC937 /* RNBlurModalView.h in Sources */,
 				28EBC86116E401720039BB8B /* com_appdy_smart2goViewController.h in Sources */,
 				28EBC86216E401720039BB8B /* SettingsVCViewController.h in Sources */,
 				28EBC86316E401720039BB8B /* com_appdy_smart2goAppDelegate.h in Sources */,
@@ -510,6 +531,7 @@
 				2880129A16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
 				28C935B316D9569100D4DC9B /* SettingsVCViewController.m in Sources */,
 				28040DED16EA4136009C826C /* CredentialsDNVC.m in Sources */,
+				2812260A16F8CBFC0012ECFB /* CredentialsC2GVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +543,7 @@
 				2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */,
 				2880129216AF266400DDA87F /* JSONKit.m in Sources */,
 				2880129B16B0A25400DDA87F /* MBProgressHUD.m in Sources */,
-				28040DEA16EA3FCD009C826C /* CredentialsC2GVC.m in Sources */,
+				285132F416EF941100CAC937 /* RNBlurModalView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

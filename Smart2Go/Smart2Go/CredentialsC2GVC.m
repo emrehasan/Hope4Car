@@ -12,18 +12,18 @@
 
 
 - (IBAction) saveUserSettings:(id)sender {
-    NSLog(@"In Method SaveSettings");
     com_appdy_smart2goAppDelegate *delegate;
 	delegate = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
     
     delegate.usernameDN = _usernameTextfield.text;
     delegate.passwordDN = _passwordTextfield.text;
     
-    username = delegate.usernameDN;
-    password = delegate.passwordDN;
+    _username = delegate.usernameDN;
+    _password = delegate.passwordDN;
     
-    [self.navigationItem setPrompt:@"Saved data"];
-    
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    [navController.navigationItem setPrompt:NSLocalizedString(@"CAR2GO_VIEW_PROMPT_MESSAGE", nil)];
+        
     //save user credentials
     [delegate setUserDefaults];
 }
@@ -62,10 +62,25 @@
     com_appdy_smart2goAppDelegate *delegate;
 	delegate = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
     
-    username = delegate.usernameDN;
-    password = delegate.passwordDN;
+    _username = delegate.usernameDN;
+    _password = delegate.passwordDN;
     
     [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"CAR2GO_VIEW_BAR_BUTTON_SAVE", nil) style:UIBarButtonSystemItemAction target:self action:@selector(saveUserSettings:)];
+    
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = saveButton;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = nil;
+    
+    [navController.navigationItem setPrompt:nil];
 }
 
 - (void)viewDidUnload {
@@ -80,24 +95,15 @@
 #pragma mark - table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return 2;
+	return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(section == 0)
-        return @"Anmeldedaten";
-    else
-        return @"";
+    return NSLocalizedString(@"CAR2GO_VIEW_SECTION_TITLE", nil);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int numberOfRows;
-    
-    if(section == 0)
-        numberOfRows = 2;
-    else
-        numberOfRows = 1;
-    
+    int numberOfRows = 2;
     return numberOfRows;
 }
 
@@ -121,14 +127,14 @@
         {
             case 0:
                 cell.textLabel.text = @"Email";
-                inputField.text = username;
+                inputField.text = _username;
                 inputField.keyboardType = UIKeyboardTypeEmailAddress;
                 _usernameTextfield = inputField;
                 _usernameTextfield.delegate = self;
                 break;
             case 1:
                 cell.textLabel.text = @"Password";
-                inputField.text = password;
+                inputField.text = _password;
                 inputField.keyboardType = UIKeyboardTypeDefault;
                 inputField.secureTextEntry = YES;
                 _passwordTextfield = inputField;
@@ -148,28 +154,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if(indexPath.section == 1) {
-        //first resign first responder
-        [self resignFirstResponder];
-        
-        //now try to save and update statusbar
-        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicator setHidesWhenStopped:YES];
-        
-        UIBarButtonItem *activityButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
-        [activityIndicator startAnimating];
-        
-        [self.navigationItem setRightBarButtonItem:activityButton];
-        
-        [self.navigationItem setPrompt:@"Connecting..."];
-        
-        [NSThread detachNewThreadSelector:@selector(saveUserSettings:) toTarget:self withObject:self];
-        
-    }
-    
-    //else
-    //do nothing
+    // DO NOTHING
 }
 
 - (UIColor *) deepBlueColor
@@ -180,16 +165,6 @@
 -(void)backToMenu {
     [self performSegueWithIdentifier:@"backToMenu" sender:self];
 }
-
-/*
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- if([[segue identifier] isEqualToString:@"backToMenu"]) {
- NSLog(@"WIll prepare backtomenu-segue ");
- }
- }*/
-
-
-
 
 
 @end

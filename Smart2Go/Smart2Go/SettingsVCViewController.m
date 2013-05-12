@@ -34,9 +34,30 @@
     }
     
     _fuelMinLabel.text = @"";
+    _fuelMaxLabel.text = @"";
+    
+    if([_delegate.fuelMin intValue] != 0) {
+        _fuelMinSwitch.on = YES;
+        _fuelMinLabel.text = [NSString stringWithFormat:@"%.0f %%", [_delegate.fuelMin floatValue]];
+        [_fuelMin setValue:[_delegate.fuelMin floatValue] animated:YES];
+    }
+    else
+        _fuelMinSwitch.on = NO;
+    
+    if([_delegate.fuelMax intValue] != 100) {
+        _fuelMaxSwitch.on = YES;
+        _fuelMaxLabel.text = [NSString stringWithFormat:@"%.0f %%", [_delegate.fuelMax floatValue]];
+        [_fuelMax setValue:[_delegate.fuelMax floatValue] animated:YES];
+    }
+    else
+        _fuelMaxSwitch.on = NO;
+    
     
     if (!_fuelMinSwitch.on)
         _fuelMin.userInteractionEnabled = NO;
+    
+    if(!_fuelMaxSwitch.on)
+        _fuelMax.userInteractionEnabled = NO;
     
     if(_delegate.searchC2G)
         [_car2GoSwitch setOn:YES animated:YES];
@@ -47,20 +68,28 @@
         [_driveNowSwitch setOn:YES animated:YES];
     else
         [_driveNowSwitch setOn:NO animated:NO];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     //add toolbarbutton
     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 	[infoButton addTarget:self action:@selector(showHelp) forControlEvents:UIControlEventTouchUpInside];
+    //[infoButton setImage:[UIImage imageNamed:@"infoBtn.png"] forState:UIControlStateNormal];
 	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
        
     UINavigationController *navController = (UINavigationController *)self.parentViewController;
     navController.navigationItem.rightBarButtonItem = modalButton;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = nil;
+}
+
 - (void)showHelp {
-    RNBlurModalView *modal = [[RNBlurModalView alloc] initWithViewController:self title:@"How to use it?" message:@"1. Set the radius for retrieve cars in your near.\n\n 2. Set fuel min if you need a car with a minimum fuel stand because you're planning to drive a long way.\n\n 3. Set fuel max if you want to find cars that you can refuel and use it afterwards costless."];
+    RNBlurModalView *modal = [[RNBlurModalView alloc] initWithViewController:self title:NSLocalizedString(@"SETTINGS_VIEW_HELP_ALERT_TITLE", nil) message:NSLocalizedString(@"SETTINGS_VIEW_HELP_TEXT", nil)];
     [modal show];
 }
 
@@ -86,9 +115,13 @@
     [_delegate setUserDefaults];
 }
 
-/*- (IBAction)fuelMaxValueChanged:(UISlider *)sender {
+- (IBAction)fuelMaxValueChanged:(UISlider *)sender {
     _fuelMaxLabel.text = [NSString stringWithFormat:@"%.0f %%", [sender value]];
-}*/
+    _delegate.fuelMax = [NSNumber numberWithInt:(int)[sender value]];
+    
+    //save
+    [_delegate setUserDefaults];
+}
 
 - (IBAction)switchedSearchC2G:(UISwitch *)sender {
     if(_car2GoSwitch.on)
@@ -114,8 +147,23 @@
 - (IBAction)switchedFuelMin:(UISwitch *)sender {
     if(_fuelMinSwitch.on)
         _fuelMin.userInteractionEnabled = YES;
-    else
+    else {
         _fuelMin.userInteractionEnabled = NO;
+        _fuelMin.value = 0.0f;
+        
+        _fuelMinLabel.text = @"0.0%";
+    }
+}
+
+- (IBAction)switchedFuelMax:(UISwitch *)sender {
+    if(_fuelMaxSwitch.on)
+        _fuelMax.userInteractionEnabled = YES;
+    else {
+        _fuelMax.userInteractionEnabled = NO;
+        _fuelMax.value = 100.0f;
+        
+        _fuelMaxLabel.text = @"100.0%";
+    }
 }
 
 

@@ -38,7 +38,9 @@
         _locationManager.delegate = self;
     }
     
-    [_locationManager startUpdatingLocation];
+    //ios does the checking if serviceEnabled for location itself and prompt it to the user for reenabling if deactivated :)
+    
+    [self startUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,16 +57,16 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //add toolbarbutton
-    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(updateCarsWithLoadingHUD)];
+    //add updatebutton
+    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startUpdatingLocation)];
     
     UINavigationController *navController = (UINavigationController *)self.parentViewController;
     navController.navigationItem.rightBarButtonItem = updateButton;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    [_timer invalidate];
-    _timer = nil;
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +78,17 @@
 #pragma mark DELEGATE LOCATION_MANAGER METHODS
 
 - (void)startUpdatingLocation {
+    
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    [navController.navigationItem setPrompt:NSLocalizedString(@"MAP_VIEW_ALERT_LOADING_FREE_CARS", nil)];
+    
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityView.hidesWhenStopped = YES;
+    [activityView startAnimating];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityView];
+    
+    navController.navigationItem.rightBarButtonItem = barButton;
+    
     [_locationManager startUpdatingLocation];
 }
 
@@ -92,13 +105,20 @@
     [_mapView setRegion:viewRegion animated:YES];
     
     //draw circle with radius
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:_currentLocation.coordinate radius:[_radius doubleValue]];
-    [_mapView addOverlay:circle];
+    if(_currentLocation != nil) {
+        MKCircle *circle = [MKCircle circleWithCenterCoordinate:_currentLocation.coordinate radius:[_radius doubleValue]];
+        [_mapView addOverlay:circle];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [_locationManager stopUpdatingLocation];
+    
     _oldLocation = _currentLocation;
+    _currentLocation = nil;
     _currentLocation = [locations objectAtIndex:0];
+    
+    NSLog(@"CurrentLocation:\t%@",[_currentLocation description]);
     
     if(_currentLocation != nil) {
         [self initialCallsAfterStart];
@@ -116,7 +136,16 @@
     _delegate.lastLoc = _currentLocation;
 }
 
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Updated Location with error:\t%@", [error description]);
+}
+
 - (void)initialCallsAfterStart {
+    
+    //identify city if not done yet
+    if(_currentCity == nil)
+       [self identifyCity];
+    
     //retrieve cars here
     [self updateCarsWithLoadingHUD];
     
@@ -126,7 +155,7 @@
 - (void)identifyCityWithLoadingHUD {
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:hud];
-    hud.labelText = @"Identifying city";
+    hud.labelText = NSLocalizedString(@"MAP_VIEW_ALERT_IDENTIFYING_CITY", nil);
     
     [hud showAnimated:YES whileExecutingBlock:^{
         [self identifyCity];
@@ -144,19 +173,12 @@
 }
 
 - (void)updateCarsWithLoadingHUD {
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:hud];
-    hud.labelText = @"Loading Free Cars";
+    [self updateCars];
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    [navController.navigationItem setPrompt:nil];
     
-    [hud showAnimated:YES whileExecutingBlock:^{
-        
-        if(_currentCity == nil)
-           [self identifyCity];
-        
-        [self updateCars];
-    } completionBlock:^{
-        [hud removeFromSuperview];
-    }];
+    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startUpdatingLocation)];
+    [navController.navigationItem setRightBarButtonItem:updateButton];
 }
 
 - (BOOL) updateCars {
@@ -165,10 +187,11 @@
     //reset freeCars
     for(int i = 0; i < [_freeCars count]; i++) {
         FreeCar *buff = [_freeCars objectAtIndex:i];
+        [_mapView removeAnnotations:_freeCars];
         buff = nil;
     }
-    _freeCars = nil;
     
+    _freeCars = nil;
     _freeCars = [[NSMutableArray alloc] initWithCapacity:100];
     
     for(FreeCar *freeCar in [wsClient loadFreeCars:_currentCity])
@@ -198,25 +221,34 @@
     [_delegate getUserDefaults];
     [self zoomToCurrLocation];
     
+    NSMutableArray *copyFreeCars;
     @synchronized(_freeCars) {
-        for(CarLocation *carLoc in _freeCars) {
+        copyFreeCars = [[NSMutableArray alloc] initWithArray:_freeCars];
+    }
+    
+    for(CarLocation *carLoc in copyFreeCars) {
 
-            CLLocation *currCarLocation = [[CLLocation alloc] initWithCoordinate: carLoc.coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
+        CLLocation *currCarLocation = [[CLLocation alloc] initWithCoordinate: carLoc.coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
+        
+        if([self isLocationInRadius:_currentLocation location2:currCarLocation radius:_radius]) {
             
-            if([self isLocationInRadius:_currentLocation location2:currCarLocation radius:_radius]) {
-                
-                if(!_delegate.fuelMin)
-                    _delegate.fuelMin = [NSNumber numberWithInt:0];
-                
-                NSLog(@"FuelMin:\t%d", [_delegate.fuelMin intValue]);
-                
-                if([carLoc.fuelState intValue] >= [_delegate.fuelMin intValue])
-                    [_mapView addAnnotation:carLoc];
-            }
-                    
+            if(!_delegate.fuelMin)
+                _delegate.fuelMin = [NSNumber numberWithInt:0];
+            
+            if(!_delegate.fuelMax)
+                _delegate.fuelMax = [NSNumber numberWithInt:100];
+            
+            //NSLog(@"FuelMin:\t%d", [_delegate.fuelMin intValue]);
+            //NSLog(@"FuelMax:\t%d", [_delegate.fuelMax intValue]);
+            
+            if([carLoc.fuelState intValue] >= [_delegate.fuelMin intValue]
+               && [carLoc.fuelState intValue] <= [_delegate.fuelMax intValue])
+                [_mapView addAnnotation:carLoc];
+            
         }
     }
-    _freeCars = nil;
+    copyFreeCars = nil;
+    //[_mapView reloadInputViews];
 }
 
 - (void)resetCarsFromMap {
@@ -281,19 +313,43 @@
             annotationView.canShowCallout = YES;
             
             if(buffCarLoc.isC2G)
-                annotationView.image = [UIImage imageNamed:@"c2g_logo.jpeg"];
+                annotationView.image = [UIImage imageNamed:@"c2gFlag.png"];
             else
-                annotationView.image = [UIImage imageNamed:@"dn_logo.jpeg"];
+                annotationView.image = [UIImage imageNamed:@"dnFlag.png"];
         }
         
         else
             annotationView.annotation = annotation;
+        
+        // Add to mapView:viewForAnnotation: after setting the image on the annotation view
+        //annotationView.canShowCallout = YES;
+        //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
         return annotationView;
     }
     
     return nil;
 }
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    for (MKAnnotationView *annView in views)
+    {
+        CGRect endFrame = annView.frame;
+        annView.frame = CGRectOffset(endFrame, 0, -500);
+        [UIView animateWithDuration:0.5
+                         animations:^{ annView.frame = endFrame; }];
+    }
+}
+
+/*
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    NSLog(@"Tapped");
+    CarLocation *location = (CarLocation*)view.annotation;
+    
+    UIAlertView *testAlert = [[UIAlertView alloc] initWithTitle:@"We will reserver" message:@"RESERVe?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    [testAlert show];
+
+}*/
 
 
 @end

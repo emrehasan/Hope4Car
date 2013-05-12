@@ -18,17 +18,15 @@
 
 @property (atomic, assign) com_appdy_smart2goAppDelegate *delegate;
 
-@property(nonatomic, retain) IBOutlet MKMapView *mapView;
+@property(atomic, retain) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, retain) CLLocation *currentLocation;
-@property (nonatomic, retain) CLLocation *oldLocation;
+@property (atomic, retain) CLLocationManager *locationManager;
+@property (atomic, retain) CLLocation *currentLocation;
+@property (atomic, retain) CLLocation *oldLocation;
 
-@property (nonatomic, copy) NSString *currentCity;
+@property (atomic, copy) NSString *currentCity;
 @property (atomic, retain) NSMutableArray *freeCars;
 
-@property (nonatomic, retain) NSTimer *timer;
-
-@property (nonatomic, retain) NSNumber *radius;
+@property (atomic, assign) NSNumber *radius;
 
 @end

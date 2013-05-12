@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Smart2Go
+
+  Created by Hasan Gürcan on 12.05.13.
+  Copyright (c) 2013 Hasan Gürcan. All rights reserved.
+*/
+
+"HOME_VIEW_START_BACKGROUND_SEARCH_TITLE" = "Hintergrundsuche starten";
+"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_YES" = "Ja";
+"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO" = "Nein";
+"HOME_VIEW_START_BACKGROUND_STARTED_TEXT" = "Klicken Sie nun auf ihr iPhone-Button. Die App sucht dann im Hintergrund weiter.";
+
+"MAP_VIEW_ALERT_LOADING_FREE_CARS" = "Lade freie Autos";
+"MAP_VIEW_ALERT_IDENTIFYING_CITY" = "Identifiziere Stadt";
+
+"SETTINGS_VIEW_FUEL_MIN" = "Benzinstand Min";
+"SETTINGS_VIEW_HELP_ALERT_TITLE" = "Wie bedienen?";
+"SETTINGS_VIEW_HELP_TEXT" = "1. Setze den Radius, um Autos in deiner Nähe zu finden.\n\n2. (Optional) Setze den Benzinstand Min. ein, um nach Autos mit einem Mindestbenzinstand zu suchen, falls du z.B das Auto für eine längere Strecke brauchst.\n\n3. (Optional) Setze den Benzinstand Max. ein, um nach Autos mit einem Maximalbenzinstand zu suchen.";
+
+"CAR2GO_VIEW_SECTION_TITLE" = "Account informationen";
+"CAR2GO_VIEW_BAR_BUTTON_SAVE" = "Speichern";
+"CAR2GO_VIEW_PROMPT_MESSAGE" = "Daten gespeichert";

@@ -12,11 +12,6 @@
 
 @interface CredentialsC2GVC: UITableViewController<UITableViewDelegate,
         UITableViewDataSource, UITextFieldDelegate>
-{
-    NSString *username;
-	NSString *password;
-    
-}
 
 @property (assign, nonatomic) NSString *username;
 @property (assign, nonatomic) NSString *password;

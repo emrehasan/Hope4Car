@@ -10,7 +10,14 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define CONSUMER_KEY    @"smart2go"
+#ifdef __MACRO_DEFINITION
+    #if defined(CONSUMER_KEY)
+        #undef CONSUMER_KEY
+    #endif
+
+    #define CONSUMER_KEY    @"hope4car13"
+#endif
+
 
 @interface WSClient : NSObject
 

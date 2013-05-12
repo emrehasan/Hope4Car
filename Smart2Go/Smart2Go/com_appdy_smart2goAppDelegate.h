@@ -45,8 +45,10 @@
 @property (nonatomic, assign) BOOL searchDN;
 
 @property (nonatomic, assign) NSString *locCity;
-@property (nonatomic, retain) CLLocation *lastLoc;
+@property (nonatomic, assign) CLLocation *lastLoc;
 
+//for background task
+@property (nonatomic, assign) BOOL foundCar;
 
 - (void)getUserDefaults;
 - (void)setUserDefaults;

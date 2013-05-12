@@ -20,7 +20,6 @@
     
     //show network activity
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
     return YES;
 }
 							
@@ -61,9 +60,9 @@
                 
                 NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadAndCheckForCars) userInfo:nil repeats:YES];
                 
-                while(true) {
+                while(!_foundCar) {
                     [timer fire];
-                    sleep(60);
+                    sleep(60*3);
                 }
                 
                 //End the task so the system knows that you are done with what you need to perform
@@ -77,6 +76,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
@@ -107,10 +107,16 @@
             if(!_fuelMin)
                 _fuelMin = [NSNumber numberWithInt:0];
             
-            NSLog(@"FuelMin:\t%d", [_fuelMin intValue]);
+            if(!_fuelMax)
+                _fuelMax = [NSNumber numberWithInt:100];
             
-            if([carLoc.fuelState intValue] >= [_fuelMin intValue])
-                [self notifyUser];
+            if([carLoc.fuelState intValue] >= [_fuelMin intValue] &&
+               [carLoc.fuelState intValue] <= [_fuelMax intValue]) {
+                NSString *message = [NSString stringWithFormat:@"%@ %d%% Benzin", carLoc.name, [carLoc.fuelState intValue] ];
+                [self notifyUser: message];
+                _foundCar = YES;
+                break;
+            }
         }
     }
 }
@@ -131,10 +137,12 @@
         return NO;
 }
 
-- (void)notifyUser {
+- (void)notifyUser:(NSString *)message {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    [notification setAlertBody:@"Auto in ihrer Nähe gefunden"];
+    [notification setAlertBody:[NSString stringWithFormat:@"Auto in ihrer Nähe gefunden:%@", message]];
     [notification setRepeatInterval:0];
+    //[notification setApplicationIconBadgeNumber:1];
+    [notification setSoundName:UILocalNotificationDefaultSoundName];
     
     UIApplication *app = [UIApplication sharedApplication];
     [app presentLocalNotificationNow:notification];
@@ -156,6 +164,13 @@
     _fuelMax = [prefs objectForKey:FUEL_MAX_KEY];
     _searchC2G = [prefs boolForKey:SEARCH_C2G_KEY];
     _searchDN = [prefs boolForKey:SEARCH_DN_KEY];
+    
+    if(_radius == nil)
+        _radius = [NSNumber numberWithInt:500];
+    if(_fuelMin == nil)
+        _fuelMin = [NSNumber numberWithInt:0];
+    if(_fuelMax == nil)
+        _fuelMax = [NSNumber numberWithInt:100];
 }
 
 - (void)setUserDefaults {

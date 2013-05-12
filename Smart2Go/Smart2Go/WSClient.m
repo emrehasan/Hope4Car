@@ -92,7 +92,7 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlPattern]];
     NSURLResponse *response;
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
+        
     //check if xml could be created
     if(error != nil)
         NSLog(@"Error Occured:%@", [error description]);
@@ -129,7 +129,7 @@
             buffCar.isCar2Go = NO;
             buffCar.latitude = latitude;
             buffCar.longitude = longitude;
-            buffCar.address = address;
+            buffCar.address = @"";
             buffCar.fuel = fuel;
             buffCar.engineType = engineType;
             buffCar.interior = interior;
@@ -253,7 +253,7 @@
             buffCar.exterior = exterior;
             buffCar.interior = interior;
             buffCar.vin = vin;
-            buffCar.address = address;
+            buffCar.address = @"";
             
             //add to array
             [freeCarsArr addObject:buffCar];

@@ -6,10 +6,13 @@
   Copyright (c) 2013 Hasan Gürcan. All rights reserved.
 */
 
+"APP_DELEGATE_FOUND_CAR_TEXT" = "Auto in ihrer Nähe gefunden";
+
+"INTRODUCTION_FIRST_PAGE" = "Diese App ermöglicht die Suche nach freien Autos von Car2Go und DriveNow.\nEs erlaubt die Einstellungen von Suchkriterien wie dem Radius und dem Benzinstand.\n\nDie Hauptfunktion ist aber die Suche nach einem Auto im Hintergrund, dass die Suchkriterien\nberücksichtigt und den Nutzer benachrichtigt.";
 "HOME_VIEW_START_BACKGROUND_SEARCH_TITLE" = "Hintergrundsuche starten";
 "HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_YES" = "Ja";
 "HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO" = "Nein";
-"HOME_VIEW_START_BACKGROUND_STARTED_TEXT" = "Klicken Sie nun auf ihr iPhone-Button. Die App sucht dann im Hintergrund weiter.";
+"HOME_VIEW_START_BACKGROUND_STARTED_TEXT" = "Klicken Sie nun auf ihr iPhone-Button. Die App sucht dann im Hintergrund weiter. Beachten Sie, wenn Sie die Applikation wieder öffnen, dann wird die Suche automatisch beendet.";
 
 "MAP_VIEW_ALERT_LOADING_FREE_CARS" = "Lade freie Autos";
 "MAP_VIEW_ALERT_IDENTIFYING_CITY" = "Identifiziere Stadt";

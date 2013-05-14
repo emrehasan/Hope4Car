@@ -147,7 +147,7 @@
 		2880B9B8173FC1DD00BA4618 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		28C935B116D9569100D4DC9B /* SettingsVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVCViewController.h; sourceTree = "<group>"; };
 		28C935B216D9569100D4DC9B /* SettingsVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVCViewController.m; sourceTree = "<group>"; };
-		28CABB8416A324B400C31911 /* Smart2Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart2Go.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CABB8416A324B400C31911 /* Hope4Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hope4Car.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB8816A324B400C31911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28CABB8A16A324B400C31911 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28CABB8C16A324B400C31911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -320,7 +320,7 @@
 		28CABB8516A324B400C31911 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28CABB8416A324B400C31911 /* Smart2Go.app */,
+				28CABB8416A324B400C31911 /* Hope4Car.app */,
 				28CABBAE16A324B400C31911 /* Smart2GoTests.octest */,
 			);
 			name = Products;
@@ -492,7 +492,7 @@
 			);
 			name = Smart2Go;
 			productName = Smart2Go;
-			productReference = 28CABB8416A324B400C31911 /* Smart2Go.app */;
+			productReference = 28CABB8416A324B400C31911 /* Hope4Car.app */;
 			productType = "com.apple.product-type.application";
 		};
 		28CABBAD16A324B400C31911 /* Smart2GoTests */ = {
@@ -734,6 +734,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Hope4Car;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -756,6 +757,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = Hope4Car;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -769,7 +771,7 @@
 				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
 				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hope4Car;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -781,7 +783,7 @@
 				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
 				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hope4Car;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

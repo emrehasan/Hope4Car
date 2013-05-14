@@ -11,6 +11,7 @@
 @interface Hope4CarViewController : UIViewController<UIActionSheetDelegate>
 
 - (IBAction)startBackgroundSearch:(id)sender;
+- (IBAction)showIntroduction:(id)sender;
 
 
 @end

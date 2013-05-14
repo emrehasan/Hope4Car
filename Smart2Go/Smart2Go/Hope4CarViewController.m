@@ -9,6 +9,7 @@
 #import "Hope4CarViewController.h"
 #import "com_appdy_smart2goAppDelegate.h"
 #import "RNBlurModalView.h"
+#import "com_appdy_smart2goAppDelegate.h"
 
 @interface Hope4CarViewController ()
 
@@ -36,7 +37,30 @@
     navController.navigationItem.rightBarButtonItem = nil;
 }
 
+- (IBAction)showIntroduction:(id)sender {
+    RNBlurModalView *modalView = [[RNBlurModalView alloc] initWithTitle:@"Hope4Car" message:NSLocalizedString(@"INTRODUCTION_FIRST_PAGE", nil)];
+    [modalView show];
+}
+
 -(void)viewDidAppear:(BOOL)animated {
+    com_appdy_smart2goAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+    [delegate getUserDefaults];
+    
+    if(delegate.isFirstLaunch) {
+       [self showIntroduction:self];
+        delegate.isFirstLaunch = NO;
+        [delegate setUserDefaults];
+    }
+    
+    //add toolbarbutton
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	[infoButton addTarget:self action:@selector(showIntroduction:) forControlEvents:UIControlEventTouchUpInside];
+    //[infoButton setImage:[UIImage imageNamed:@"infoBtn.png"] forState:UIControlStateNormal];
+	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+    navController.navigationItem.rightBarButtonItem = modalButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +72,8 @@
 - (IBAction)startBackgroundSearch:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_TITLE", nil)
                                                              delegate:self
-                                                    cancelButtonTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO", nil)
-                                               destructiveButtonTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_YES", nil)
+    cancelButtonTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO", nil)
+    destructiveButtonTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_YES", nil)
                                                     otherButtonTitles:nil];
     [actionSheet showInView:self.tabBarController.view];
 }
@@ -58,12 +82,12 @@
     //Do Nothing because cancelled
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"Button-Index:\t%d", buttonIndex);
-    //there is just one button, so activate background search
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {    
+    //activate background search
     if(buttonIndex == 0) {
         com_appdy_smart2goAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         delegate.foundCar = NO;
+        [delegate setUserDefaults];
         
         RNBlurModalView *modalView = [[RNBlurModalView alloc] initWithTitle:@"Hope4Car" message:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_STARTED_TEXT", nil)];
         [modalView show];

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define FIRST_LAUNCH_KEY    @"com.appdy.hope4car_first_launch"
+
 #define USERNAME_C2G_KEY    @"com.appdy.hope4car_username_c2g"
 #define PASSWORD_C2G_KEY    @"com.appdy.hope4car_username_c2g"
 
@@ -24,9 +26,12 @@
 
 #define LOAD_ALL_CARS       @"com.appdy.hope4car_load_all_cars"
 
-@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate>
+@interface com_appdy_smart2goAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+//location updater
+@property (atomic, retain) CLLocationManager *locationManager;
 
 //credentials c2g
 @property (nonatomic, assign) NSString *usernameC2G;
@@ -41,11 +46,12 @@
 @property (nonatomic, retain) NSNumber *fuelMin;
 @property (nonatomic, retain) NSNumber *fuelMax;
 
+@property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL searchC2G;
 @property (nonatomic, assign) BOOL searchDN;
 
 @property (nonatomic, assign) NSString *locCity;
-@property (nonatomic, assign) CLLocation *lastLoc;
+@property (nonatomic, retain) CLLocation *lastLoc;
 
 //for background task
 @property (nonatomic, assign) BOOL foundCar;

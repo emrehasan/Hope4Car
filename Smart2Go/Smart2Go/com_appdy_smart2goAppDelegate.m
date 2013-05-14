@@ -17,9 +17,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], FIRST_LAUNCH_KEY,nil]];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], SEARCH_C2G_KEY,nil]];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], SEARCH_DN_KEY,nil]];
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
     
     //show network activity
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    //[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    _foundCar = YES;
     return YES;
 }
 							
@@ -27,55 +34,67 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    //_foundCar = YES;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    //Check if our iOS version supports multitasking I.E iOS 4
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)]) {
-        
-        //Check if device supports mulitasking
-        if ([[UIDevice currentDevice] isMultitaskingSupported]) {
+    if(!_foundCar) {
+        NSLog(@"In Searchmode");
+        //Check if our iOS version supports multitasking I.E iOS 4
+        if ([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)]) {
             
-            //Get the shared application instance
-            UIApplication *application = [UIApplication sharedApplication];
-            
-            //Create a task object
-            __block UIBackgroundTaskIdentifier background_task;
-            background_task = [application beginBackgroundTaskWithExpirationHandler: ^ {
+            //Check if device supports mulitasking
+            if ([[UIDevice currentDevice] isMultitaskingSupported]) {
                 
-                //Tell the system that we are done with the tasks
-                [application endBackgroundTask: background_task];
+                //Get the shared application instance
+                UIApplication *application = [UIApplication sharedApplication];
                 
-                //Set the task to be invalid
-                background_task = UIBackgroundTaskInvalid;
-                
-                //System will be shutting down the app at any point in time now
-            }];
-            //Background tasks require you to use asynchronous tasks
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                //Perform your tasks that your application requires
-                NSLog(@"\n\nRunning in the background!\n\n");
-                
-                NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadAndCheckForCars) userInfo:nil repeats:YES];
-                
-                while(!_foundCar) {
-                    [timer fire];
-                    sleep(60*3);
-                }
-                
-                //End the task so the system knows that you are done with what you need to perform
-                [application endBackgroundTask: background_task];
-                
-                background_task = UIBackgroundTaskInvalid; //Invalidate the background_task
-            });
+                //Create a task object
+                __block UIBackgroundTaskIdentifier background_task;
+                background_task = [application beginBackgroundTaskWithExpirationHandler: ^ {
+                    
+                    //Tell the system that we are done with the tasks
+                    [application endBackgroundTask: background_task];
+                    
+                    //Set the task to be invalid
+                    background_task = UIBackgroundTaskInvalid;
+                    
+                    //System will be shutting down the app at any point in time now
+                }];
+                //Background tasks require you to use asynchronous tasks
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    
+                    //Perform your tasks that your application requires
+                    NSLog(@"\n\nRunning in the background!\n\n");
+                    
+                    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadAndCheckForCars) userInfo:nil repeats:YES];
+                    
+                    while(!_foundCar) {
+                        NSLog(@"Timer Fired");
+                        [timer fire];
+                        sleep(10*2);
+                    }
+                    
+                    [_locationManager stopUpdatingLocation];
+                    
+                    //End the task so the system knows that you are done with what you need to perform
+                    [application endBackgroundTask: background_task];
+                    
+                    background_task = UIBackgroundTaskInvalid; //Invalidate the background_task
+                });
+            }
         }
     }
+    
+    else
+        NSLog(@"Not searching");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    _foundCar = YES;
     //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
@@ -90,10 +109,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Called didUpdateLocations");
+    _lastLoc = [locations objectAtIndex:0];
+    [_locationManager stopUpdatingLocation];
+}
+
 - (void)loadAndCheckForCars {
+    [_locationManager startUpdatingLocation];
+    
     WSClient *wsClient = [[WSClient alloc] init];
     
-    NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:500];
+    //wait for next turn if no location is available
+    if(_lastLoc == nil) {
+        NSLog(@"Waiting for location update");
+        return;
+    }
+    
+    //identify city if not available yet
+    if(_locCity == nil && _lastLoc != nil)
+        _locCity = [wsClient identifyCity:_lastLoc];
+    
+    NSMutableArray *freeCars = [[NSMutableArray alloc] initWithCapacity:2000];
         
     for(FreeCar *freeCar in [wsClient loadFreeCars:_locCity])
         [freeCars addObject:[freeCar parseToCarLocation]];
@@ -109,13 +146,13 @@
             
             if(!_fuelMax)
                 _fuelMax = [NSNumber numberWithInt:100];
-            
+                        
             if([carLoc.fuelState intValue] >= [_fuelMin intValue] &&
                [carLoc.fuelState intValue] <= [_fuelMax intValue]) {
-                NSString *message = [NSString stringWithFormat:@"%@ %d%% Benzin", carLoc.name, [carLoc.fuelState intValue] ];
+                NSString *message = [NSString stringWithFormat:@"[%@%% Benzin]", carLoc.name ];
                 [self notifyUser: message];
                 _foundCar = YES;
-                break;
+                return;
             }
         }
     }
@@ -139,7 +176,7 @@
 
 - (void)notifyUser:(NSString *)message {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    [notification setAlertBody:[NSString stringWithFormat:@"Auto in ihrer Nähe gefunden:%@", message]];
+    [notification setAlertBody:[NSString stringWithFormat:@"%@:\t%@", NSLocalizedString(@"APP_DELEGATE_FOUND_CAR_TEXT", nil), message]];
     [notification setRepeatInterval:0];
     //[notification setApplicationIconBadgeNumber:1];
     [notification setSoundName:UILocalNotificationDefaultSoundName];
@@ -155,6 +192,7 @@
     //save if not done yet
     [prefs synchronize];
     
+    _isFirstLaunch = [prefs boolForKey:FIRST_LAUNCH_KEY];
     _usernameC2G = [prefs stringForKey:USERNAME_C2G_KEY];
     _passwordC2G = [prefs stringForKey:PASSWORD_C2G_KEY];
     _usernameDN = [prefs stringForKey:USERNAME_DN_KEY];
@@ -176,6 +214,7 @@
 - (void)setUserDefaults {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
+    [prefs setBool:_isFirstLaunch forKey:FIRST_LAUNCH_KEY];
     [prefs setObject:_usernameC2G forKey:USERNAME_C2G_KEY];
     [prefs setObject:_passwordC2G forKey:PASSWORD_C2G_KEY];
     [prefs setObject:_usernameDN forKey:USERNAME_DN_KEY];

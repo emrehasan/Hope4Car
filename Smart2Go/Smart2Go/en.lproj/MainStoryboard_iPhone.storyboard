@@ -272,8 +272,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-Ce-wJN">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-Ce-wJN">
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="340" id="QL2-Lo-j7e"/>
                                 </constraints>
@@ -290,7 +293,7 @@ Either we nor the used data guarantees full accuracy and completeness.
 Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -315,26 +318,16 @@ Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background_home.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN"/>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-2S-wcy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cF-by-0Fk">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="DYz-FL-JGw"/>
-                                    <constraint firstAttribute="height" constant="256" id="QCs-1q-2ol"/>
+                                    <constraint firstAttribute="height" constant="59" id="8W1-gx-vnE"/>
+                                    <constraint firstAttribute="width" constant="203" id="q96-Au-f1S"/>
                                 </constraints>
-                                <string key="text">Hope4Car
-
-This App enables you to search for free cars of Car2Go and DriveNow.
-It allows you also to set search-criteria like radius and the fuel-state.
-
-The main-function of this app is to search for a car with your set search-criteria
-in the background and to alert you.</string>
-                                <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cF-by-0Fk">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Start Background search">
+                                <state key="normal" image="Icon.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -350,11 +343,9 @@ in the background and to alert you.</string>
                         <constraints>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="bottom" secondItem="mnz-lC-Uoh" secondAttribute="bottom" type="default" id="5Le-4Y-r76"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="leading" secondItem="mnz-lC-Uoh" secondAttribute="leading" type="default" id="7N3-TK-Dy1"/>
-                            <constraint firstItem="2cF-by-0Fk" firstAttribute="centerX" secondItem="PjJ-Ok-1wN" secondAttribute="centerX" type="default" id="CRG-1d-O9C"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="top" secondItem="mnz-lC-Uoh" secondAttribute="top" type="default" id="ECc-u3-13X"/>
-                            <constraint firstItem="2cF-by-0Fk" firstAttribute="centerX" secondItem="Wgh-2S-wcy" secondAttribute="centerX" type="default" id="tmr-0B-lh4"/>
-                            <constraint firstItem="Wgh-2S-wcy" firstAttribute="top" secondItem="mnz-lC-Uoh" secondAttribute="top" constant="25" id="uZQ-6s-nLP"/>
-                            <constraint firstAttribute="bottom" secondItem="2cF-by-0Fk" secondAttribute="bottom" constant="30" id="wU5-f4-glT"/>
+                            <constraint firstItem="2cF-by-0Fk" firstAttribute="centerX" secondItem="PjJ-Ok-1wN" secondAttribute="centerX" type="default" id="XfO-Kv-Ftg"/>
+                            <constraint firstItem="2cF-by-0Fk" firstAttribute="centerY" secondItem="PjJ-Ok-1wN" secondAttribute="centerY" type="default" id="nxT-zf-xRb"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="trailing" secondItem="mnz-lC-Uoh" secondAttribute="trailing" type="default" id="ynh-Wx-0OK"/>
                         </constraints>
                     </view>
@@ -417,7 +408,7 @@ in the background and to alert you.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="background_home.jpg" width="400" height="258"/>
+        <image name="Icon.png" width="57" height="57"/>
         <image name="c2g.png" width="30" height="30"/>
         <image name="cog_02.png" width="26" height="26"/>
         <image name="globe.png" width="26" height="26"/>
@@ -436,6 +427,7 @@ in the background and to alert you.</string>
         <class className="Hope4CarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Hope4CarViewController.h"/>
             <relationships>
+                <relationship kind="action" name="showIntroduction:"/>
                 <relationship kind="action" name="startBackgroundSearch:"/>
             </relationships>
         </class>

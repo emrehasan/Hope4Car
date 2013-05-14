@@ -86,6 +86,7 @@
     
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"https://www.drive-now.com/php/metropolis/json.vehicle_filter?cit=%@", cityID];
+    NSLog(@"Drivenow-Url:\t%@", urlPattern);
     
     //call server-api
     NSError *error;
@@ -183,7 +184,7 @@
     
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", cityID, CONSUMER_KEY];
-        
+            
     //call server-api
     NSError *error;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlPattern]];

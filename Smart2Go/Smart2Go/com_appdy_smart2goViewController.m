@@ -118,17 +118,14 @@
     _currentLocation = nil;
     _currentLocation = [locations objectAtIndex:0];
     
-    NSLog(@"CurrentLocation:\t%@",[_currentLocation description]);
-    
     if(_currentLocation != nil) {
         [self initialCallsAfterStart];
     }
     
     [_locationManager stopUpdatingLocation];
-    [self zoomToCurrLocation];
+    //[self zoomToCurrLocation];
     
     if(isInitialLoad) {
-        [self zoomToCurrLocation];
         isInitialLoad = NO;
     }
     
@@ -173,12 +170,20 @@
 }
 
 - (void)updateCarsWithLoadingHUD {
-    [self updateCars];
-    UINavigationController *navController = (UINavigationController *)self.parentViewController;
-    [navController.navigationItem setPrompt:nil];
-    
-    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startUpdatingLocation)];
-    [navController.navigationItem setRightBarButtonItem:updateButton];
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self updateCars];
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            UINavigationController *navController = (UINavigationController *)self.parentViewController;
+            [navController.navigationItem setPrompt:nil];
+            
+            UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startUpdatingLocation)];
+            [navController.navigationItem setRightBarButtonItem:updateButton];
+            
+            [self zoomToCurrLocation];
+        });
+    });
+   
 }
 
 - (BOOL) updateCars {

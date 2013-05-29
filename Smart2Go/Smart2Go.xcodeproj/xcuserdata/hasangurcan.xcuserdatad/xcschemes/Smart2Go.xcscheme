@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "28CABB8316A324B400C31911"
-               BuildableName = "Smart2Go.app"
+               BuildableName = "Hope4Car.app"
                BlueprintName = "Smart2Go"
                ReferencedContainer = "container:Smart2Go.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "28CABB8316A324B400C31911"
-            BuildableName = "Smart2Go.app"
+            BuildableName = "Hope4Car.app"
             BlueprintName = "Smart2Go"
             ReferencedContainer = "container:Smart2Go.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "28CABB8316A324B400C31911"
-            BuildableName = "Smart2Go.app"
+            BuildableName = "Hope4Car.app"
             BlueprintName = "Smart2Go"
             ReferencedContainer = "container:Smart2Go.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "28CABB8316A324B400C31911"
-            BuildableName = "Smart2Go.app"
+            BuildableName = "Hope4Car.app"
             BlueprintName = "Smart2Go"
             ReferencedContainer = "container:Smart2Go.xcodeproj">
          </BuildableReference>

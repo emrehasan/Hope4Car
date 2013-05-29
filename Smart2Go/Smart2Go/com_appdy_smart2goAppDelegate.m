@@ -10,22 +10,36 @@
 #import "WSClient.h"
 #import "FreeCar.h"
 #import "CarLocation.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @implementation com_appdy_smart2goAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //initialize google analytics
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+
+    
     // Override point for customization after application launch.
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], FIRST_LAUNCH_KEY,nil]];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], SEARCH_C2G_KEY,nil]];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], SEARCH_DN_KEY,nil]];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], SEARCH_DN_KEY,nil]];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     
     //show network activity
-    //[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     _foundCar = YES;
     return YES;
 }

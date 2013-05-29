@@ -11,8 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MBProgressHUD.h"
 #import "com_appdy_smart2goAppDelegate.h"
+#import "GAITrackedViewController.h"
 
-@interface com_appdy_smart2goViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
+@interface com_appdy_smart2goViewController : GAITrackedViewController<CLLocationManagerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
     BOOL isInitialLoad;
 }
 

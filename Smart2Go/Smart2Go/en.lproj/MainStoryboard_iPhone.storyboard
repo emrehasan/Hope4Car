@@ -11,9 +11,13 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="D4I-Po-Ft4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="D4I-Po-Ft4" customClass="CustomNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="FKh-At-QUS" id="cwa-y8-f5g"/>
+                            <outlet property="navigationController" destination="FKh-At-QUS" id="pGU-cv-vUk"/>
+                        </connections>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dSU-cF-FZH">
                         <rect key="frame" x="0.0" y="436" width="320" height="44"/>
@@ -158,64 +162,34 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car2Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C51-kH-Saf">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DriveNow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16M-Cf-u1c">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-IF-gDg">
-                                        <connections>
-                                            <action selector="switchedFuelMin:" destination="QBM-YH-Dly" eventType="valueChanged" id="c18-a5-o7G"/>
-                                            <action selector="switchedSearchC2G:" destination="QBM-YH-Dly" eventType="valueChanged" id="MsA-cX-QE9"/>
-                                        </connections>
-                                    </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5gl-V1-8a4">
-                                        <connections>
-                                            <action selector="switchedFuelMin:" destination="QBM-YH-Dly" eventType="valueChanged" id="fFE-rC-zcY"/>
-                                            <action selector="switchedSearchDN:" destination="QBM-YH-Dly" eventType="valueChanged" id="6Ln-Mw-4qE"/>
-                                        </connections>
-                                    </switch>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="yKN-Gs-wQ4" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="345" id="0GE-m6-9dc"/>
                                     <constraint firstItem="UOm-bU-voa" firstAttribute="top" secondItem="Uuy-lV-gwn" secondAttribute="top" type="default" id="1al-ey-cr3"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="trailing" secondItem="waq-8X-XU2" secondAttribute="trailing" type="default" id="2de-s2-kcW"/>
-                                    <constraint firstItem="C51-kH-Saf" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2qM-q2-5u4"/>
-                                    <constraint firstItem="5gl-V1-8a4" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="58" id="6VR-Dx-96J"/>
+                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="39" id="61H-EI-yt3"/>
+                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="137" id="7cK-vJ-vOD"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="top" secondItem="GO8-3d-uSI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8bM-Hw-7zz"/>
                                     <constraint firstItem="fOR-pD-EzP" firstAttribute="leading" secondItem="GO8-3d-uSI" secondAttribute="leading" type="default" id="9ao-hq-Nzf"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="19" id="BwB-bY-cgG"/>
                                     <constraint firstItem="aE1-YR-Afk" firstAttribute="leading" secondItem="waq-8X-XU2" secondAttribute="leading" type="default" id="Ddw-Xu-2tI"/>
                                     <constraint firstItem="CJB-z8-Apf" firstAttribute="trailing" secondItem="UOm-bU-voa" secondAttribute="trailing" type="default" id="DqL-yd-8y9"/>
-                                    <constraint firstItem="CJB-z8-Apf" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="326" id="Est-js-crg"/>
-                                    <constraint firstItem="C51-kH-Saf" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="FdY-OE-yqf"/>
-                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="235" id="GOk-HI-7wU"/>
-                                    <constraint firstItem="16M-Cf-u1c" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="K5a-IL-BC8"/>
+                                    <constraint firstItem="waq-8X-XU2" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="183" id="EJi-In-6Gv"/>
                                     <constraint firstAttribute="trailing" secondItem="v4B-Na-0xc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KJe-ix-4Qt"/>
                                     <constraint firstItem="z6W-62-DYB" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LfA-WG-S3t"/>
-                                    <constraint firstItem="MM6-1s-Ip3" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="91" id="Lga-KZ-R3u"/>
+                                    <constraint firstItem="yKN-Gs-wQ4" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="293" id="LkI-tT-AUH"/>
                                     <constraint firstItem="waq-8X-XU2" firstAttribute="trailing" secondItem="UOm-bU-voa" secondAttribute="trailing" type="default" id="Np9-Cl-hEe"/>
-                                    <constraint firstItem="Uuy-lV-gwn" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="323" id="QIb-1m-yhP"/>
+                                    <constraint firstAttribute="bottom" secondItem="CJB-z8-Apf" secondAttribute="bottom" constant="219" id="Q6E-TE-6LC"/>
+                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="QhT-Co-abG"/>
                                     <constraint firstItem="waq-8X-XU2" firstAttribute="leading" secondItem="CJB-z8-Apf" secondAttribute="leading" type="default" id="TyZ-be-N8g"/>
-                                    <constraint firstAttribute="bottom" secondItem="CJB-z8-Apf" secondAttribute="bottom" constant="79" id="Zyt-CB-BRR"/>
+                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="223" id="U9Z-RW-NAr"/>
+                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="49" id="VzN-rf-DdD"/>
+                                    <constraint firstItem="Uuy-lV-gwn" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="271" id="YrB-Ki-psW"/>
                                     <constraint firstItem="z6W-62-DYB" firstAttribute="bottom" secondItem="v4B-Na-0xc" secondAttribute="bottom" type="default" id="gFu-1K-Fi3"/>
-                                    <constraint firstAttribute="trailing" secondItem="5gl-V1-8a4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ks9-51-xO2"/>
+                                    <constraint firstItem="CJB-z8-Apf" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="274" id="iuB-J7-Eb9"/>
                                     <constraint firstItem="MM6-1s-Ip3" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lsZ-CK-3aZ"/>
-                                    <constraint firstItem="Ncj-IF-gDg" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="223" id="lwO-cy-P2H"/>
-                                    <constraint firstItem="GO8-3d-uSI" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="101" id="lwc-jd-xPp"/>
-                                    <constraint firstItem="16M-Cf-u1c" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="55" id="mkz-LH-zmJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ncj-IF-gDg" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oM4-7r-F1K"/>
-                                    <constraint firstItem="yKN-Gs-wQ4" firstAttribute="centerX" secondItem="T4b-Xx-3Xm" secondAttribute="centerX" type="default" id="p0s-4n-rQf"/>
                                     <constraint firstItem="Uuy-lV-gwn" firstAttribute="leading" secondItem="T4b-Xx-3Xm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="py9-bm-ExC"/>
-                                    <constraint firstItem="v4B-Na-0xc" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="189" id="qFq-qW-B99"/>
                                     <constraint firstItem="fOR-pD-EzP" firstAttribute="leading" secondItem="yKN-Gs-wQ4" secondAttribute="leading" type="default" id="qG9-zT-1zq"/>
-                                    <constraint firstItem="C51-kH-Saf" firstAttribute="centerY" secondItem="Ncj-IF-gDg" secondAttribute="centerY" type="default" id="vLE-KF-Ogt"/>
-                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="209" id="ycF-yu-YaV"/>
+                                    <constraint firstItem="fOR-pD-EzP" firstAttribute="top" secondItem="T4b-Xx-3Xm" secondAttribute="top" constant="157" id="rJD-gQ-z7h"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -248,8 +222,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="car2GoSwitch" destination="Ncj-IF-gDg" id="qbT-cc-Is7"/>
-                        <outlet property="driveNowSwitch" destination="5gl-V1-8a4" id="qEv-D9-LtA"/>
                         <outlet property="fuelMax" destination="CJB-z8-Apf" id="2Am-1F-BHo"/>
                         <outlet property="fuelMaxLabel" destination="yKN-Gs-wQ4" id="QvJ-em-vG2"/>
                         <outlet property="fuelMaxSwitch" destination="UOm-bU-voa" id="NgI-Oz-WDj"/>
@@ -285,12 +257,7 @@
 It uses the Car2Go© Open API. This app is not an official app of Car2Go©.
 Car2Go@ is a registered trade-mark of car2go GmbH.
 
-It uses the Open DriveNow© API which does not guarantee real-time data.
-DrivewNow© is a registered trade-mark of DriveNow GmbH &amp; Co. KG.
-
-Either we nor the used data guarantees full accuracy and completeness.
-
-Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
+Either we nor the used data guarantees full accuracy and completeness.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
@@ -318,16 +285,16 @@ Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cF-by-0Fk">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="8W1-gx-vnE"/>
-                                    <constraint firstAttribute="width" constant="203" id="q96-Au-f1S"/>
+                                    <constraint firstAttribute="width" constant="200" id="Vfu-oY-kj1"/>
+                                    <constraint firstAttribute="height" constant="60" id="eXy-5U-loJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Icon.png">
+                                <state key="normal" image="hopenowBtn.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -344,8 +311,8 @@ Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="bottom" secondItem="mnz-lC-Uoh" secondAttribute="bottom" type="default" id="5Le-4Y-r76"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="leading" secondItem="mnz-lC-Uoh" secondAttribute="leading" type="default" id="7N3-TK-Dy1"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="top" secondItem="mnz-lC-Uoh" secondAttribute="top" type="default" id="ECc-u3-13X"/>
-                            <constraint firstItem="2cF-by-0Fk" firstAttribute="centerX" secondItem="PjJ-Ok-1wN" secondAttribute="centerX" type="default" id="XfO-Kv-Ftg"/>
                             <constraint firstItem="2cF-by-0Fk" firstAttribute="centerY" secondItem="PjJ-Ok-1wN" secondAttribute="centerY" type="default" id="nxT-zf-xRb"/>
+                            <constraint firstItem="2cF-by-0Fk" firstAttribute="leading" secondItem="mnz-lC-Uoh" secondAttribute="leading" constant="59" id="pMO-z2-YuC"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="trailing" secondItem="mnz-lC-Uoh" secondAttribute="trailing" type="default" id="ynh-Wx-0OK"/>
                         </constraints>
                     </view>
@@ -408,11 +375,12 @@ Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Icon.png" width="57" height="57"/>
+        <image name="Default-568h@2x.png" width="640" height="1136"/>
         <image name="c2g.png" width="30" height="30"/>
         <image name="cog_02.png" width="26" height="26"/>
         <image name="globe.png" width="26" height="26"/>
         <image name="home.png" width="29" height="29"/>
+        <image name="hopenowBtn.png" width="556" height="162"/>
         <image name="impressum.png" width="17" height="23"/>
         <image name="infoBtn.png" width="60" height="60"/>
     </resources>
@@ -422,6 +390,12 @@ Image courtesy of Pioxmar at FreeDigitialPhotos.net</string>
             <relationships>
                 <relationship kind="action" name="saveUserSettings:"/>
                 <relationship kind="action" name="textFieldDoneEditing:"/>
+            </relationships>
+        </class>
+        <class className="CustomNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navigationController" candidateClass="UINavigationController"/>
             </relationships>
         </class>
         <class className="Hope4CarViewController" superclassName="UIViewController">

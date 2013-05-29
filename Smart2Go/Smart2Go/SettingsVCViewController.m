@@ -7,6 +7,8 @@
 //
 
 #import "SettingsVCViewController.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface SettingsVCViewController ()
 
@@ -21,6 +23,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //set delegate
+    
+    self.trackedViewName = @"SettingsView";
+    
     _delegate = [[UIApplication sharedApplication] delegate];
     [_delegate getUserDefaults];
     
@@ -105,6 +110,13 @@
     
     //save
     [_delegate setUserDefaults];
+    
+    //send to analytics
+    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    [tracker sendEventWithCategory:@"SettingsView"
+                        withAction:@"RadiusSliderValChanged"
+                         withLabel:@"Radius-Slider"
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];
 }
 
 - (IBAction)fuelMinValueChanged:(UISlider *)sender {
@@ -113,6 +125,13 @@
     
     //save
     [_delegate setUserDefaults];
+    
+    //send to analytics
+    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    [tracker sendEventWithCategory:@"SettingsView"
+                        withAction:@"FuelMinSliderValChanged"
+                         withLabel:@"FuelMin-Slider"
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];
 }
 
 - (IBAction)fuelMaxValueChanged:(UISlider *)sender {
@@ -121,6 +140,13 @@
     
     //save
     [_delegate setUserDefaults];
+    
+    //send to analytics
+    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    [tracker sendEventWithCategory:@"SettingsView"
+                        withAction:@"FuelMaxSliderValChanged"
+                         withLabel:@"FuelMax-Slider"
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];
 }
 
 - (IBAction)switchedSearchC2G:(UISwitch *)sender {

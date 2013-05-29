@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface Hope4CarViewController : UIViewController<UIActionSheetDelegate>
+@interface Hope4CarViewController : GAITrackedViewController<UIActionSheetDelegate>
 
 - (IBAction)startBackgroundSearch:(id)sender;
 - (IBAction)showIntroduction:(id)sender;

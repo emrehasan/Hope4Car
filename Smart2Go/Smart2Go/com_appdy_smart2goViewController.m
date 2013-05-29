@@ -22,6 +22,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.trackedViewName = @"MapView";
+    
     //set delegate
     _delegate = [[UIApplication sharedApplication] delegate];
     [_delegate getUserDefaults];
@@ -87,7 +89,7 @@
     [activityView startAnimating];
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityView];
     
-    navController.navigationItem.rightBarButtonItem = barButton;
+    navController.navigationItem.leftBarButtonItem = barButton;
     
     [_locationManager startUpdatingLocation];
 }
@@ -176,6 +178,7 @@
         dispatch_async( dispatch_get_main_queue(), ^{
             UINavigationController *navController = (UINavigationController *)self.parentViewController;
             [navController.navigationItem setPrompt:nil];
+            [navController.navigationItem setLeftBarButtonItem:nil];
             
             UIBarButtonItem *updateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startUpdatingLocation)];
             [navController.navigationItem setRightBarButtonItem:updateButton];
@@ -341,7 +344,7 @@
     {
         CGRect endFrame = annView.frame;
         annView.frame = CGRectOffset(endFrame, 0, -500);
-        [UIView animateWithDuration:0.5
+        [UIView animateWithDuration:1.5
                          animations:^{ annView.frame = endFrame; }];
     }
 }

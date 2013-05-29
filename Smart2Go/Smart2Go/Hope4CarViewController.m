@@ -10,6 +10,9 @@
 #import "com_appdy_smart2goAppDelegate.h"
 #import "RNBlurModalView.h"
 #import "com_appdy_smart2goAppDelegate.h"
+#import "CustomNavigationBar.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface Hope4CarViewController ()
 
@@ -30,6 +33,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.trackedViewName = @"HomeScreen";
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -70,6 +75,14 @@
 }
 
 - (IBAction)startBackgroundSearch:(id)sender {
+    
+    //send message to analytics
+    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    [tracker sendEventWithCategory:@"HomeScreen"
+                        withAction:@"startBackgroundSearch"
+                         withLabel:@"Hope Now"
+                         withValue:[NSNumber numberWithInt:1]];
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_TITLE", nil)
                                                              delegate:self
     cancelButtonTitle:NSLocalizedString(@"HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO", nil)

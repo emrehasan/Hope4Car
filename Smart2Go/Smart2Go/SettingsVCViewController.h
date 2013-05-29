@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RNBlurModalView.h"
 #import "com_appdy_smart2goAppDelegate.h"
+#import "GAITrackedViewController.h"
 
-@interface SettingsVCViewController : UIViewController
+@interface SettingsVCViewController : GAITrackedViewController
 
 @property (atomic, assign) com_appdy_smart2goAppDelegate *delegate;
 

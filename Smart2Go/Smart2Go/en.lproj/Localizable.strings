@@ -8,7 +8,7 @@
 
 "APP_DELEGATE_FOUND_CAR_TEXT" = "Found car in your near";
 
-"INTRODUCTION_FIRST_PAGE" = "This App enables you to search for free cars of Car2Go and DriveNow.\nIt allows you also to set search-criteria like radius and the fuel-state.\n\nThe main-function of this app is to search for a car with your set search-criteria\nin the background and to alert you.";
+"INTRODUCTION_FIRST_PAGE" = "This App enables you to search for free cars of Car2Go.\nIt allows you also to set search-criteria like radius and the fuel-state.\n\nThe main-function of this app is to search for a car with your set search-criteria\nin the background and to alert you.";
 "HOME_VIEW_START_BACKGROUND_SEARCH_TITLE" = "Start search in background";
 "HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_YES" = "Yes";
 "HOME_VIEW_START_BACKGROUND_SEARCH_OPTION_NO" = "No";

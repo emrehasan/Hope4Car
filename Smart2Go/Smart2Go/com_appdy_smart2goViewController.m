@@ -109,7 +109,7 @@
     //draw circle with radius
     if(_currentLocation != nil) {
         MKCircle *circle = [MKCircle circleWithCenterCoordinate:_currentLocation.coordinate radius:[_radius doubleValue]];
-        [_mapView addOverlay:circle];
+        //[_mapView addOverlay:circle level:MKOverlayLevelAboveRoads];
     }
 }
 

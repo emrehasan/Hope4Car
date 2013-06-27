@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FKh-At-QUS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4457.9" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="FKh-At-QUS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="9Q2-r8-56y">
             <objects>
                 <navigationController storyboardIdentifier="MainNavController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKh-At-QUS" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="D4I-Po-Ft4" customClass="CustomNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="D4I-Po-Ft4" customClass="CustomNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -36,6 +39,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-iX-T5d">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="vyc-2a-1nN"/>
                                 </connections>
@@ -49,6 +53,7 @@
                             <constraint firstItem="XVi-iX-T5d" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="rbP-FU-iAY"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Hope4Car" image="globe.png" id="ptj-bm-N2L"/>
                     <navigationItem key="navigationItem" title="Hope4Car" id="N3m-FK-vaF">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="saN-33-iSJ"/>
@@ -66,6 +71,7 @@
         <scene sceneID="13z-47-bqB">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="fZy-nW-Xet" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Hope4Car" id="vGC-4x-MDE"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uyv-kn-sav">
@@ -77,7 +83,8 @@
                         <segue destination="Xm2-zA-oZv" kind="relationship" relationship="viewControllers" id="hp4-Up-4no"/>
                         <segue destination="QBM-YH-Dly" kind="relationship" relationship="viewControllers" id="XHo-fv-HcL"/>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="QZ8-Yh-FtE"/>
-                        <segue destination="xEK-kI-P7o" kind="relationship" relationship="viewControllers" id="qA8-oV-LdH"/>
+                        <segue destination="le1-wk-i5k" kind="relationship" relationship="viewControllers" id="Vqd-ns-nc8"/>
+                        <segue destination="xEK-kI-P7o" kind="relationship" relationship="viewControllers" id="cac-re-2dq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uD0-oV-Qud" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,8 +100,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-Xx-3Xm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="603"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="aE1-YR-Afk">
+                                        <rect key="frame" x="17" y="78" width="284" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Za8-Gb-iZn"/>
                                         </constraints>
@@ -103,36 +112,43 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MM6-1s-Ip3">
+                                        <rect key="frame" x="20" y="40" width="53" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO8-3d-uSI">
+                                        <rect key="frame" x="139" y="50" width="42" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="waq-8X-XU2">
+                                        <rect key="frame" x="17" y="184" width="284" height="23"/>
                                         <connections>
                                             <action selector="fuelMinValueChanged:" destination="QBM-YH-Dly" eventType="valueChanged" id="sHJ-sV-tzI"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Benzin Min:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-62-DYB">
+                                        <rect key="frame" x="20" y="145" width="90" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-pD-EzP">
+                                        <rect key="frame" x="139" y="158" width="42" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-Na-0xc">
+                                        <rect key="frame" x="223" y="138" width="79" height="27"/>
                                         <connections>
                                             <action selector="switchedFuelMin:" destination="QBM-YH-Dly" eventType="valueChanged" id="4TT-bO-3b2"/>
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CJB-z8-Apf">
+                                        <rect key="frame" x="17" y="275" width="284" height="111"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="Gzl-2t-Oh3"/>
                                         </constraints>
@@ -141,16 +157,19 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Benzin Max:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuy-lV-gwn">
+                                        <rect key="frame" x="20" y="272" width="94" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UOm-bU-voa">
+                                        <rect key="frame" x="222" y="272" width="79" height="27"/>
                                         <connections>
                                             <action selector="switchedFuelMax:" destination="QBM-YH-Dly" eventType="valueChanged" id="VeR-yn-LOR"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKN-Gs-wQ4">
+                                        <rect key="frame" x="139" y="294" width="42" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -194,6 +213,7 @@
                             <constraint firstItem="T4b-Xx-3Xm" firstAttribute="trailing" secondItem="aAN-qn-KHW" secondAttribute="trailing" type="default" id="sSz-le-o8e"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="cog_02.png" id="g9a-E3-LGU"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Einstellungen" id="DXy-Pa-De6">
@@ -212,7 +232,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="fuelMax" destination="CJB-z8-Apf" id="2Am-1F-BHo"/>
@@ -238,6 +258,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rwV-Ce-wJN">
+                                <rect key="frame" x="0.0" y="8" width="320" height="354"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="354" id="gYR-uR-9JD"/>
@@ -260,12 +281,13 @@ Weder wir noch die verwendeten Daten gewährleisten völlige Richtigkeit und Vol
                             <constraint firstItem="rwV-Ce-wJN" firstAttribute="trailing" secondItem="fi3-hI-yZV" secondAttribute="trailing" type="default" id="mDL-4h-vFl"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Impressum" image="impressum.png" id="1Wh-GL-rF3"/>
                     <navigationItem key="navigationItem" title="Impressum" id="Z72-VD-gAj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eu4-Vi-kgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="1528"/>
+            <point key="canvasLocation" x="73" y="1554"/>
         </scene>
         <!--Hope4 Car View Controller - Home-->
         <scene sceneID="Y9t-oL-nPh">
@@ -275,10 +297,12 @@ Weder wir noch die verwendeten Daten gewährleisten völlige Richtigkeit und Vol
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Ok-1wN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cF-by-0Fk">
+                                <rect key="frame" x="54" y="195" width="200" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kqD-8b-gHk"/>
                                     <constraint firstAttribute="width" constant="200" id="uVj-Gr-9PO"/>
@@ -303,9 +327,9 @@ Weder wir noch die verwendeten Daten gewährleisten völlige Richtigkeit und Vol
                             <constraint firstItem="2cF-by-0Fk" firstAttribute="leading" secondItem="mnz-lC-Uoh" secondAttribute="leading" constant="54" id="M4g-zP-XdG"/>
                             <constraint firstItem="PjJ-Ok-1wN" firstAttribute="bottom" secondItem="mnz-lC-Uoh" secondAttribute="bottom" type="default" id="RSO-ad-w4h"/>
                             <constraint firstItem="2cF-by-0Fk" firstAttribute="top" secondItem="mnz-lC-Uoh" secondAttribute="top" constant="195" id="wkR-du-pn5"/>
-                            <constraint firstItem="PjJ-Ok-1wN" firstAttribute="trailing" secondItem="mnz-lC-Uoh" secondAttribute="trailing" type="default" id="ynh-Wx-0OK"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Home" image="home.png" id="Eqm-qX-rcf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjV-gc-nJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -347,6 +371,7 @@ Weder wir noch die verwendeten Daten gewährleisten völlige Richtigkeit und Vol
                             <outlet property="delegate" destination="n4Y-Qg-Fhy" id="1U7-Io-usz"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Car2Go" image="c2g.png" id="hM4-Re-GMO"/>
                     <navigationItem key="navigationItem" title="Credentials Car2Go" id="SkZ-Pg-JsC">
                         <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="0JA-BP-IoO">
@@ -361,72 +386,83 @@ Weder wir noch die verwendeten Daten gewährleisten völlige Richtigkeit und Vol
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRh-V1-6a0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="639" y="884"/>
+            <point key="canvasLocation" x="1433" y="1348"/>
+        </scene>
+        <!--Cost View Controller - Cost Calculator-->
+        <scene sceneID="gXi-gE-z82">
+            <objects>
+                <viewController title="Cost Calculator" id="le1-wk-i5k" customClass="CostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J9v-Nl-dEa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="oke-hX-9x5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7r-fh-RbH">
+                                <rect key="frame" x="60" y="198" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="FBv-5X-Hzh"/>
+                                    <constraint firstAttribute="height" constant="60" id="TU0-YH-G32"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="calcnow_btn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startCalculationClicked:" destination="le1-wk-i5k" eventType="touchUpInside" id="yJg-Rn-iSv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMb-TY-AFA">
+                                <rect key="frame" x="90" y="216" width="140" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="hDh-R9-3Xi"/>
+                                    <constraint firstAttribute="width" constant="140" id="ngN-FK-Luo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JMb-TY-AFA" firstAttribute="centerY" secondItem="oke-hX-9x5" secondAttribute="centerY" type="default" id="9e9-Wh-y95"/>
+                            <constraint firstAttribute="centerY" secondItem="H7r-fh-RbH" secondAttribute="centerY" type="user" id="OJF-4a-dfl"/>
+                            <constraint firstAttribute="centerX" secondItem="H7r-fh-RbH" secondAttribute="centerX" type="user" id="VDW-n9-CHz"/>
+                            <constraint firstItem="oke-hX-9x5" firstAttribute="centerX" secondItem="H7r-fh-RbH" secondAttribute="centerX" type="default" id="cKp-Vf-bXN"/>
+                            <constraint firstItem="H7r-fh-RbH" firstAttribute="centerX" secondItem="JMb-TY-AFA" secondAttribute="centerX" type="default" id="ckw-o6-cWB"/>
+                            <constraint firstItem="oke-hX-9x5" firstAttribute="bottom" secondItem="J9v-Nl-dEa" secondAttribute="bottom" type="default" id="cyi-2u-PpW"/>
+                            <constraint firstItem="oke-hX-9x5" firstAttribute="top" secondItem="J9v-Nl-dEa" secondAttribute="top" type="default" id="f4t-DB-DT6"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Kostenrechner" image="calculator.png" id="IDy-Uk-ovd"/>
+                    <connections>
+                        <outlet property="costLabel" destination="JMb-TY-AFA" id="1bm-mq-Qdx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqO-G5-fwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="909"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Default-568h@2x.png" width="640" height="1136"/>
+        <image name="Default.png" width="320" height="480"/>
         <image name="c2g.png" width="30" height="30"/>
+        <image name="calcnow_btn.png" width="556" height="162"/>
+        <image name="calculator.png" width="26" height="26"/>
         <image name="cog_02.png" width="26" height="26"/>
         <image name="globe.png" width="26" height="26"/>
         <image name="home.png" width="29" height="29"/>
         <image name="hopenowBtn.png" width="556" height="162"/>
         <image name="impressum.png" width="17" height="23"/>
-        <image name="infoBtn.png" width="60" height="60"/>
+        <image name="infoBtn.png" width="48" height="48"/>
     </resources>
-    <classes>
-        <class className="CredentialsC2GVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CredentialsC2GVC.h"/>
-            <relationships>
-                <relationship kind="action" name="saveUserSettings:"/>
-                <relationship kind="action" name="textFieldDoneEditing:"/>
-            </relationships>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navigationController" candidateClass="UINavigationController"/>
-            </relationships>
-        </class>
-        <class className="Hope4CarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Hope4CarViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showIntroduction:"/>
-                <relationship kind="action" name="startBackgroundSearch:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SettingsVCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVCViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fuelMaxValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="fuelMinValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="radiusValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="switchedFuelMax:"/>
-                <relationship kind="action" name="switchedFuelMin:" candidateClass="UISwitch"/>
-                <relationship kind="action" name="switchedSearchC2G:" candidateClass="UISwitch"/>
-                <relationship kind="action" name="switchedSearchDN:" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="car2GoSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="driveNowSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="fuelMax" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="fuelMaxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fuelMaxSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="fuelMin" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="fuelMinLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fuelMinSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="radiusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="radiusSlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="com_appdy_smart2goViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/com_appdy_smart2goViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

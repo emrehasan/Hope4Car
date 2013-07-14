@@ -35,6 +35,11 @@
 	// Do any additional setup after loading the view.
     
     self.trackedViewName = @"HomeScreen";
+    
+    //disable the edit button of the more-controller
+    UITabBarController *tc = (UITabBarController *)self.parentViewController;
+    [tc setCustomizableViewControllers:nil];
+    [tc.moreNavigationController.navigationBar setTranslucent:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

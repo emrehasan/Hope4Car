@@ -7,6 +7,9 @@
 //
 
 #import "CostViewController.h"
+#import "com_appdy_smart2goAppDelegate.h"
+#import "MBProgressHUD.h"
+
 
 @interface CostViewController ()
 
@@ -27,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //set delegate
+    _delegate = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +84,8 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"In Action-Delegate");
-    //company was choosen 
+    //company was choosen
+    NSLog(@"Button-Index:\t%d", buttonIndex);
     if(current_mode == CHOOSE_COMPANY){
         
         //Car2Go chosen so dont do anything start calculation
@@ -106,7 +113,7 @@
                             cancelButtonTitle:NSLocalizedString(@"COST_CONTROLLER_ACTIONSHEET_ABORT", nil)
                             destructiveButtonTitle:nil
                             otherButtonTitles:    NSLocalizedString(@"COST_CONTROLLER_ACTIONSHEET_DN_NORMAL_CARS", nil),
-                                NSLocalizedString(@"COST_CONTROLLER_ACTIONSHEET_DN_SPECIAL_CARS", nil),
+                                NSLocalizedString(@"COST_CONTROLLER_ACTIONSHEET_DN_SPECIAL_CARS1", nil),
                                 NSLocalizedString(@"COST_CONTROLLER_ACTIONSHEET_DN_SPECIAL_CARS2", nil),
                                 nil];
             
@@ -163,19 +170,23 @@
         }
         
         //select end calculcation
-        else {
+        else if(buttonIndex == 2){
             [self stopCalculation];
+        }
+        
+        else {
+            //DO NOTHING
         }
     }
     
     else {
-        
+        //do nothing
     }
 }
 
 - (void)startCalculation {
     if(!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(calculatePrice) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(calculatePrice) userInfo:nil repeats:YES];
     }
     
     //set right-navigation-button as action button for setting driving/parking-state and end calculcation
@@ -187,6 +198,9 @@
     [navController.navigationItem setRightBarButtonItem:button animated:YES];
     
     [_timer fire];
+    
+    //set calculating in appdelegate
+    _delegate.isCalculating = YES;
 }
 
 - (void)stopCalculation {
@@ -197,17 +211,77 @@
     UINavigationController *navController = (UINavigationController *)self.parentViewController;
     [navController.navigationItem setRightBarButtonItem:nil animated:YES];
     
-    //TODO add here the calculated price to database
+    //add here the calculated price to database
+    [self saveCostsToDB];
+    
+    //set calculation-end in appdelegate
+    _delegate.isCalculating = NO;
+    _delegate.lastCalcDate = nil;
+    
+    _currentPrice = [[NSNumber alloc] initWithDouble:0.0];
+    _costLabel.text = NSLocalizedString(@"COST_CONTROLLER_DEFAULT_BUTTON_LABEL", nil);
+}
+
+- (void)saveCostsToDB {
+    com_appdy_smart2goAppDelegate *delegate
+        = (com_appdy_smart2goAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    
+    // Neues Managed Objekt erstellen
+    NSManagedObject *newCost = [NSEntityDescription insertNewObjectForEntityForName:@"CostEntity"
+                                                                inManagedObjectContext:context];
+    
+    NSDate *currDate = [NSDate date];
+    
+    [newCost setValue:_currentPrice forKey:@"cost"];
+    [newCost setValue:currDate forKey:@"entrydate"];
+    
+    // Speichern
+    NSError *error;
+    if (![context save:&error])
+    {
+        NSLog(@"Konnte nicht speichern: %@", [error localizedDescription]);
+    }
+    
+    [self showConcurrentSavedMessage];
+}
+
+- (void)showConcurrentSavedMessage {
+    UINavigationController *navController = (UINavigationController *)self.parentViewController;
+
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:navController.view];
+    hud.delegate = self;
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = NSLocalizedString(@"COST_CONTROLLER_SAVED_MESSAGE", nil);
+    
+    [navController.view addSubview:hud];
+    [hud showWhileExecuting:@selector(showWhileWaiting) onTarget:self withObject:nil animated:YES];
+}
+
+- (void)showWhileWaiting {
+    sleep(1);
 }
 
 - (void)calculatePrice {
+    
+    //check if currentdate and lastupdateddate in delegate is greater than one
+    NSTimeInterval timeInterval = 1;
+    
+    if(_delegate.isCalculating && _delegate.lastCalcDate != nil) {
+        timeInterval = 60;
+        timeInterval = [_delegate.lastCalcDate timeIntervalSinceNow] * -1;
+        timeInterval = timeInterval / 60;
+    }
+    
+    _delegate.lastCalcDate = [NSDate date];
+    
     NSLog(@"In Calculate price");
     if(current_state == DRIVING_STATE) {
-        _currentPrice = [NSNumber numberWithDouble:([_calcPrice doubleValue] + [_currentPrice doubleValue])];
+        _currentPrice = [NSNumber numberWithDouble:( (timeInterval * [_calcPrice doubleValue]) + [_currentPrice doubleValue])];
     }
     
     else if(current_state == PARKING_STATE) {
-        _currentPrice = [NSNumber numberWithDouble:([_parkPrice doubleValue] + [_currentPrice doubleValue])];
+        _currentPrice = [NSNumber numberWithDouble:( (timeInterval *[_parkPrice doubleValue]) + [_currentPrice doubleValue])];
     }
     
     else {

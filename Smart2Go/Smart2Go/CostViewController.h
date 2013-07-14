@@ -21,11 +21,15 @@
 #define PARKING_STATE           201
 
 #import <UIKit/UIKit.h>
+#import "com_appdy_smart2goAppDelegate.h"
+#import "MBProgressHUD.h"
 
-@interface CostViewController : UIViewController<UIActionSheetDelegate, UIAlertViewDelegate> {
+@interface CostViewController : UIViewController<UIActionSheetDelegate, UIAlertViewDelegate, MBProgressHUDDelegate> {
     int current_mode;
     int current_state;
 }
+
+@property(atomic, assign) com_appdy_smart2goAppDelegate *delegate;
 
 /**
  *  This is the price we will calculate with the

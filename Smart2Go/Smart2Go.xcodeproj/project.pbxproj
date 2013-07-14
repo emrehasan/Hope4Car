@@ -12,6 +12,7 @@
 		28040DF216EA484A009C826C /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DEF16EA484A009C826C /* home@2x.png */; };
 		28040DF316EA484A009C826C /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 28040DF016EA484A009C826C /* home.png */; };
 		2812260A16F8CBFC0012ECFB /* CredentialsC2GVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2812260916F8CBFC0012ECFB /* CredentialsC2GVC.m */; };
+		2834D3DA1791B18D003C2ED4 /* CostOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2834D3D91791B18D003C2ED4 /* CostOverviewController.m */; };
 		283F3D7C172463F3007D617F /* c2g.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F3D73172463F3007D617F /* c2g.png */; };
 		283F3D7D172463F3007D617F /* c2gFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F3D74172463F3007D617F /* c2gFlag.png */; };
 		283F3D7E172463F3007D617F /* dn.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F3D75172463F3007D617F /* dn.png */; };
@@ -20,6 +21,7 @@
 		283F3D84172463F3007D617F /* tabbar_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F3D7B172463F3007D617F /* tabbar_send.png */; };
 		283F3D8617246509007D617F /* impressum.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F3D8517246509007D617F /* impressum.png */; };
 		283F3D8E1724695D007D617F /* Hope4CarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F3D8D1724695D007D617F /* Hope4CarViewController.m */; };
+		2847CD0D1791C3BA00E68B83 /* CostDBModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 28CA252F1791BAE5008C7D7F /* CostDBModel.xcdatamodeld */; };
 		284EAC9717318137000DFFBE /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 284EAC9617318137000DFFBE /* 73-radar.png */; };
 		284EAC9A173182B6000DFFBE /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 284EAC98173182B6000DFFBE /* globe.png */; };
 		284EAC9B173182B6000DFFBE /* globe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284EAC99173182B6000DFFBE /* globe@2x.png */; };
@@ -29,6 +31,7 @@
 		285132F616EF946400CAC937 /* RNBlurModalView.h in Sources */ = {isa = PBXBuildFile; fileRef = 285132F216EF941100CAC937 /* RNBlurModalView.h */; };
 		285132F816EF947D00CAC937 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285132F716EF947D00CAC937 /* Accelerate.framework */; };
 		285132F916EF949B00CAC937 /* RNBlurModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285132F316EF941100CAC937 /* RNBlurModalView.m */; };
+		285AB2E4177CF0FE007D9C97 /* calcnow_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 285AB2E3177CF0FE007D9C97 /* calcnow_btn.png */; };
 		2880127616ADE77E00DDA87F /* WSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127516ADE77E00DDA87F /* WSClient.m */; };
 		2880128016ADEDB500DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
 		2880128116ADEDCF00DDA87F /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880127F16ADEDB500DDA87F /* SMXMLDocument.m */; };
@@ -61,6 +64,9 @@
 		28C70485174434BD0041599B /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C70484174434BD0041599B /* CustomNavigationBar.m */; };
 		28C704871744382B0041599B /* hopenowBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C704861744382B0041599B /* hopenowBtn.png */; };
 		28C7048917443AB60041599B /* navigationBarLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C7048817443AB60041599B /* navigationBarLogo.png */; };
+		28C84E6517771B8E00B7F49A /* calculator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C84E6417771B8E00B7F49A /* calculator@2x.png */; };
+		28C84E6717771BAE00B7F49A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C84E6617771BAE00B7F49A /* calculator.png */; };
+		28C84E6B17771C0F00B7F49A /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C84E6A17771C0F00B7F49A /* CostViewController.m */; };
 		28C935B316D9569100D4DC9B /* SettingsVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C935B216D9569100D4DC9B /* SettingsVCViewController.m */; };
 		28CABB8916A324B400C31911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8816A324B400C31911 /* UIKit.framework */; };
 		28CABB8B16A324B400C31911 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CABB8A16A324B400C31911 /* Foundation.framework */; };
@@ -115,6 +121,8 @@
 		28040DF016EA484A009C826C /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		2812260816F8CBFC0012ECFB /* CredentialsC2GVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsC2GVC.h; sourceTree = "<group>"; };
 		2812260916F8CBFC0012ECFB /* CredentialsC2GVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsC2GVC.m; sourceTree = "<group>"; };
+		2834D3D81791B18D003C2ED4 /* CostOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostOverviewController.h; sourceTree = "<group>"; };
+		2834D3D91791B18D003C2ED4 /* CostOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostOverviewController.m; sourceTree = "<group>"; };
 		283F3D73172463F3007D617F /* c2g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c2g.png; sourceTree = "<group>"; };
 		283F3D74172463F3007D617F /* c2gFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c2gFlag.png; sourceTree = "<group>"; };
 		283F3D75172463F3007D617F /* dn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dn.png; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 		285132F216EF941100CAC937 /* RNBlurModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNBlurModalView.h; sourceTree = "<group>"; };
 		285132F316EF941100CAC937 /* RNBlurModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNBlurModalView.m; sourceTree = "<group>"; };
 		285132F716EF947D00CAC937 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		285AB2E3177CF0FE007D9C97 /* calcnow_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calcnow_btn.png; sourceTree = "<group>"; };
 		2880127416ADE77E00DDA87F /* WSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSClient.h; sourceTree = "<group>"; };
 		2880127516ADE77E00DDA87F /* WSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSClient.m; sourceTree = "<group>"; };
 		2880127E16ADEDB500DDA87F /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMXMLDocument.h; path = Smart2Go/SMXMLDocument.h; sourceTree = "<group>"; };
@@ -169,8 +178,13 @@
 		28C70484174434BD0041599B /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
 		28C704861744382B0041599B /* hopenowBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hopenowBtn.png; sourceTree = "<group>"; };
 		28C7048817443AB60041599B /* navigationBarLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarLogo.png; sourceTree = "<group>"; };
+		28C84E6417771B8E00B7F49A /* calculator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calculator@2x.png"; sourceTree = "<group>"; };
+		28C84E6617771BAE00B7F49A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
+		28C84E6917771C0F00B7F49A /* CostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostViewController.h; sourceTree = "<group>"; };
+		28C84E6A17771C0F00B7F49A /* CostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostViewController.m; sourceTree = "<group>"; };
 		28C935B116D9569100D4DC9B /* SettingsVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVCViewController.h; sourceTree = "<group>"; };
 		28C935B216D9569100D4DC9B /* SettingsVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVCViewController.m; sourceTree = "<group>"; };
+		28CA25301791BAE5008C7D7F /* CostDBModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CostDBModel.xcdatamodel; sourceTree = "<group>"; };
 		28CABB8416A324B400C31911 /* Hope4Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hope4Car.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB8816A324B400C31911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28CABB8A16A324B400C31911 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,9 +233,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EA1A1E175112B2009577CC /* CoreData.framework in Frameworks */,
 				28EA1A21175112D1009577CC /* libGoogleAnalytics.a in Frameworks */,
 				28EA1A20175112B9009577CC /* SystemConfiguration.framework in Frameworks */,
-				28EA1A1E175112B2009577CC /* CoreData.framework in Frameworks */,
 				285132F816EF947D00CAC937 /* Accelerate.framework in Frameworks */,
 				28EBC81116E3DF7B0039BB8B /* QuartzCore.framework in Frameworks */,
 				28CABBE016A5D64100C31911 /* AddressBook.framework in Frameworks */,
@@ -262,6 +276,15 @@
 			name = OptionViewController;
 			sourceTree = "<group>";
 		};
+		2834D3D71791B164003C2ED4 /* CostOverview */ = {
+			isa = PBXGroup;
+			children = (
+				2834D3D81791B18D003C2ED4 /* CostOverviewController.h */,
+				2834D3D91791B18D003C2ED4 /* CostOverviewController.m */,
+			);
+			name = CostOverview;
+			sourceTree = "<group>";
+		};
 		283F3D8B1724692C007D617F /* Hope4Car View */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +292,14 @@
 				283F3D8D1724695D007D617F /* Hope4CarViewController.m */,
 			);
 			name = "Hope4Car View";
+			sourceTree = "<group>";
+		};
+		2847CD0C1791C36300E68B83 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				28CA252F1791BAE5008C7D7F /* CostDBModel.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		285132F516EF941700CAC937 /* RNBlurModal */ = {
@@ -335,6 +366,15 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		28C84E6817771BD900B7F49A /* CostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28C84E6917771C0F00B7F49A /* CostViewController.h */,
+				28C84E6A17771C0F00B7F49A /* CostViewController.m */,
+			);
+			name = CostViewController;
+			sourceTree = "<group>";
+		};
 		28C935B016D9566700D4DC9B /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +429,7 @@
 		28CABB8E16A324B400C31911 /* Smart2Go */ = {
 			isa = PBXGroup;
 			children = (
+				2847CD0C1791C36300E68B83 /* CoreData */,
 				28CABBE316A5D99300C31911 /* Images */,
 				2880126916ADE2E700DDA87F /* Classes */,
 				28CABBD916A5D07A00C31911 /* Views */,
@@ -452,8 +493,10 @@
 			isa = PBXGroup;
 			children = (
 				283F3D8B1724692C007D617F /* Hope4Car View */,
-				28CABBDA16A5D08000C31911 /* RootViewController */,
 				28C935B016D9566700D4DC9B /* SettingsViewController */,
+				2834D3D71791B164003C2ED4 /* CostOverview */,
+				28C84E6817771BD900B7F49A /* CostViewController */,
+				28CABBDA16A5D08000C31911 /* RootViewController */,
 				28040DE716EA3F81009C826C /* OptionViewController */,
 				28C70483174434BD0041599B /* CustomNavigationBar.h */,
 				28C70484174434BD0041599B /* CustomNavigationBar.m */,
@@ -482,6 +525,9 @@
 		28CABBE316A5D99300C31911 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				285AB2E3177CF0FE007D9C97 /* calcnow_btn.png */,
+				28C84E6617771BAE00B7F49A /* calculator.png */,
+				28C84E6417771B8E00B7F49A /* calculator@2x.png */,
 				28C7048817443AB60041599B /* navigationBarLogo.png */,
 				28C704861744382B0041599B /* hopenowBtn.png */,
 				28C70479174430960041599B /* Default-568h@2x.png */,
@@ -613,6 +659,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2847CD0D1791C3BA00E68B83 /* CostDBModel.xcdatamodeld in Resources */,
 				28CABB9316A324B400C31911 /* InfoPlist.strings in Resources */,
 				28CABBA216A324B400C31911 /* MainStoryboard_iPhone.storyboard in Resources */,
 				28CABBA516A324B400C31911 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -625,6 +672,7 @@
 				28040DF216EA484A009C826C /* home@2x.png in Resources */,
 				28040DF316EA484A009C826C /* home.png in Resources */,
 				283F3D7C172463F3007D617F /* c2g.png in Resources */,
+				285AB2E4177CF0FE007D9C97 /* calcnow_btn.png in Resources */,
 				283F3D7D172463F3007D617F /* c2gFlag.png in Resources */,
 				283F3D7E172463F3007D617F /* dn.png in Resources */,
 				283F3D81172463F3007D617F /* infoBtn.png in Resources */,
@@ -657,6 +705,8 @@
 				28C70482174430C30041599B /* scriptTxt_H4C.png in Resources */,
 				28C704871744382B0041599B /* hopenowBtn.png in Resources */,
 				28C7048917443AB60041599B /* navigationBarLogo.png in Resources */,
+				28C84E6517771B8E00B7F49A /* calculator@2x.png in Resources */,
+				28C84E6717771BAE00B7F49A /* calculator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +760,8 @@
 				2812260A16F8CBFC0012ECFB /* CredentialsC2GVC.m in Sources */,
 				283F3D8E1724695D007D617F /* Hope4CarViewController.m in Sources */,
 				28C70485174434BD0041599B /* CustomNavigationBar.m in Sources */,
+				28C84E6B17771C0F00B7F49A /* CostViewController.m in Sources */,
+				2834D3DA1791B18D003C2ED4 /* CostOverviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +893,7 @@
 		28CABBC116A324B400C31911 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
 				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
@@ -858,6 +911,7 @@
 		28CABBC216A324B400C31911 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smart2Go/Smart2Go-Prefix.pch";
 				INFOPLIST_FILE = "Smart2Go/Smart2Go-Info.plist";
@@ -945,6 +999,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28CA252F1791BAE5008C7D7F /* CostDBModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28CA25301791BAE5008C7D7F /* CostDBModel.xcdatamodel */,
+			);
+			currentVersion = 28CA25301791BAE5008C7D7F /* CostDBModel.xcdatamodel */;
+			name = CostDBModel.xcdatamodeld;
+			path = ../CostDBModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 28CABB7B16A324B300C31911 /* Project object */;
 }

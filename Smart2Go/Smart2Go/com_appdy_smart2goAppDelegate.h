@@ -56,6 +56,19 @@
 //for background task
 @property (nonatomic, assign) BOOL foundCar;
 
+//set bool if calculating is on
+@property (nonatomic, assign) BOOL isCalculating;
+@property (nonatomic, retain) NSDate *lastCalcDate;
+
+//db
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
 - (void)getUserDefaults;
 - (void)setUserDefaults;
 

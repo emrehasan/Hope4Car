@@ -8,11 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Smart2Go/WSClient.m"
-         timestampString = "390169385.550227"
+         timestampString = "397672443.96948"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "270"
-         endingLineNumber = "270">
+         startingLineNumber = "271"
+         endingLineNumber = "271"
+         landmarkName = "-loadFreeCarsC2G:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

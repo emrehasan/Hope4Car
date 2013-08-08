@@ -143,7 +143,7 @@
 - (void)initialCallsAfterStart {
     
     //identify city if not done yet
-    if(_currentCity == nil)
+    //if(_currentCity == nil)
        [self identifyCity];
     
     //retrieve cars here

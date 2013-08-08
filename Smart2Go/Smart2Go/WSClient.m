@@ -169,8 +169,36 @@
  *  @return the correct identifier as awaited by the Car2Go-API
  */
 - (NSString *)getCityForCar2Go:(NSString *)city {
-    if([city isEqualToString:@"Düsseldor"])
+    if([city isEqualToString:@"Düsseldorf"])
         return @"Duesseldorf";
+    else if([city isEqualToString:@"Vienna"])
+        return @"Wien";
+    else if([city isEqualToString:@"M"])
+        return @"M%C3%BCnchen";/*
+    else if([city isEqualToString:@"Köln"])
+        return city;
+    else if([city isEqualToString:@"Stuttgart"])
+        return city;
+    else if([city isEqualToString:@"Birmingham"])
+        return city;
+    else if([city isEqualToString:@"London"])
+        return city;
+    else if([city isEqualToString:@"Milano"])
+        return city;
+    else if([city isEqualToString:@"Amsterdam"])
+        return city;
+    else if([city isEqualToString:@"Denver"])
+        return city;
+    else if([city isEqualToString:@"Austin"])
+        return city;
+    else if([city isEqualToString:@"San Diego"])
+        return city;
+    else if([city isEqualToString:@"Washington DC"])
+        return city;
+    else if([city isEqualToString:@"Portland"])
+        return city;
+    else if([city isEqualToString:@"Miami"])
+        return city;*/
     else
         return city;
 }
@@ -179,8 +207,10 @@
     
     NSMutableArray *freeCarsArr = [[NSMutableArray alloc] initWithCapacity:950];
     
+    NSLog(@"GoogleMaps-City:\t%@", city);
     //identify cityID
     NSString *cityID = [self getCityForCar2Go:city];
+    NSLog(@"C2G-CityIdentifier:\t%@", cityID);
     
     //create api-url
     NSString *urlPattern = [NSString stringWithFormat:@"https://www.car2go.com/api/v2.1/vehicles?loc=%@&oauth_consumer_key=%@&format=json", cityID, CONSUMER_KEY];

@@ -112,11 +112,11 @@
     [_delegate setUserDefaults];
     
     //send to analytics
-    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    /*id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
     [tracker sendEventWithCategory:@"SettingsView"
                         withAction:@"RadiusSliderValChanged"
                          withLabel:@"Radius-Slider"
-                         withValue:[NSNumber numberWithInt:(int)sender.value]];
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];*/
 }
 
 - (IBAction)fuelMinValueChanged:(UISlider *)sender {
@@ -127,11 +127,11 @@
     [_delegate setUserDefaults];
     
     //send to analytics
-    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    /*id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
     [tracker sendEventWithCategory:@"SettingsView"
                         withAction:@"FuelMinSliderValChanged"
                          withLabel:@"FuelMin-Slider"
-                         withValue:[NSNumber numberWithInt:(int)sender.value]];
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];*/
 }
 
 - (IBAction)fuelMaxValueChanged:(UISlider *)sender {
@@ -142,11 +142,11 @@
     [_delegate setUserDefaults];
     
     //send to analytics
-    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
+    /*id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41219625-1"];
     [tracker sendEventWithCategory:@"SettingsView"
                         withAction:@"FuelMaxSliderValChanged"
                          withLabel:@"FuelMax-Slider"
-                         withValue:[NSNumber numberWithInt:(int)sender.value]];
+                         withValue:[NSNumber numberWithInt:(int)sender.value]];*/
 }
 
 - (IBAction)switchedSearchC2G:(UISwitch *)sender {

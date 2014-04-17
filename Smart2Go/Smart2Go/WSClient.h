@@ -15,7 +15,7 @@
         #undef CONSUMER_KEY
     #endif
 
-    #define CONSUMER_KEY    @"hope4car13"
+    #define CONSUMER_KEY    @"xxx"
 #endif
 
 
